@@ -4,36 +4,36 @@ export default function MacaLandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
 
-const vipClients = [
-  {
-    name: "Lu Quevedo Cerámica",
-    username: "lucilaquevedoceramica_",
-    initial: "L",
-    bgColor: "bg-gradient-to-r from-purple-500 to-pink-500",
-    testimonial: "Increíble trabajo en el desarrollo de mi tienda online. La atención al detalle es excepcional."
-  },
-  {
-    name: "Paramitas Uspallata",
-    username: "paramitas.uspallata",
-    initial: "P",
-    bgColor: "bg-gradient-to-r from-blue-500 to-purple-500",
-    testimonial: "Profesionalismo y creatividad en cada proyecto. Superaron mis expectativas completamente."
-  },
-  {
-    name: "Urutrek",
-    username: "urutrek",
-    initial: "U",
-    bgColor: "bg-gradient-to-r from-green-500 to-blue-500",
-    testimonial: "El mejor equipo para desarrollo web. Resultados que realmente impulsan el negocio."
-  },
-  {
-    name: "3dmazz",
-    username: "3dmazz",
-    initial: "3",
-    bgColor: "bg-gradient-to-r from-orange-500 to-red-500",
-    testimonial: "Innovación y tecnología de primera. Mi proyecto web quedó espectacular."
-  }
-];
+  const vipClients = [
+    {
+      name: "Lu Quevedo Cerámica",
+      username: "lucilaquevedoceramica_",
+      initial: "L",
+      bgColor: "bg-gradient-to-r from-purple-500 to-pink-500",
+      testimonial: "Increíble trabajo en el desarrollo de mi tienda online. La atención al detalle es excepcional."
+    },
+    {
+      name: "Paramitas Uspallata",
+      username: "paramitas.uspallata",
+      initial: "P",
+      bgColor: "bg-gradient-to-r from-blue-500 to-purple-500",
+      testimonial: "Profesionalismo y creatividad en cada proyecto. Superaron mis expectativas completamente."
+    },
+    {
+      name: "Urutrek",
+      username: "urutrek",
+      initial: "U",
+      bgColor: "bg-gradient-to-r from-green-500 to-blue-500",
+      testimonial: "El mejor equipo para desarrollo web. Resultados que realmente impulsan el negocio."
+    },
+    {
+      name: "3dmazz",
+      username: "3dmazz",
+      initial: "3",
+      bgColor: "bg-gradient-to-r from-orange-500 to-red-500",
+      testimonial: "Innovación y tecnología de primera. Mi proyecto web quedó espectacular."
+    }
+  ];
 
   // Auto-rotate testimonials
   useEffect(() => {
@@ -61,7 +61,7 @@ const vipClients = [
             <li><a href="#equipo" className="hover:underline transition-all">Equipo</a></li>
             <li><a href="#contacto" className="hover:underline transition-all">Contacto</a></li>
           </ul>
-          <button 
+          <button
             className="md:hidden focus:outline-none"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
@@ -88,46 +88,49 @@ const vipClients = [
       <div className="h-16"></div>
 
       {/* Hero Section */}
-    <section
-  id="inicio"
-  className="min-h-screen bg-[#3700ff] flex flex-col items-center justify-center text-center px-4 text-white relative overflow-hidden"
->
-  <div className="relative z-10 bg-white rounded-[3rem] px-6 py-16 md:px-16 md:py-20 max-w-5xl w-full shadow-xl">
-    <div className="text-left md:text-center leading-none">
-      <h1 className="text-pink-500 font-extrabold text-[2.5rem] md:text-[3.5rem] mb-2">
-        Los contenidos
-      </h1>
+      <section
+        id="inicio"
+        className="min-h-screen bg-[#3700ff] flex flex-col items-center justify-center text-center px-4 text-white relative overflow-hidden pt-32"
+      >
+        {/* CONTENEDOR BLANCO MÁS GRANDE */}
+        <div className="relative z-10 bg-white rounded-[3rem] px-10 py-14 md:px-16 md:py-20 max-w-5xl w-fit shadow-xl text-[#3700ff] scale-[1.15]">
+          <div className="text-left md:text-center leading-none">
+            <h1 className="text-pink-500 font-extrabold text-[2.8rem] md:text-[3.5rem] mb-4">
+              Los contenidos
+            </h1>
 
-      <div className="flex flex-wrap justify-center items-center gap-2 mb-2">
-        <span className="text-pink-500 font-extrabold text-[3rem] md:text-[4rem]">
-          al
-        </span>
-        <span className="bg-[#3700ff] text-white font-extrabold text-[3.2rem] md:text-[4.2rem] px-4 py-2 rounded-md rotate-[1deg] leading-tight">
-          servicio
-        </span>
-      </div>
+            <div className="flex flex-wrap justify-center items-center gap-4 mb-4">
+              <span className="text-pink-500 font-extrabold text-[3.2rem] md:text-[4rem]">
+                al
+              </span>
+              <span className="bg-[#3700ff] text-white font-extrabold text-[3.5rem] md:text-[4.2rem] px-6 py-2 rounded-md rotate-[1deg] leading-tight">
+                servicio
+              </span>
+            </div>
 
-      <div className="flex justify-center items-baseline gap-2 mb-1">
-        <span className="text-pink-400 text-sm md:text-base font-bold">
-          de la
-        </span>
-        <span className="text-[#3700ff] font-extrabold text-[2.8rem] md:text-[3.8rem]">
-          estrategia
-        </span>
-      </div>
-    </div>
-  </div>
+            <div className="flex justify-center items-baseline gap-3 mb-1">
+              <span className="text-pink-400 text-base md:text-lg font-medium">
+                de la
+              </span>
+              <span className="text-[#3700ff] font-extrabold text-[3.2rem] md:text-[3.8rem]">
+                estrategia
+              </span>
+            </div>
+          </div>
+        </div>
 
-  {/* Estrellita decorativa en la esquina superior derecha */}
-  <div className="absolute top-10 right-10 md:right-20 w-10 h-10">
-    <div className="w-10 h-10 bg-purple-300 rounded-full rotate-45 relative flex items-center justify-center">
-      <div className="absolute w-6 h-6 bg-white rotate-45"></div>
-    </div>
-  </div>
-</section>
+        {/* CARTEL AMARILLO MÁS GRANDE */}
+        <div className="bg-yellow-400 text-[#3700ff] font-bold text-xl px-8 py-4 mt-8 rounded-lg shadow-md animate-pulse">
+          Primera reunión, auditoría o asesoría GRATIS
+        </div>
 
-
-
+        {/* ESTRELLA DECORATIVA AUMENTADA */}
+        <div className="absolute top-10 right-10 md:right-20 w-14 h-14">
+          <div className="w-14 h-14 bg-purple-300 rounded-full rotate-45 relative flex items-center justify-center">
+            <div className="absolute w-8 h-8 bg-white rotate-45"></div>
+          </div>
+        </div>
+      </section>
       {/* About Section */}
       <section className="py-20 bg-white px-6">
         <div className="max-w-5xl mx-auto text-center">
@@ -138,89 +141,89 @@ const vipClients = [
         </div>
       </section>
 
-     <section id="servicios" className="py-20 bg-gradient-to-r from-purple-50 to-pink-50 px-6 overflow-visible">
-  <div className="max-w-5xl mx-auto text-center mb-12">
-    <h2 className="text-4xl font-extrabold text-[#3700ff] mb-4">Servicios</h2>
-    <p className="text-lg text-gray-600">
-      Soluciones integrales para potenciar tu presencia digital
-    </p>
-  </div>
-
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left font-bold text-black max-w-6xl mx-auto overflow-visible relative z-0">
-    {[
-      {
-        title: "Análisis y desarrollo de estrategias",
-        color: "bg-purple-200",
-        icon: "📊",
-        description:
-          "Evaluamos tu presencia digital actual. Estudiamos el perfil de la competencia. Identificamos oportunidades. Definimos objetivos y estrategia.",
-      },
-      {
-        title: "Optimización de perfil en redes",
-        color: "bg-pink-300",
-        icon: "📱",
-        description:
-          "Organizamos tu feed, bio, links e historias destacadas. Alineamos tu perfil con tu estética.",
-      },
-      {
-        title: "Creación de contenido para redes",
-        color: "bg-lime-300",
-        icon: "🖼️",
-        description:
-          "Planificación mensual, diseño de post e historias, producción de videos, copys, publicación y gestión de mensajes.",
-      },
-      {
-        title: "Rediseño de identidad visual",
-        color: "bg-orange-400",
-        icon: "🎨",
-        description:
-          "Evaluamos tu marca y proponemos mejoras visuales con paleta, tipografías y piezas gráficas estandarizadas.",
-      },
-      {
-        title: "Landing page",
-        color: "bg-blue-200",
-        icon: "💻",
-        description:
-          "Diseño y programación de una web simple conectada a tus redes y medios de contacto.",
-      },
-      {
-        title: "Diseño gráfico y merch",
-        color: "bg-yellow-300",
-        icon: "🛍️",
-        description:
-          "Diseñamos piezas corporativas, packaging y productos con identidad profesional para tu marca.",
-      },
-    ].map((service, idx) => (
-      <div key={idx} className="relative group cursor-pointer overflow-visible z-10">
-        {/* Tooltip arriba de la tarjeta */}
-        <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 -translate-y-full w-72 bg-white text-[#2552A3] text-sm p-4 rounded shadow-lg opacity-0 group-hover:opacity-100 transition duration-300 z-50 pointer-events-none">
-          <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-white rotate-45 shadow-md z-[-1]"></div>
-          {service.description}
+      <section id="servicios" className="py-20 bg-gradient-to-r from-purple-50 to-pink-50 px-6 overflow-visible">
+        <div className="max-w-5xl mx-auto text-center mb-12">
+          <h2 className="text-4xl font-extrabold text-[#3700ff] mb-4">Servicios</h2>
+          <p className="text-lg text-gray-600">
+            Soluciones integrales para potenciar tu presencia digital
+          </p>
         </div>
 
-        {/* Tarjeta principal */}
-        <div className={`rounded-xl shadow hover:shadow-lg transition flex flex-col items-center text-center p-6 h-full ${service.color}`}>
-          <div className="text-4xl mb-4">{service.icon}</div>
-          <h3 className="font-bold text-lg text-[#2552A3]">{service.title}</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left font-bold text-black max-w-6xl mx-auto overflow-visible relative z-0">
+          {[
+            {
+              title: "Análisis y desarrollo de estrategias",
+              color: "bg-purple-200",
+              icon: "📊",
+              description:
+                "Evaluamos tu presencia digital actual. Estudiamos el perfil de la competencia. Identificamos oportunidades. Definimos objetivos y estrategia.",
+            },
+            {
+              title: "Optimización de perfil en redes",
+              color: "bg-pink-300",
+              icon: "📱",
+              description:
+                "Organizamos tu feed, bio, links e historias destacadas. Alineamos tu perfil con tu estética.",
+            },
+            {
+              title: "Creación de contenido para redes",
+              color: "bg-lime-300",
+              icon: "🖼️",
+              description:
+                "Planificación mensual, diseño de post e historias, producción de videos, copys, publicación y gestión de mensajes.",
+            },
+            {
+              title: "Rediseño de identidad visual",
+              color: "bg-orange-400",
+              icon: "🎨",
+              description:
+                "Evaluamos tu marca y proponemos mejoras visuales con paleta, tipografías y piezas gráficas estandarizadas.",
+            },
+            {
+              title: "Landing page",
+              color: "bg-blue-200",
+              icon: "💻",
+              description:
+                "Diseño y programación de una web simple conectada a tus redes y medios de contacto.",
+            },
+            {
+              title: "Diseño gráfico y merch",
+              color: "bg-yellow-300",
+              icon: "🛍️",
+              description:
+                "Diseñamos piezas corporativas, packaging y productos con identidad profesional para tu marca.",
+            },
+          ].map((service, idx) => (
+            <div key={idx} className="relative group cursor-pointer overflow-visible z-10">
+              {/* Tooltip arriba de la tarjeta */}
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 -translate-y-full w-72 bg-white text-[#2552A3] text-sm p-4 rounded shadow-lg opacity-0 group-hover:opacity-100 transition duration-300 z-50 pointer-events-none">
+                <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-white rotate-45 shadow-md z-[-1]"></div>
+                {service.description}
+              </div>
+
+              {/* Tarjeta principal */}
+              <div className={`rounded-xl shadow hover:shadow-lg transition flex flex-col items-center text-center p-6 h-full ${service.color}`}>
+                <div className="text-4xl mb-4">{service.icon}</div>
+                <h3 className="font-bold text-lg text-[#2552A3]">{service.title}</h3>
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
-    ))}
-  </div>
-</section>
+      </section>
 
 
       {/* Plans Section */}
 
-        {/* Plans Section */}
+      {/* Plans Section */}
       <section id="planes" className="py-20 bg-[#f3eaff] px-6">
         <div className="max-w-5xl mx-auto text-center mb-12">
           <h2 className="text-4xl font-extrabold text-[#3700ff] mb-4">Planes</h2>
           <p className="text-lg text-gray-600 mb-8">Elegí el plan que mejor se adapte a tus necesidades</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          <PlanCard 
-            title="LOW" 
-            borderColor="border-blue-400" 
+          <PlanCard
+            title="LOW"
+            borderColor="border-blue-400"
             items={[
               "Estrategia digital",
               "Gestión de redes",
@@ -229,43 +232,43 @@ const vipClients = [
               "3 diseños",
               "15 historias",
               "*Sin moderación"
-            ]} 
+            ]}
           />
-          <PlanCard 
-            title="A lo Maca" 
-            borderColor="border-pink-400" 
+          <PlanCard
+            title="A lo Maca"
+            borderColor="border-pink-400"
             popular={true}
             items={[
               "Estrategia completa",
               "Gestión de redes",
-              "1 sesión de fotos",  
+              "1 sesión de fotos",
               "6 videos",
               "6 diseños",
               "30 historias",
               "Incluye moderación"
-            ]} 
+            ]}
           />
-          <PlanCard 
-            title="Evento" 
-            borderColor="border-yellow-400" 
+          <PlanCard
+            title="Evento"
+            borderColor="border-yellow-400"
             items={[
               "1 flyer + historia",
               "3 videos",
               "30 fotos iPhone",
               "Cobertura en tiempo real",
               "*Sin viáticos"
-            ]} 
+            ]}
           />
-          <PlanCard 
-            title="Identidad" 
-            borderColor="border-purple-500" 
+          <PlanCard
+            title="Identidad"
+            borderColor="border-purple-500"
             items={[
               "Desarrollo de identidad visual",
               "Landing page",
               "Kit redes",
               "Estrategia digital y producción de contenido",
               "*No incluye hosting/dominio"
-            ]} 
+            ]}
           />
         </div>
       </section>
@@ -277,17 +280,17 @@ const vipClients = [
           <p className="text-lg text-gray-600">Conocé a las personas detrás de MACA</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          <TeamMember 
+          <TeamMember
             name="MACA 1"
             role="Creativa de alto vuelo"
             bgColor="bg-pink-200"
           />
-          <TeamMember 
-            name="MACA 2" 
+          <TeamMember
+            name="MACA 2"
             role="Estratega y ejecutora"
             bgColor="bg-purple-200"
           />
-          <TeamMember 
+          <TeamMember
             name="MACA 3"
             role="Comunicación y contenido"
             bgColor="bg-blue-200"
@@ -296,69 +299,69 @@ const vipClients = [
       </section>
 
       {/* Clientes VIP Carousel */}
-<section className="py-20 bg-gradient-to-r from-purple-100 to-pink-100 px-6" id="clientes">
-  <div className="max-w-6xl mx-auto text-center">
-    <h2 className="text-3xl font-extrabold text-[#3700ff] mb-8">Clientes VIP</h2>
-    <div className="overflow-hidden relative">
-      <div
-        className="flex transition-transform duration-500 ease-in-out"
-        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-      >
-        {vipClients.map((client, index) => (
-          <div
-            key={index}
-            className="min-w-full px-4"
-          >
-            <div className="bg-white p-8 rounded-xl shadow-lg max-w-xl mx-auto">
-              <div className={`w-20 h-20 ${client.bgColor} rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-white`}>
-                {client.initial}
-              </div>
-              <h3 className="text-xl font-bold text-[#3700ff] mb-2">
-                <a
-                  href={`https://instagram.com/${client.username}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-purple-600 transition-colors duration-300 hover:underline"
+      <section className="py-20 bg-gradient-to-r from-purple-100 to-pink-100 px-6" id="clientes">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-3xl font-extrabold text-[#3700ff] mb-8">Clientes VIP</h2>
+          <div className="overflow-hidden relative">
+            <div
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+            >
+              {vipClients.map((client, index) => (
+                <div
+                  key={index}
+                  className="min-w-full px-4"
                 >
-                  {client.name}
-                </a>
-              </h3>
-              <p className="text-gray-600 italic">"{client.testimonial}"</p>
+                  <div className="bg-white p-8 rounded-xl shadow-lg max-w-xl mx-auto">
+                    <div className={`w-20 h-20 ${client.bgColor} rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-white`}>
+                      {client.initial}
+                    </div>
+                    <h3 className="text-xl font-bold text-[#3700ff] mb-2">
+                      <a
+                        href={`https://instagram.com/${client.username}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-purple-600 transition-colors duration-300 hover:underline"
+                      >
+                        {client.name}
+                      </a>
+                    </h3>
+                    <p className="text-gray-600 italic">"{client.testimonial}"</p>
+                  </div>
+                </div>
+              ))}
             </div>
+
+            {/* Navigation buttons - DENTRO del contenedor relative */}
+            <button
+              onClick={() => setCurrentSlide(currentSlide > 0 ? currentSlide - 1 : vipClients.length - 1)}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors"
+              aria-label="Previous testimonial"
+            >
+              ←
+            </button>
+            <button
+              onClick={() => setCurrentSlide((currentSlide + 1) % vipClients.length)}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors"
+              aria-label="Next testimonial"
+            >
+              →
+            </button>
           </div>
-        ))}
-      </div>
-      
-      {/* Navigation buttons - DENTRO del contenedor relative */}
-      <button
-        onClick={() => setCurrentSlide(currentSlide > 0 ? currentSlide - 1 : vipClients.length - 1)}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors"
-        aria-label="Previous testimonial"
-      >
-        ←
-      </button>
-      <button
-        onClick={() => setCurrentSlide((currentSlide + 1) % vipClients.length)}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors"
-        aria-label="Next testimonial"
-      >
-        →
-      </button>
-    </div>
-    
-    {/* Dots indicator - FUERA del contenedor overflow-hidden pero DENTRO del contenedor principal */}
-    <div className="flex justify-center gap-4 mt-6">
-      {vipClients.map((_, index) => (
-        <button
-          key={index}
-          onClick={() => setCurrentSlide(index)}
-          className={`w-3 h-3 rounded-full transition-colors ${currentSlide === index ? 'bg-[#3700ff]' : 'bg-gray-300'}`}
-          aria-label={`Go to testimonial ${index + 1}`}
-        ></button>
-      ))}
-    </div>
-  </div>
-</section>
+
+          {/* Dots indicator - FUERA del contenedor overflow-hidden pero DENTRO del contenedor principal */}
+          <div className="flex justify-center gap-4 mt-6">
+            {vipClients.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-3 h-3 rounded-full transition-colors ${currentSlide === index ? 'bg-[#3700ff]' : 'bg-gray-300'}`}
+                aria-label={`Go to testimonial ${index + 1}`}
+              ></button>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Contact Section */}
       <section id="contacto" className="py-20 bg-[#3700ff] text-white px-6">
@@ -368,14 +371,14 @@ const vipClients = [
             Contáctanos y descubrí cómo podemos potenciar tu marca
           </p>
           <div className="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center">
-            <a 
-              href="mailto:info@maca.com" 
+            <a
+              href="mailto:info@maca.com"
               className="inline-block bg-white text-[#3700ff] px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition-all transform hover:scale-105"
             >
               PEDÍ TU PRESUPUESTO
             </a>
-            <a 
-              href="https://wa.me/1234567890" 
+            <a
+              href="https://wa.me/1234567890"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-green-500 text-white px-8 py-4 rounded-lg font-bold hover:bg-green-600 transition-all transform hover:scale-105"
