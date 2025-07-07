@@ -88,27 +88,45 @@ const vipClients = [
       <div className="h-16"></div>
 
       {/* Hero Section */}
-      <section id="inicio" className="min-h-screen bg-gradient-to-br from-[#3700ff] to-[#5e3dff] flex flex-col items-center justify-center text-center px-4 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-10"></div>
-        {/* Animated background elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-white opacity-5 rounded-full animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-32 h-32 bg-pink-400 opacity-10 rounded-full animate-bounce"></div>
-        </div>
-        <div className="relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">
-            <span className="block text-pink-400 animate-fade-in">Los contenidos</span>
-            <span className="block animate-fade-in delay-200">al <span className="bg-white text-[#3700ff] px-3 py-1 rounded font-bold">servicio</span></span>
-            <span className="block text-white animate-fade-in delay-400">de la <span className="text-blue-300">estrategia</span></span>
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-200 max-w-3xl animate-fade-in delay-600">
-            La actitud y el impulso que necesita tu marca para crecer
-          </p>
-          <div className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold text-lg inline-block mb-4 animate-pulse">
-            Primera reunión, auditoría o asesoría GRATIS
-          </div>
-        </div>
-      </section>
+    <section
+  id="inicio"
+  className="min-h-screen bg-[#3700ff] flex flex-col items-center justify-center text-center px-4 text-white relative overflow-hidden"
+>
+  <div className="relative z-10 bg-white rounded-[3rem] px-6 py-16 md:px-16 md:py-20 max-w-5xl w-full shadow-xl">
+    <div className="text-left md:text-center leading-none">
+      <h1 className="text-pink-500 font-extrabold text-[2.5rem] md:text-[3.5rem] mb-2">
+        Los contenidos
+      </h1>
+
+      <div className="flex flex-wrap justify-center items-center gap-2 mb-2">
+        <span className="text-pink-500 font-extrabold text-[3rem] md:text-[4rem]">
+          al
+        </span>
+        <span className="bg-[#3700ff] text-white font-extrabold text-[3.2rem] md:text-[4.2rem] px-4 py-2 rounded-md rotate-[1deg] leading-tight">
+          servicio
+        </span>
+      </div>
+
+      <div className="flex justify-center items-baseline gap-2 mb-1">
+        <span className="text-pink-400 text-sm md:text-base font-bold">
+          de la
+        </span>
+        <span className="text-[#3700ff] font-extrabold text-[2.8rem] md:text-[3.8rem]">
+          estrategia
+        </span>
+      </div>
+    </div>
+  </div>
+
+  {/* Estrellita decorativa en la esquina superior derecha */}
+  <div className="absolute top-10 right-10 md:right-20 w-10 h-10">
+    <div className="w-10 h-10 bg-purple-300 rounded-full rotate-45 relative flex items-center justify-center">
+      <div className="absolute w-6 h-6 bg-white rotate-45"></div>
+    </div>
+  </div>
+</section>
+
+
 
       {/* About Section */}
       <section className="py-20 bg-white px-6">
