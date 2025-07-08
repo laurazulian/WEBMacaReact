@@ -1,8 +1,17 @@
 import React, { useState, useEffect } from "react";
+// Importaciones de Swiper
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+
+// Importa los estilos de Swiper
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation'; // Para las flechas de navegación si las usas
 
 export default function MacaLandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isMobile, setIsMobile] = useState(false); // Nuevo estado para detectar móvil
 
   const vipClients = [
     {
@@ -43,10 +52,118 @@ export default function MacaLandingPage() {
     return () => clearInterval(interval);
   }, [vipClients.length]);
 
+  // Detectar si es móvil
+  useEffect(() => {
+    const checkMobile = () => {
+      // Tailwind's 'md' breakpoint is 768px. Below this, we consider it mobile.
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile(); // Check on initial load
+    window.addEventListener('resize', checkMobile); // Add listener for window resize
+    return () => window.removeEventListener('resize', checkMobile); // Clean up listener
+  }, []);
+
   // Close mobile menu when clicking on link
   const handleMenuClick = () => {
     setIsMenuOpen(false);
   };
+
+  const servicesData = [
+    {
+      title: "Análisis y Desarrollo de Estrategias",
+      color: "bg-gradient-to-br from-purple-200 to-purple-300",
+      icon: "📊",
+      description: "Evaluamos tu presencia digital actual, analizamos a la competencia, identificamos oportunidades clave y definimos una estrategia sólida.",
+      span: "lg:col-span-2"
+    },
+    {
+      title: "Optimización de Perfil en Redes",
+      color: "bg-gradient-to-br from-pink-300 to-pink-400",
+      icon: "✨",
+      description: "Renovamos tu feed, bio, links e historias destacadas, asegurando que tu perfil resuene con la estética de tu marca y atraiga a tu audiencia."
+    },
+    {
+      title: "Creación de Contenido de Alto Impacto",
+      color: "bg-gradient-to-br from-lime-300 to-green-400",
+      icon: "📸",
+      description: "Desde la planificación mensual hasta el diseño de posts e historias, producción de videos atractivos, copys persuasivos, publicación y gestión de mensajes."
+    },
+    {
+      title: "Rediseño de Identidad Visual Potente",
+      color: "bg-gradient-to-br from-orange-400 to-red-400",
+      icon: "🖌️",
+      description: "Analizamos tu marca y proponemos mejoras visuales que incluyen una paleta de colores coherente, tipografías distintivas y piezas gráficas estandarizadas."
+    },
+    {
+      title: "Diseño y Programación de Landing Page",
+      color: "bg-gradient-to-br from-blue-200 to-blue-300",
+      icon: "🌐",
+      description: "Creamos y programamos una landing page simple pero efectiva, perfectamente conectada con tus redes sociales y medios de contacto para maximizar conversiones."
+    },
+    {
+      title: "Diseño Gráfico y Merchandising Exclusivo",
+      color: "bg-gradient-to-br from-yellow-300 to-yellow-400",
+      icon: "🎁",
+      description: "Diseñamos piezas corporativas impactantes, packaging innovador y productos con una identidad profesional que elevan la percepción de tu marca."
+    }
+  ];
+
+  const plansData = [
+    {
+      title: "PLAN LOW",
+      borderColor: "border-blue-400",
+      bgColor: "bg-gradient-to-br from-blue-50 to-blue-100",
+      items: [
+        "Estrategia digital básica",
+        "Gestión de redes (contenido)",
+        "1 sesión de fotos",
+        "3 videos de reel",
+        "3 diseños gráficos",
+        "15 historias creativas",
+        "*Sin moderación de comentarios"
+      ]
+    },
+    {
+      title: "A LO MACA",
+      borderColor: "border-pink-400",
+      bgColor: "bg-gradient-to-br from-pink-50 to-pink-100",
+      popular: true,
+      items: [
+        "Estrategia completa y avanzada",
+        "Gestión de redes integral",
+        "1 sesión de fotos profesional",
+        "6 videos de reel/TikTok",
+        "6 diseños gráficos premium",
+        "30 historias dinámicas",
+        "¡Incluye moderación de comentarios!"
+      ]
+    },
+    {
+      title: "PLAN EVENTO",
+      borderColor: "border-yellow-400",
+      bgColor: "bg-gradient-to-br from-yellow-50 to-yellow-100",
+      items: [
+        "1 flyer promocional + historia",
+        "3 videos cortos del evento",
+        "30 fotos capturadas con iPhone",
+        "Cobertura del evento en tiempo real",
+        "*No incluye viáticos de traslado"
+      ]
+    },
+    {
+      title: "PLAN IDENTIDAD",
+      borderColor: "border-purple-500",
+      bgColor: "bg-gradient-to-br from-purple-50 to-purple-100",
+      items: [
+        "Desarrollo de identidad visual completa",
+        "Diseño y desarrollo de Landing Page",
+        "Kit de redes sociales profesional",
+        "Estrategia digital inicial",
+        "Producción de contenido de marca",
+        "*No incluye hosting ni dominio"
+      ]
+    }
+  ];
 
   return (
     <div className="font-sans text-gray-800">
@@ -179,7 +296,7 @@ export default function MacaLandingPage() {
         </div>
       </section>
 
-      {/* Services Section - Grid Style (Enhanced with larger icons, subtle hover effects) */}
+      {/* Services Section - Carrusel en móvil, Grid en desktop */}
       <section id="servicios" className="py-20 bg-gradient-to-r from-purple-50 to-pink-50 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
@@ -189,64 +306,56 @@ export default function MacaLandingPage() {
             </p>
           </div>
 
-          {/* Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: "Análisis y Desarrollo de Estrategias",
-                color: "bg-gradient-to-br from-purple-200 to-purple-300",
-                icon: "📊",
-                description: "Evaluamos tu presencia digital actual, analizamos a la competencia, identificamos oportunidades clave y definimos una estrategia sólida.",
-                span: "lg:col-span-2" // Spans two columns for emphasis
-              },
-              {
-                title: "Optimización de Perfil en Redes",
-                color: "bg-gradient-to-br from-pink-300 to-pink-400",
-                icon: "✨", // More vibrant icon
-                description: "Renovamos tu feed, bio, links e historias destacadas, asegurando que tu perfil resuene con la estética de tu marca y atraiga a tu audiencia."
-              },
-              {
-                title: "Creación de Contenido de Alto Impacto",
-                color: "bg-gradient-to-br from-lime-300 to-green-400",
-                icon: "📸", // More specific icon
-                description: "Desde la planificación mensual hasta el diseño de posts e historias, producción de videos atractivos, copys persuasivos, publicación y gestión de mensajes."
-              },
-              {
-                title: "Rediseño de Identidad Visual Potente",
-                color: "bg-gradient-to-br from-orange-400 to-red-400",
-                icon: "🖌️", // More specific icon
-                description: "Analizamos tu marca y proponemos mejoras visuales que incluyen una paleta de colores coherente, tipografías distintivas y piezas gráficas estandarizadas."
-              },
-              {
-                title: "Diseño y Programación de Landing Page",
-                color: "bg-gradient-to-br from-blue-200 to-blue-300",
-                icon: "🌐", // More general web icon
-                description: "Creamos y programamos una landing page simple pero efectiva, perfectamente conectada con tus redes sociales y medios de contacto para maximizar conversiones."
-              },
-              {
-                title: "Diseño Gráfico y Merchandising Exclusivo",
-                color: "bg-gradient-to-br from-yellow-300 to-yellow-400",
-                icon: "🎁", // More engaging icon
-                description: "Diseñamos piezas corporativas impactantes, packaging innovador y productos con una identidad profesional que elevan la percepción de tu marca."
-              }
-            ].map((service, idx) => (
-              <div key={idx} className={`${service.span || ''} group cursor-pointer`}>
-                <div className={`${service.color} rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 h-full flex flex-col justify-between hover:scale-[1.02]`}>
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="text-5xl group-hover:rotate-3 transition-transform duration-300">{service.icon}</div> {/* Larger icon */}
-                    <div className="flex-1">
-                      <h3 className="font-extrabold text-xl md:text-2xl text-[#3700ff] mb-2 leading-tight">{service.title}</h3> {/* Bolder, larger title */}
+          {isMobile ? (
+            // Carrusel para dispositivos móviles
+            <Swiper
+              modules={[Pagination, Autoplay]}
+              spaceBetween={20}
+              slidesPerView={1.2} // Muestra una tarjeta y un poco de la siguiente
+              centeredSlides={true}
+              pagination={{ clickable: true }}
+              autoplay={{
+                delay: 4000,
+                disableOnInteraction: false,
+              }}
+              className="pb-10" // Padding bottom for pagination dots
+            >
+              {servicesData.map((service, idx) => (
+                <SwiperSlide key={idx} className="h-full">
+                  <div className={`${service.color} rounded-3xl shadow-lg p-6 h-full flex flex-col justify-between`}>
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="text-5xl">{service.icon}</div>
+                      <div className="flex-1">
+                        <h3 className="font-extrabold text-xl text-[#3700ff] mb-2 leading-tight">{service.title}</h3>
+                      </div>
                     </div>
+                    <p className="text-sm text-gray-700 opacity-90">{service.description}</p>
                   </div>
-                  <p className="text-sm text-gray-700 opacity-90">{service.description}</p>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          ) : (
+            // Grid normal para desktop
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {servicesData.map((service, idx) => (
+                <div key={idx} className={`${service.span || ''} group cursor-pointer`}>
+                  <div className={`${service.color} rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 h-full flex flex-col justify-between hover:scale-[1.02]`}>
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="text-5xl group-hover:rotate-3 transition-transform duration-300">{service.icon}</div>
+                      <div className="flex-1">
+                        <h3 className="font-extrabold text-xl md:text-2xl text-[#3700ff] mb-2 leading-tight">{service.title}</h3>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-700 opacity-90">{service.description}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
-      {/* Plans Section - Grid Style (Enhanced appearance of cards and header) */}
+      {/* Plans Section - Carrusel en móvil, Grid en desktop */}
       <section id="planes" className="py-20 bg-[#f3eaff] px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
@@ -254,62 +363,34 @@ export default function MacaLandingPage() {
             <p className="text-lg text-gray-600 mb-8">Elegí la opción perfecta que impulsa tu negocio al siguiente nivel.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <PlanCard
-              title="PLAN LOW"
-              borderColor="border-blue-400"
-              bgColor="bg-gradient-to-br from-blue-50 to-blue-100"
-              items={[
-                "Estrategia digital básica",
-                "Gestión de redes (contenido)",
-                "1 sesión de fotos",
-                "3 videos de reel",
-                "3 diseños gráficos",
-                "15 historias creativas",
-                "*Sin moderación de comentarios"
-              ]}
-            />
-            <PlanCard
-              title="A LO MACA"
-              borderColor="border-pink-400"
-              bgColor="bg-gradient-to-br from-pink-50 to-pink-100"
-              popular={true}
-              items={[
-                "Estrategia completa y avanzada",
-                "Gestión de redes integral",
-                "1 sesión de fotos profesional",
-                "6 videos de reel/TikTok",
-                "6 diseños gráficos premium",
-                "30 historias dinámicas",
-                "¡Incluye moderación de comentarios!"
-              ]}
-            />
-            <PlanCard
-              title="PLAN EVENTO"
-              borderColor="border-yellow-400"
-              bgColor="bg-gradient-to-br from-yellow-50 to-yellow-100"
-              items={[
-                "1 flyer promocional + historia",
-                "3 videos cortos del evento",
-                "30 fotos capturadas con iPhone",
-                "Cobertura del evento en tiempo real",
-                "*No incluye viáticos de traslado"
-              ]}
-            />
-            <PlanCard
-              title="PLAN IDENTIDAD"
-              borderColor="border-purple-500"
-              bgColor="bg-gradient-to-br from-purple-50 to-purple-100"
-              items={[
-                "Desarrollo de identidad visual completa",
-                "Diseño y desarrollo de Landing Page",
-                "Kit de redes sociales profesional",
-                "Estrategia digital inicial",
-                "Producción de contenido de marca",
-                "*No incluye hosting ni dominio"
-              ]}
-            />
-          </div>
+          {isMobile ? (
+            // Carrusel para dispositivos móviles
+            <Swiper
+              modules={[Pagination, Autoplay]}
+              spaceBetween={20}
+              slidesPerView={1.1} // Muestra una tarjeta y un poco de la siguiente
+              centeredSlides={true}
+              pagination={{ clickable: true }}
+              autoplay={{
+                delay: 5000,
+                disableOnInteraction: false,
+              }}
+              className="pb-10"
+            >
+              {plansData.map((plan, idx) => (
+                <SwiperSlide key={idx} className="h-full">
+                  <PlanCard {...plan} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          ) : (
+            // Grid normal para desktop
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {plansData.map((plan, idx) => (
+                <PlanCard key={idx} {...plan} />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -322,7 +403,7 @@ export default function MacaLandingPage() {
           </div>
 
           <div className="max-w-2xl mx-auto text-center bg-gray-50 p-8 rounded-3xl shadow-xl border-t-8 border-pink-400">
-            <div className="w-64 h-64 bg-gradient-to-br from-pink-200 via-purple-200 to-blue-200 rounded-full mx-auto mb-6 flex items-center justify-center text-6xl font-extrabold text-white shadow-2xl animate-spin-slow-reverse"> {/* Added spin animation */}
+            <div className="w-64 h-64 bg-gradient-to-br from-pink-200 via-purple-200 to-blue-200 rounded-full mx-auto mb-6 flex items-center justify-center text-6xl font-extrabold text-white shadow-2xl animate-spin-slow-reverse">
               MACA
             </div>
             <h3 className="text-3xl font-extrabold text-[#3700ff] mb-4">Las Mentes Detrás de tu Éxito</h3>
@@ -334,7 +415,7 @@ export default function MacaLandingPage() {
         </div>
       </section>
 
-      {/* Clientes VIP Grid - Enhanced visual appeal */}
+      {/* Clientes VIP Grid - Carrusel en móvil, Grid en desktop */}
       <section className="py-20 bg-gradient-to-r from-purple-100 to-pink-100 px-6" id="clientes">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
@@ -342,26 +423,64 @@ export default function MacaLandingPage() {
             <p className="text-lg text-gray-600">Marcas increíbles que ya confían en el poder de MACA.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {vipClients.map((client, index) => (
-              <div key={index} className="bg-white p-6 rounded-3xl shadow-lg border-b-4 border-l-4 border-transparent hover:border-pink-500 transition-all duration-300 transform hover:scale-105">
-                <div className={`w-20 h-20 ${client.bgColor} rounded-full mx-auto mb-4 flex items-center justify-center text-3xl font-bold text-white shadow-md`}>
-                  {client.initial}
+          {isMobile ? (
+            // Carrusel para dispositivos móviles
+            <Swiper
+              modules={[Pagination, Autoplay]}
+              spaceBetween={20}
+              slidesPerView={1.1} // Muestra una tarjeta y un poco de la siguiente
+              centeredSlides={true}
+              pagination={{ clickable: true }}
+              autoplay={{
+                delay: 6000,
+                disableOnInteraction: false,
+              }}
+              className="pb-10"
+            >
+              {vipClients.map((client, index) => (
+                <SwiperSlide key={index} className="h-full">
+                  <div className="bg-white p-6 rounded-3xl shadow-lg border-b-4 border-l-4 border-transparent h-full"> {/* h-full for consistent height */}
+                    <div className={`w-20 h-20 ${client.bgColor} rounded-full mx-auto mb-4 flex items-center justify-center text-3xl font-bold text-white shadow-md`}>
+                      {client.initial}
+                    </div>
+                    <h3 className="text-xl font-extrabold text-[#3700ff] mb-2 text-center">
+                      <a
+                        href={`https://instagram.com/${client.username}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-purple-600 transition-colors duration-300 hover:underline"
+                      >
+                        {client.name}
+                      </a>
+                    </h3>
+                    <p className="text-gray-600 text-base text-center italic">"{client.testimonial}"</p>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          ) : (
+            // Grid normal para desktop
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {vipClients.map((client, index) => (
+                <div key={index} className="bg-white p-6 rounded-3xl shadow-lg border-b-4 border-l-4 border-transparent hover:border-pink-500 transition-all duration-300 transform hover:scale-105">
+                  <div className={`w-20 h-20 ${client.bgColor} rounded-full mx-auto mb-4 flex items-center justify-center text-3xl font-bold text-white shadow-md`}>
+                    {client.initial}
+                  </div>
+                  <h3 className="text-xl font-extrabold text-[#3700ff] mb-2 text-center">
+                    <a
+                      href={`https://instagram.com/${client.username}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-purple-600 transition-colors duration-300 hover:underline"
+                    >
+                      {client.name}
+                    </a>
+                  </h3>
+                  <p className="text-gray-600 text-base text-center italic">"{client.testimonial}"</p>
                 </div>
-                <h3 className="text-xl font-extrabold text-[#3700ff] mb-2 text-center">
-                  <a
-                    href={`https://instagram.com/${client.username}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-purple-600 transition-colors duration-300 hover:underline"
-                  >
-                    {client.name}
-                  </a>
-                </h3>
-                <p className="text-gray-600 text-base text-center italic">"{client.testimonial}"</p>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -410,7 +529,7 @@ function PlanCard({ title, items, borderColor, bgColor, popular = false }) {
         </div>
       )}
       <h3 className="text-2xl font-extrabold text-[#3700ff] mb-4 italic text-center">{title}</h3>
-      <ul className="text-sm text-gray-700 space-y-3 flex-grow"> {/* Added flex-grow for consistent height */}
+      <ul className="text-sm text-gray-700 space-y-3 flex-grow">
         {items.map((item, index) => (
           <li key={index} className="flex items-start">
             <span className="text-green-500 mr-2 flex-shrink-0">✓</span>
@@ -418,7 +537,6 @@ function PlanCard({ title, items, borderColor, bgColor, popular = false }) {
           </li>
         ))}
       </ul>
-      {/* Optional: Add a button to each plan card for direct CTA */}
       <div className="mt-6 text-center">
         <button className="bg-[#3700ff] text-white px-6 py-3 rounded-full font-bold text-sm hover:bg-purple-700 transition-colors shadow-md">
           Elegir Plan
