@@ -207,13 +207,15 @@ export default function MacaLandingPage() {
       <div className="h-16"></div>
 
       {/* Hero Section - Grid Style */}
-      <section id="inicio" className="min-h-screen bg-gradient-to-br from-[#3700ff] via-purple-600 to-pink-500 p-6 pt-20 flex items-center">
+      {/* CAMBIO: Fondo del Hero al mismo azul del header */}
+      <section id="inicio" className="min-h-screen bg-[#3700ff] p-6 pt-20 flex items-center">
         <div className="max-w-7xl mx-auto w-full">
           {/* Grid Container */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
             {/* Main Title Card - Spans 2 columns, dynamic text sizes */}
-            <div className="lg:col-span-2 bg-white rounded-3xl p-8 shadow-2xl flex flex-col justify-center relative overflow-hidden transform hover:scale-[1.01] transition-transform duration-300">
+            {/* BORDE ROSA EN HERO: border-2 border-pink-300 */}
+            <div className="lg:col-span-2 bg-white rounded-3xl p-8 shadow-2xl flex flex-col justify-center relative overflow-hidden transform hover:scale-[1.01] transition-transform duration-300 border-2 border-pink-300">
                 <div className="absolute -top-10 -left-10 w-48 h-48 bg-[#3700ff] opacity-10 rounded-full blur-2xl"></div>
                 <div className="absolute -bottom-10 -right-10 w-56 h-56 bg-pink-500 opacity-10 rounded-full blur-2xl"></div>
 
@@ -231,7 +233,8 @@ export default function MacaLandingPage() {
             </div>
 
             {/* Call to Action Card - More prominent "GRATIS" with dynamic styling */}
-            <div className="bg-yellow-400 rounded-3xl p-6 shadow-2xl flex flex-col justify-center items-center text-center relative overflow-hidden transform hover:scale-[1.02] transition-transform duration-300">
+            {/* BORDE ROSA EN HERO: border-2 border-pink-300 */}
+            <div className="bg-yellow-400 rounded-3xl p-6 shadow-2xl flex flex-col justify-center items-center text-center relative overflow-hidden transform hover:scale-[1.02] transition-transform duration-300 border-2 border-pink-300">
                 <div className="absolute -top-5 -right-5 w-20 h-20 bg-white rounded-full opacity-30"></div>
                 <div className="absolute -bottom-5 -left-5 w-28 h-28 bg-white rounded-full opacity-30"></div>
                 <div className="text-[#3700ff] font-bold text-xl md:text-2xl mb-4 z-10">
@@ -243,7 +246,8 @@ export default function MacaLandingPage() {
             </div>
 
             {/* Services Preview Cards - Larger icons, bolder titles */}
-            <div className="bg-gradient-to-br from-purple-400 to-pink-400 rounded-3xl p-6 shadow-2xl text-white flex flex-col justify-between transform hover:scale-[1.03] transition-transform duration-300">
+            {/* BORDE ROSA EN HERO: border-2 border-pink-300 */}
+            <div className="bg-gradient-to-br from-purple-400 to-pink-400 rounded-3xl p-6 shadow-2xl text-white flex flex-col justify-between transform hover:scale-[1.03] transition-transform duration-300 border-2 border-pink-300">
               <div className="text-6xl mb-4 transform group-hover:rotate-6 transition-transform duration-300">📱</div>
               <div>
                 <h3 className="font-bold text-xl md:text-2xl mb-2">Redes Sociales</h3>
@@ -251,7 +255,8 @@ export default function MacaLandingPage() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-green-400 to-blue-400 rounded-3xl p-6 shadow-2xl text-white flex flex-col justify-between transform hover:scale-[1.03] transition-transform duration-300">
+            {/* BORDE ROSA EN HERO: border-2 border-pink-300 */}
+            <div className="bg-gradient-to-br from-green-400 to-blue-400 rounded-3xl p-6 shadow-2xl text-white flex flex-col justify-between transform hover:scale-[1.03] transition-transform duration-300 border-2 border-pink-300">
               <div className="text-6xl mb-4 transform group-hover:scale-110 transition-transform duration-300">🎨</div>
               <div>
                 <h3 className="font-bold text-xl md:text-2xl mb-2">Diseño Gráfico</h3>
@@ -259,7 +264,8 @@ export default function MacaLandingPage() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-orange-400 to-red-400 rounded-3xl p-6 shadow-2xl text-white flex flex-col justify-between transform hover:scale-[1.03] transition-transform duration-300">
+            {/* BORDE ROSA EN HERO: border-2 border-pink-300 */}
+            <div className="bg-gradient-to-br from-orange-400 to-red-400 rounded-3xl p-6 shadow-2xl text-white flex flex-col justify-between transform hover:scale-[1.03] transition-transform duration-300 border-2 border-pink-300">
               <div className="text-6xl mb-4 transform group-hover:-translate-y-1 transition-transform duration-300">💻</div>
               <div>
                 <h3 className="font-bold text-xl md:text-2xl mb-2">Desarrollo Web</h3>
@@ -268,7 +274,8 @@ export default function MacaLandingPage() {
             </div>
 
             {/* Stats or Features - More dynamic layout and numbers */}
-            <div className="lg:col-span-2 bg-gradient-to-r from-purple-200 to-pink-200 rounded-3xl p-6 shadow-2xl grid grid-cols-1 sm:grid-cols-3 gap-4 items-center justify-around">
+            {/* BORDE ROSA EN HERO: border-2 border-pink-300 */}
+            <div className="lg:col-span-2 bg-gradient-to-r from-purple-200 to-pink-200 rounded-3xl p-6 shadow-2xl grid grid-cols-1 sm:grid-cols-3 gap-4 items-center justify-around border-2 border-pink-300">
               <div className="text-center">
                 <div className="text-5xl font-extrabold text-[#3700ff] animate-fade-in">50+</div>
                 <div className="text-base text-gray-600">Proyectos exitosos</div>
@@ -284,7 +291,8 @@ export default function MacaLandingPage() {
             </div>
 
             {/* Contact Preview - More inviting and direct, with icon animation */}
-            <div className="bg-gradient-to-br from-blue-500 to-purple-500 rounded-3xl p-6 shadow-2xl text-white flex flex-col justify-center items-center text-center transform hover:scale-[1.02] transition-transform duration-300">
+            {/* BORDE ROSA EN HERO: border-2 border-pink-300 */}
+            <div className="bg-gradient-to-br from-blue-500 to-purple-500 rounded-3xl p-6 shadow-2xl text-white flex flex-col justify-center items-center text-center transform hover:scale-[1.02] transition-transform duration-300 border-2 border-pink-300">
               <div className="text-6xl mb-4 animate-bounce-slow">👋</div>
               <h3 className="font-bold text-xl md:text-2xl mb-4">¡Listo para despegar tu marca?</h3>
               <a href="#contacto" className="bg-white text-[#3700ff] px-6 py-3 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors transform hover:scale-105">
@@ -322,7 +330,8 @@ export default function MacaLandingPage() {
             >
               {servicesData.map((service, idx) => (
                 <SwiperSlide key={idx} className="h-full">
-                  <div className={`${service.color} rounded-3xl shadow-lg p-6 h-full flex flex-col justify-between`}>
+                  {/* APLICANDO BORDE ROSA AQUÍ */}
+                  <div className={`${service.color} rounded-3xl shadow-lg p-6 h-full flex flex-col justify-between border-2 border-pink-300`}>
                     <div className="flex items-start gap-4 mb-4">
                       <div className="text-5xl">{service.icon}</div>
                       <div className="flex-1">
@@ -339,7 +348,8 @@ export default function MacaLandingPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {servicesData.map((service, idx) => (
                 <div key={idx} className={`${service.span || ''} group cursor-pointer`}>
-                  <div className={`${service.color} rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 h-full flex flex-col justify-between hover:scale-[1.02]`}>
+                  {/* APLICANDO BORDE ROSA AQUÍ */}
+                  <div className={`${service.color} rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 h-full flex flex-col justify-between hover:scale-[1.02] border-2 border-pink-300`}>
                     <div className="flex items-start gap-4 mb-4">
                       <div className="text-5xl group-hover:rotate-3 transition-transform duration-300">{service.icon}</div>
                       <div className="flex-1">
@@ -379,7 +389,8 @@ export default function MacaLandingPage() {
             >
               {plansData.map((plan, idx) => (
                 <SwiperSlide key={idx} className="h-full">
-                  <PlanCard {...plan} />
+                  {/* PlanCard ya tiene un borde, le añadimos el rosa más grueso */}
+                  <PlanCard {...plan} customBorderClass="border-2 border-pink-300" />
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -387,7 +398,7 @@ export default function MacaLandingPage() {
             // Grid normal para desktop
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {plansData.map((plan, idx) => (
-                <PlanCard key={idx} {...plan} />
+                <PlanCard key={idx} {...plan} customBorderClass="border-2 border-pink-300" />
               ))}
             </div>
           )}
@@ -439,7 +450,8 @@ export default function MacaLandingPage() {
             >
               {vipClients.map((client, index) => (
                 <SwiperSlide key={index} className="h-full">
-                  <div className="bg-white p-6 rounded-3xl shadow-lg border-b-4 border-l-4 border-transparent h-full"> {/* h-full for consistent height */}
+                  {/* APLICANDO BORDE ROSA AQUÍ */}
+                  <div className="bg-white p-6 rounded-3xl shadow-lg border-2 border-pink-300 h-full"> {/* h-full for consistent height */}
                     <div className={`w-20 h-20 ${client.bgColor} rounded-full mx-auto mb-4 flex items-center justify-center text-3xl font-bold text-white shadow-md`}>
                       {client.initial}
                     </div>
@@ -463,7 +475,8 @@ export default function MacaLandingPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {vipClients.map((client, index) => (
                 <div key={index} className="bg-white p-6 rounded-3xl shadow-lg border-b-4 border-l-4 border-transparent hover:border-pink-500 transition-all duration-300 transform hover:scale-105">
-                  <div className={`w-20 h-20 ${client.bgColor} rounded-full mx-auto mb-4 flex items-center justify-center text-3xl font-bold text-white shadow-md`}>
+                  {/* APLICANDO BORDE ROSA AQUÍ - Se combina con el hover existente */}
+                  <div className={`w-20 h-20 ${client.bgColor} rounded-full mx-auto mb-4 flex items-center justify-center text-3xl font-bold text-white shadow-md border-2 border-pink-300`}>
                     {client.initial}
                   </div>
                   <h3 className="text-xl font-extrabold text-[#3700ff] mb-2 text-center">
@@ -520,9 +533,10 @@ export default function MacaLandingPage() {
   );
 }
 
-function PlanCard({ title, items, borderColor, bgColor, popular = false }) {
+function PlanCard({ title, items, borderColor, bgColor, popular = false, customBorderClass = "" }) {
   return (
-    <div className={`${bgColor} p-6 rounded-3xl shadow-lg border-l-8 ${borderColor} relative hover:transform hover:scale-105 transition-all duration-300 flex flex-col justify-between`}>
+    // APLICANDO BORDE ROSA MÁS GRUESO AQUÍ: border-2
+    <div className={`${bgColor} p-6 rounded-3xl shadow-lg border-l-8 ${borderColor} relative hover:transform hover:scale-105 transition-all duration-300 flex flex-col justify-between ${customBorderClass}`}>
       {popular && (
         <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-pink-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">
           ¡Más Popular!
