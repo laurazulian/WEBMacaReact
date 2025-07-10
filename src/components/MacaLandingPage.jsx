@@ -209,16 +209,18 @@ export default function MacaLandingPage() {
 
       <div className="h-16"></div> {/* Espacio para el header fijo */}
 
-      {/* Hero Section - Rediseñado para coincidir con la imagen de referencia */}
+      {/* Hero Section - Rediseñado para coincidir con la imagen de referencia y corregir responsividad */}
       <section id="inicio" className="min-h-screen bg-[#0000FF] p-6 pt-20 flex items-center justify-center">
-        <div className="max-w-7xl mx-auto w-full h-[calc(100vh-80px)] md:h-[calc(100vh-120px)] flex items-center justify-center">
+        <div className="max-w-7xl mx-auto w-full"> {/* Eliminamos h-[calc] para más flexibilidad */}
           {/* Grid Container para replicar la estructura de la imagen */}
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 w-full max-h-full">
+          {/* En móvil, grid-cols-1 para apilar, en md+ grid-cols-3 */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full auto-rows-fr"> {/* auto-rows-fr para alturas más consistentes */}
 
             {/* 1. Marketing y comunicación con actitud (Grande, rosa) */}
-            <div className="md:col-span-2 bg-[#F567A8] rounded-3xl p-8 shadow-2xl flex flex-col justify-center relative overflow-hidden min-h-[200px] md:min-h-[300px]">
-                <div className="absolute top-4 right-4 text-white text-6xl font-extrabold opacity-20">m</div>
-                <div className="absolute bottom-4 left-4 text-white text-6xl font-extrabold opacity-20">c</div>
+            {/* Altura mínima ajustada, flex-grow para llenar espacio */}
+            <div className="md:col-span-2 bg-[#F567A8] rounded-3xl p-8 shadow-2xl flex flex-col justify-center relative overflow-hidden min-h-[250px] md:min-h-[350px] lg:min-h-[400px] flex-grow">
+                <div className="absolute top-4 right-4 text-white text-6xl font-extrabold opacity-20 hidden md:block">m</div>
+                <div className="absolute bottom-4 left-4 text-white text-6xl font-extrabold opacity-20 hidden md:block">c</div>
                 <div className="text-white z-10">
                     <h1 className="font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-2 leading-tight">
                         Marketing y comunicación
@@ -230,7 +232,8 @@ export default function MacaLandingPage() {
             </div>
 
             {/* 2. ¿Trabajamos juntos? Escribinos! (Mediana, morada claro) */}
-            <div className="bg-[#E0BBE4] rounded-3xl p-6 shadow-2xl flex flex-col justify-center items-center text-center relative overflow-hidden">
+            {/* Altura mínima ajustada, flex-grow */}
+            <div className="bg-[#E0BBE4] rounded-3xl p-6 shadow-2xl flex flex-col justify-center items-center text-center relative overflow-hidden min-h-[200px] flex-grow">
                 <h3 className="text-[#3700ff] font-bold text-xl md:text-2xl mb-4">
                     ¿Trabajamos juntos?
                 </h3>
@@ -240,25 +243,27 @@ export default function MacaLandingPage() {
             </div>
 
             {/* 3. Redes (Pequeña, con imagen) */}
-            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden min-h-[150px]" style={{ backgroundImage: 'url("https://via.placeholder.com/400x300/3700ff/FFFFFF?text=Redes+Sociales")' }}>
+            {/* Altura mínima ajustada para evitar desbordamiento */}
+            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[180px] md:h-[200px] lg:h-[220px]" style={{ backgroundImage: 'url("https://via.placeholder.com/400x300/3700ff/FFFFFF?text=Redes+Sociales")' }}>
                 <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div> {/* Oscurece la imagen */}
                 <h3 className="font-bold text-xl text-white z-10">Redes</h3>
             </div>
 
             {/* 4. Diseño (Pequeña, con imagen) */}
-            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden min-h-[150px]" style={{ backgroundImage: 'url("https://via.placeholder.com/400x300/F567A8/FFFFFF?text=Diseño+Gráfico")' }}>
+            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[180px] md:h-[200px] lg:h-[220px]" style={{ backgroundImage: 'url("https://via.placeholder.com/400x300/F567A8/FFFFFF?text=Diseño+Gráfico")' }}>
                 <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
                 <h3 className="font-bold text-xl text-white z-10">Diseño</h3>
             </div>
 
             {/* 5. Web (Pequeña, con imagen) */}
-            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden min-h-[150px]" style={{ backgroundImage: 'url("https://via.placeholder.com/400x300/E0BBE4/FFFFFF?text=Desarrollo+Web")' }}>
+            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[180px] md:h-[200px] lg:h-[220px]" style={{ backgroundImage: 'url("https://via.placeholder.com/400x300/E0BBE4/FFFFFF?text=Desarrollo+Web")' }}>
                 <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
                 <h3 className="font-bold text-xl text-white z-10">Web</h3>
             </div>
 
             {/* 6. ¿Quién es MACA? (Mediana, celeste) */}
-            <div className="md:col-span-2 bg-[#B7E4F9] rounded-3xl p-8 shadow-2xl flex flex-col justify-center">
+            {/* Altura mínima ajustada, flex-grow para llenar espacio */}
+            <div className="md:col-span-2 bg-[#B7E4F9] rounded-3xl p-8 shadow-2xl flex flex-col justify-center min-h-[200px] flex-grow">
                 <h3 className="text-[#3700ff] font-bold text-2xl md:text-3xl mb-4">
                     ¿Quién es MACA?
                 </h3>
@@ -268,7 +273,8 @@ export default function MacaLandingPage() {
             </div>
 
             {/* 7. Portafolio (Mediana, con imagen de fondo) */}
-            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex flex-col justify-end relative overflow-hidden min-h-[150px]" style={{ backgroundImage: 'url("https://via.placeholder.com/400x300/B7E4F9/3700ff?text=Portafolio")' }}>
+            {/* Altura mínima ajustada, flex-grow */}
+            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex flex-col justify-end relative overflow-hidden min-h-[200px] flex-grow" style={{ backgroundImage: 'url("https://via.placeholder.com/400x300/B7E4F9/3700ff?text=Portafolio")' }}>
                 <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
                 <h3 className="font-bold text-xl text-white z-10">Portafolio</h3>
             </div>
