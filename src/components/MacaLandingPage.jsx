@@ -167,18 +167,21 @@ export default function MacaLandingPage() {
 
   return (
     <div className="font-sans text-gray-800">
-      {/* Header */}
-      <header className="fixed top-0 left-0 w-full bg-[#3700ff] text-white shadow-lg z-50">
-        <nav className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-          <span className="font-bold text-xl">MACA</span>
-          <ul className="hidden md:flex gap-6 text-sm">
-            <li><a href="#inicio" className="hover:underline transition-all">Inicio</a></li>
-            <li><a href="#servicios" className="hover:underline transition-all">Servicios</a></li>
-            <li><a href="#planes" className="hover:underline transition-all">Planes</a></li>
-            <li><a href="#equipo" className="hover:underline transition-all">Equipo</a></li>
-            <li><a href="#contacto" className="hover:underline transition-all">Contacto</a></li>
-            <li><a href="https://behance.net/maca" target="_blank" rel="noopener noreferrer" className="hover:underline transition-all">Behance</a></li>
-          </ul>
+      {/* Header - AJUSTADO PARA COINCIDIR CON LA IMAGEN */}
+      <header className="fixed top-0 left-0 w-full bg-[#0000FF] text-white z-50">
+        <nav className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <span className="font-bold text-xl">maca</span> {/* "maca" en minúsculas */}
+          {/* Menú de Navegación - con fondo blanco y redondeado */}
+          <div className="hidden md:block bg-white rounded-full px-6 py-2 shadow-md"> {/* Fondo blanco, redondeado */}
+            <ul className="flex gap-6 text-sm">
+              <li><a href="#inicio" className="text-[#0000FF] hover:underline transition-all">Inicio</a></li>
+              <li><a href="#servicios" className="text-[#0000FF] hover:underline transition-all">Servicios</a></li>
+              <li><a href="#planes" className="text-[#0000FF] hover:underline transition-all">Planes</a></li>
+              <li><a href="#equipo" className="text-[#0000FF] hover:underline transition-all">Equipo</a></li>
+              <li><a href="#contacto" className="text-[#0000FF] hover:underline transition-all">Contacto</a></li>
+              <li><a href="https://behance.net/maca" target="_blank" rel="noopener noreferrer" className="text-[#0000FF] hover:underline transition-all">Behance</a></li>
+            </ul>
+          </div>
           <button
             className="md:hidden focus:outline-none"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -189,120 +192,92 @@ export default function MacaLandingPage() {
             </svg>
           </button>
         </nav>
-        {/* Mobile Menu */}
+        {/* Mobile Menu - También con fondo blanco y texto azul para consistencia */}
         {isMenuOpen && (
-          <div className="md:hidden bg-[#3700ff] border-t border-purple-400">
+          <div className="md:hidden bg-white border-t border-gray-200"> {/* Fondo blanco para móvil */}
             <ul className="px-4 py-2 space-y-2 text-sm">
-              <li><a href="#inicio" className="block py-2 hover:underline" onClick={handleMenuClick}>Inicio</a></li>
-              <li><a href="#servicios" className="block py-2 hover:underline" onClick={handleMenuClick}>Servicios</a></li>
-              <li><a href="#planes" className="block py-2 hover:underline" onClick={handleMenuClick}>Planes</a></li>
-              <li><a href="#equipo" className="block py-2 hover:underline" onClick={handleMenuClick}>Equipo</a></li>
-              <li><a href="#contacto" className="block py-2 hover:underline" onClick={handleMenuClick}>Contacto</a></li>
-              <li><a href="https://behance.net/maca" target="_blank" rel="noopener noreferrer" className="block py-2 hover:underline" onClick={handleMenuClick}>Behance</a></li>
+              <li><a href="#inicio" className="block py-2 text-[#0000FF] hover:underline" onClick={handleMenuClick}>Inicio</a></li>
+              <li><a href="#servicios" className="block py-2 text-[#0000FF] hover:underline" onClick={handleMenuClick}>Servicios</a></li>
+              <li><a href="#planes" className="block py-2 text-[#0000FF] hover:underline" onClick={handleMenuClick}>Planes</a></li>
+              <li><a href="#equipo" className="block py-2 text-[#0000FF] hover:underline" onClick={handleMenuClick}>Equipo</a></li>
+              <li><a href="#contacto" className="block py-2 text-[#0000FF] hover:underline" onClick={handleMenuClick}>Contacto</a></li>
+              <li><a href="https://behance.net/maca" target="_blank" rel="noopener noreferrer" className="block py-2 text-[#0000FF] hover:underline" onClick={handleMenuClick}>Behance</a></li>
             </ul>
           </div>
         )}
       </header>
 
-      <div className="h-16"></div>
+      <div className="h-16"></div> {/* Espacio para el header fijo */}
 
-      {/* Hero Section - Grid Style */}
-      {/* CAMBIO: Fondo del Hero al mismo azul del header */}
-      <section id="inicio" className="min-h-screen bg-[#3700ff] p-6 pt-20 flex items-center">
-        <div className="max-w-7xl mx-auto w-full">
-          {/* Grid Container */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Hero Section - Rediseñado para coincidir con la imagen de referencia */}
+      <section id="inicio" className="min-h-screen bg-[#0000FF] p-6 pt-20 flex items-center justify-center">
+        <div className="max-w-7xl mx-auto w-full h-[calc(100vh-80px)] md:h-[calc(100vh-120px)] flex items-center justify-center">
+          {/* Grid Container para replicar la estructura de la imagen */}
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 w-full max-h-full">
 
-            {/* Main Title Card - Spans 2 columns, dynamic text sizes */}
-            {/* BORDE ROSA EN HERO: border-2 border-pink-300 */}
-            <div className="lg:col-span-2 bg-white rounded-3xl p-8 shadow-2xl flex flex-col justify-center relative overflow-hidden transform hover:scale-[1.01] transition-transform duration-300 border-2 border-pink-300">
-                <div className="absolute -top-10 -left-10 w-48 h-48 bg-[#3700ff] opacity-10 rounded-full blur-2xl"></div>
-                <div className="absolute -bottom-10 -right-10 w-56 h-56 bg-pink-500 opacity-10 rounded-full blur-2xl"></div>
-
-                <div className="text-center z-10">
-                    <h1 className="text-[#3700ff] font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-2 leading-tight">
-                        Marketing y Comunicación
+            {/* 1. Marketing y comunicación con actitud (Grande, rosa) */}
+            <div className="md:col-span-2 bg-[#F567A8] rounded-3xl p-8 shadow-2xl flex flex-col justify-center relative overflow-hidden min-h-[200px] md:min-h-[300px]">
+                <div className="absolute top-4 right-4 text-white text-6xl font-extrabold opacity-20">m</div>
+                <div className="absolute bottom-4 left-4 text-white text-6xl font-extrabold opacity-20">c</div>
+                <div className="text-white z-10">
+                    <h1 className="font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-2 leading-tight">
+                        Marketing y comunicación
                     </h1>
-                    <div className="text-pink-500 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4">
-                        con Actitud
+                    <div className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4">
+                        con <span className="underline">actitud</span>
                     </div>
-                    <p className="text-gray-600 text-lg sm:text-xl md:text-2xl">
-                        Somos <span className="font-bold text-[#3700ff]">MACA</span> ¡y hacemos <span className="font-bold text-pink-500">DE TODO!</span>
-                    </p>
                 </div>
             </div>
 
-            {/* Call to Action Card - More prominent "GRATIS" with dynamic styling */}
-            {/* BORDE ROSA EN HERO: border-2 border-pink-300 */}
-            <div className="bg-yellow-400 rounded-3xl p-6 shadow-2xl flex flex-col justify-center items-center text-center relative overflow-hidden transform hover:scale-[1.02] transition-transform duration-300 border-2 border-pink-300">
-                <div className="absolute -top-5 -right-5 w-20 h-20 bg-white rounded-full opacity-30"></div>
-                <div className="absolute -bottom-5 -left-5 w-28 h-28 bg-white rounded-full opacity-30"></div>
-                <div className="text-[#3700ff] font-bold text-xl md:text-2xl mb-4 z-10">
-                    Primera reunión, auditoría o asesoría
-                </div>
-                <div className="bg-[#3700ff] text-white px-8 py-4 rounded-full font-extrabold text-2xl md:text-3xl animate-pulse shadow-xl z-10">
-                    ¡GRATIS!
-                </div>
+            {/* 2. ¿Trabajamos juntos? Escribinos! (Mediana, morada claro) */}
+            <div className="bg-[#E0BBE4] rounded-3xl p-6 shadow-2xl flex flex-col justify-center items-center text-center relative overflow-hidden">
+                <h3 className="text-[#3700ff] font-bold text-xl md:text-2xl mb-4">
+                    ¿Trabajamos juntos?
+                </h3>
+                <a href="#contacto" className="bg-[#FDFF97] text-[#3700ff] px-8 py-4 rounded-full font-extrabold text-lg md:text-xl shadow-xl hover:bg-[#ffe600] transition-colors">
+                    Escribinos!
+                </a>
             </div>
 
-            {/* Services Preview Cards - Larger icons, bolder titles */}
-            {/* BORDE ROSA EN HERO: border-2 border-pink-300 */}
-            <div className="bg-gradient-to-br from-purple-400 to-pink-400 rounded-3xl p-6 shadow-2xl text-white flex flex-col justify-between transform hover:scale-[1.03] transition-transform duration-300 border-2 border-pink-300">
-              <div className="text-6xl mb-4 transform group-hover:rotate-6 transition-transform duration-300">📱</div>
-              <div>
-                <h3 className="font-bold text-xl md:text-2xl mb-2">Redes Sociales</h3>
-                <p className="text-sm opacity-90">Gestión completa de tu presencia digital</p>
-              </div>
+            {/* 3. Redes (Pequeña, con imagen) */}
+            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden min-h-[150px]" style={{ backgroundImage: 'url("https://via.placeholder.com/400x300/3700ff/FFFFFF?text=Redes+Sociales")' }}>
+                <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div> {/* Oscurece la imagen */}
+                <h3 className="font-bold text-xl text-white z-10">Redes</h3>
             </div>
 
-            {/* BORDE ROSA EN HERO: border-2 border-pink-300 */}
-            <div className="bg-gradient-to-br from-green-400 to-blue-400 rounded-3xl p-6 shadow-2xl text-white flex flex-col justify-between transform hover:scale-[1.03] transition-transform duration-300 border-2 border-pink-300">
-              <div className="text-6xl mb-4 transform group-hover:scale-110 transition-transform duration-300">🎨</div>
-              <div>
-                <h3 className="font-bold text-xl md:text-2xl mb-2">Diseño Gráfico</h3>
-                <p className="text-sm opacity-90">Identidad visual que conecta con tu audiencia</p>
-              </div>
+            {/* 4. Diseño (Pequeña, con imagen) */}
+            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden min-h-[150px]" style={{ backgroundImage: 'url("https://via.placeholder.com/400x300/F567A8/FFFFFF?text=Diseño+Gráfico")' }}>
+                <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
+                <h3 className="font-bold text-xl text-white z-10">Diseño</h3>
             </div>
 
-            {/* BORDE ROSA EN HERO: border-2 border-pink-300 */}
-            <div className="bg-gradient-to-br from-orange-400 to-red-400 rounded-3xl p-6 shadow-2xl text-white flex flex-col justify-between transform hover:scale-[1.03] transition-transform duration-300 border-2 border-pink-300">
-              <div className="text-6xl mb-4 transform group-hover:-translate-y-1 transition-transform duration-300">💻</div>
-              <div>
-                <h3 className="font-bold text-xl md:text-2xl mb-2">Desarrollo Web</h3>
-                <p className="text-sm opacity-90">Sitios web que convierten visitantes en clientes</p>
-              </div>
+            {/* 5. Web (Pequeña, con imagen) */}
+            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden min-h-[150px]" style={{ backgroundImage: 'url("https://via.placeholder.com/400x300/E0BBE4/FFFFFF?text=Desarrollo+Web")' }}>
+                <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
+                <h3 className="font-bold text-xl text-white z-10">Web</h3>
             </div>
 
-            {/* Stats or Features - More dynamic layout and numbers */}
-            {/* BORDE ROSA EN HERO: border-2 border-pink-300 */}
-            <div className="lg:col-span-2 bg-gradient-to-r from-purple-200 to-pink-200 rounded-3xl p-6 shadow-2xl grid grid-cols-1 sm:grid-cols-3 gap-4 items-center justify-around border-2 border-pink-300">
-              <div className="text-center">
-                <div className="text-5xl font-extrabold text-[#3700ff] animate-fade-in">50+</div>
-                <div className="text-base text-gray-600">Proyectos exitosos</div>
-              </div>
-              <div className="text-center">
-                <div className="text-5xl font-extrabold text-[#3700ff] animate-fade-in delay-100">100%</div>
-                <div className="text-base text-gray-600">Clientes satisfechos</div>
-              </div>
-              <div className="text-center">
-                <div className="text-5xl font-extrabold text-[#3700ff] animate-fade-in delay-200">24/7</div>
-                <div className="text-base text-gray-600">Soporte y asesoría</div>
-              </div>
+            {/* 6. ¿Quién es MACA? (Mediana, celeste) */}
+            <div className="md:col-span-2 bg-[#B7E4F9] rounded-3xl p-8 shadow-2xl flex flex-col justify-center">
+                <h3 className="text-[#3700ff] font-bold text-2xl md:text-3xl mb-4">
+                    ¿Quién es MACA?
+                </h3>
+                <p className="text-gray-700 text-base md:text-lg">
+                    Somos un equipo apasionado de mentes creativas, listas para transformar tu marca.
+                </p>
             </div>
 
-            {/* Contact Preview - More inviting and direct, with icon animation */}
-            {/* BORDE ROSA EN HERO: border-2 border-pink-300 */}
-            <div className="bg-gradient-to-br from-blue-500 to-purple-500 rounded-3xl p-6 shadow-2xl text-white flex flex-col justify-center items-center text-center transform hover:scale-[1.02] transition-transform duration-300 border-2 border-pink-300">
-              <div className="text-6xl mb-4 animate-bounce-slow">👋</div>
-              <h3 className="font-bold text-xl md:text-2xl mb-4">¡Listo para despegar tu marca?</h3>
-              <a href="#contacto" className="bg-white text-[#3700ff] px-6 py-3 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors transform hover:scale-105">
-                ¡Contactanos Ahora!
-              </a>
+            {/* 7. Portafolio (Mediana, con imagen de fondo) */}
+            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex flex-col justify-end relative overflow-hidden min-h-[150px]" style={{ backgroundImage: 'url("https://via.placeholder.com/400x300/B7E4F9/3700ff?text=Portafolio")' }}>
+                <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
+                <h3 className="font-bold text-xl text-white z-10">Portafolio</h3>
             </div>
 
           </div>
         </div>
       </section>
+
+      {/* Las siguientes secciones se mantienen igual que en la versión anterior */}
 
       {/* Services Section - Carrusel en móvil, Grid en desktop */}
       <section id="servicios" className="py-20 bg-gradient-to-r from-purple-50 to-pink-50 px-6">
@@ -330,7 +305,7 @@ export default function MacaLandingPage() {
             >
               {servicesData.map((service, idx) => (
                 <SwiperSlide key={idx} className="h-full">
-                  {/* APLICANDO BORDE ROSA AQUÍ */}
+                  {/* BORDE ROSA EN SERVICIOS */}
                   <div className={`${service.color} rounded-3xl shadow-lg p-6 h-full flex flex-col justify-between border-2 border-pink-300`}>
                     <div className="flex items-start gap-4 mb-4">
                       <div className="text-5xl">{service.icon}</div>
@@ -348,7 +323,7 @@ export default function MacaLandingPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {servicesData.map((service, idx) => (
                 <div key={idx} className={`${service.span || ''} group cursor-pointer`}>
-                  {/* APLICANDO BORDE ROSA AQUÍ */}
+                  {/* BORDE ROSA EN SERVICIOS */}
                   <div className={`${service.color} rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 h-full flex flex-col justify-between hover:scale-[1.02] border-2 border-pink-300`}>
                     <div className="flex items-start gap-4 mb-4">
                       <div className="text-5xl group-hover:rotate-3 transition-transform duration-300">{service.icon}</div>
@@ -450,7 +425,7 @@ export default function MacaLandingPage() {
             >
               {vipClients.map((client, index) => (
                 <SwiperSlide key={index} className="h-full">
-                  {/* APLICANDO BORDE ROSA AQUÍ */}
+                  {/* BORDE ROSA EN CLIENTES VIP */}
                   <div className="bg-white p-6 rounded-3xl shadow-lg border-2 border-pink-300 h-full"> {/* h-full for consistent height */}
                     <div className={`w-20 h-20 ${client.bgColor} rounded-full mx-auto mb-4 flex items-center justify-center text-3xl font-bold text-white shadow-md`}>
                       {client.initial}
@@ -475,7 +450,7 @@ export default function MacaLandingPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {vipClients.map((client, index) => (
                 <div key={index} className="bg-white p-6 rounded-3xl shadow-lg border-b-4 border-l-4 border-transparent hover:border-pink-500 transition-all duration-300 transform hover:scale-105">
-                  {/* APLICANDO BORDE ROSA AQUÍ - Se combina con el hover existente */}
+                  {/* BORDE ROSA EN CLIENTES VIP - Se combina con el hover existente */}
                   <div className={`w-20 h-20 ${client.bgColor} rounded-full mx-auto mb-4 flex items-center justify-center text-3xl font-bold text-white shadow-md border-2 border-pink-300`}>
                     {client.initial}
                   </div>
