@@ -6,18 +6,18 @@ import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 // Importa los estilos de Swiper
 import 'swiper/css';
 import 'swiper/css/pagination';
-import 'swiper/css/navigation'; // Para las flechas de navegación si las usas
+import 'swiper/css/navigation';
 
 import teamPhoto from '../Fotos/DSC00714.png';
 import Recurso1 from '../Fotos/Recurso1.png';
 import Recurso2 from '../Fotos/Recurso2.png';
 import Recurso3 from '../Fotos/Recurso3.png';
-import LogoVerticalAzul from '../Fotos/LOGO-VERTICAL-AZUL.png'; // Renombrado para mayor claridad
+import LogoVerticalAzul from '../Fotos/LOGO-VERTICAL-AZUL.png';
 
 export default function MacaLandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isMobile, setIsMobile] = useState(false); // Nuevo estado para detectar móvil
+  const [isMobile, setIsMobile] = useState(false);
 
   const vipClients = [
     {
@@ -50,7 +50,6 @@ export default function MacaLandingPage() {
     }
   ];
 
-  // Auto-rotate testimonials
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % vipClients.length);
@@ -58,18 +57,15 @@ export default function MacaLandingPage() {
     return () => clearInterval(interval);
   }, [vipClients.length]);
 
-  // Detectar si es móvil
   useEffect(() => {
     const checkMobile = () => {
-      // Tailwind's 'md' breakpoint is 768px. Below this, we consider it mobile.
       setIsMobile(window.innerWidth < 768);
     };
-    checkMobile(); // Check on initial load
-    window.addEventListener('resize', checkMobile); // Add listener for window resize
-    return () => window.removeEventListener('resize', checkMobile); // Clean up listener
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Close mobile menu when clicking on link
   const handleMenuClick = () => {
     setIsMenuOpen(false);
   };
@@ -80,7 +76,6 @@ export default function MacaLandingPage() {
       color: "bg-gradient-to-br from-purple-200 to-purple-300",
       icon: "📊",
       description: "Evaluamos tu presencia digital actual, analizamos a la competencia, identificamos oportunidades clave y definimos una estrategia sólida.",
-      span: "lg:col-span-2"
     },
     {
       title: "Optimización de Perfil en Redes",
@@ -173,13 +168,11 @@ export default function MacaLandingPage() {
 
   return (
     <div className="font-sans text-gray-800">
-      {/* Header - AJUSTADO PARA COINCIDIR CON LA IMAGEN */}
+      {/* Header */}
       <header className="fixed top-0 left-0 w-full bg-[#0000FF] text-white z-50">
         <nav className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          {/* Usar el logo en el header */}
-          <img src={LogoVerticalAzul} alt="MACA Logo" className="h-8 md:h-10 object-contain" /> {/* Ajusta h-8 o h-10 según el tamaño deseado */}
-          {/* Menú de Navegación - con fondo blanco y redondeado */}
-          <div className="hidden md:block bg-white rounded-full px-6 py-2 shadow-md"> {/* Fondo blanco, redondeado */}
+          <img src={LogoVerticalAzul} alt="MACA Logo" className="h-8 md:h-10 object-contain" />
+          <div className="hidden md:block bg-white rounded-full px-6 py-2 shadow-md">
             <ul className="flex gap-6 text-sm">
               <li><a href="#inicio" className="text-[#0000FF] hover:underline transition-all">Inicio</a></li>
               <li><a href="#servicios" className="text-[#0000FF] hover:underline transition-all">Servicios</a></li>
@@ -199,9 +192,8 @@ export default function MacaLandingPage() {
             </svg>
           </button>
         </nav>
-        {/* Mobile Menu - También con fondo blanco y texto azul para consistencia */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-200"> {/* Fondo blanco para móvil */}
+          <div className="md:hidden bg-white border-t border-gray-200">
             <ul className="px-4 py-2 space-y-2 text-sm">
               <li><a href="#inicio" className="block py-2 text-[#0000FF] hover:underline" onClick={handleMenuClick}>Inicio</a></li>
               <li><a href="#servicios" className="block py-2 text-[#0000FF] hover:underline" onClick={handleMenuClick}>Servicios</a></li>
@@ -214,76 +206,66 @@ export default function MacaLandingPage() {
         )}
       </header>
 
-      <div className="h-16"></div> {/* Espacio para el header fijo */}
+      <div className="h-16"></div>
 
-      {/* Hero Section*/}
-      <section id="inicio" className="min-h-screen bg-[#0000FF] p-6 pt-20 flex items-center justify-center">
-        <div className="max-w-7xl mx-auto w-full"> {/* Eliminamos h-[calc] para más flexibilidad */}
-          {/* Grid Container para replicar la estructura de la imagen */}
-          {/* En móvil, grid-cols-1 para apilar, en md+ grid-cols-3 */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full auto-rows-fr"> {/* auto-rows-fr para alturas más consistentes */}
-            {/* 1. Marketing y comunicación con actitud (Grande, rosa) */}
-            {/* Altura mínima ajustada, flex-grow para llenar espacio */}
-            <div className="md:col-span-2 bg-[#F567A8] rounded-3xl p-8 shadow-2xl flex flex-col justify-center relative overflow-hidden min-h-[250px] md:min-h-[350px] lg:min-h-[400px] flex-grow">
+      {/* Hero Section - Espacio reducido */}
+      <section id="inicio" className="bg-[#0000FF] p-6 py-12 flex items-center justify-center text-center">
+        <div className="max-w-7xl mx-auto w-full">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
+            <div className="md:col-span-2 bg-[#F567A8] rounded-3xl p-8 shadow-2xl flex flex-col justify-center relative overflow-hidden min-h-[300px] md:min-h-[320px]">
               <img
-                src={LogoVerticalAzul} // Usar el logo importado para el fondo
+                src={LogoVerticalAzul}
                 alt="MACA Logo Background"
-                className="absolute top-4 right-4 h-auto w-32 object-contain opacity-20 hidden md:block"
+                className="absolute top-4 right-4 h-auto w-28 object-contain opacity-20 hidden md:block"
               />
-              <div className="text-white z-10">
-                <h1 className="font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-2 leading-tight">
-                  Marketing y comunicación
+              <div class="text-white z-10">
+                <h1 class="font-bold text-3xl sm:text-3xl md:text-5xl lg:text-6xl mb-2 leading-tight">
+                  Marketing y 
+                  <br/>comunicación <br /> 
                 </h1>
-                <div className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4">
-                  con <span className="underline">actitud</span>
+                <div class="font-extrabold text-xl sm:text-5xl md:text-4xl lg:text-4xl mb-4">
+                  con
+                </div>
+                <div class="font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-8xl mb-4 underline">
+                  actitud
                 </div>
               </div>
             </div>
 
-            {/* 2. ¿Trabajamos juntos? Escribinos! (Mediana, morada claro) */}
-            {/* Altura mínima ajustada, flex-grow */}
-            <div className="bg-[#E0BBE4] rounded-3xl p-6 shadow-2xl flex flex-col justify-center items-center text-center relative overflow-hidden min-h-[200px] flex-grow">
-              <h3 className="text-[#3700ff] font-bold text-xl md:text-2xl mb-4">
+            <div className="bg-[#E0BBE4] rounded-3xl p-6 shadow-2xl flex flex-col justify-center items-center text-center relative overflow-hidden min-h-[180px]">
+              <h3 className="text-[#3700ff] font-bold text-lg md:text-xl mb-4">
                 ¿Trabajamos juntos?
               </h3>
-              <a href="#contacto" className="bg-[#FDFF97] text-[#3700ff] px-8 py-4 rounded-full font-extrabold text-lg md:text-xl shadow-xl hover:bg-[#ffe600] transition-colors">
+              <a href="#contacto" className="bg-[#FDFF97] text-[#3700ff] px-6 py-3 rounded-full font-extrabold text-base md:text-lg shadow-xl hover:bg-[#ffe600] transition-colors">
                 Escribinos!
               </a>
             </div>
 
-            {/* 3. Redes (Pequeña, con imagen) */}
-            {/* Altura mínima ajustada para evitar desbordamiento */}
-            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[180px] md:h-[200px] lg:h-[220px]" style={{ backgroundImage: `url(${Recurso1})` }}>
-              <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div> {/* Oscurece la imagen */}
+            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]" style={{ backgroundImage: `url(${Recurso1})` }}>
+              <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
               <h3 className="font-bold text-xl text-white z-10">Redes</h3>
             </div>
 
-            {/* 4. Diseño (Pequeña, con imagen) */}
-            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[180px] md:h-[200px] lg:h-[220px]" style={{ backgroundImage: `url(${Recurso2})` }}>
+            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]" style={{ backgroundImage: `url(${Recurso2})` }}>
               <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
               <h3 className="font-bold text-xl text-white z-10">Diseño</h3>
             </div>
 
-            {/* 5. Web (Pequeña, con imagen) */}
-            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[180px] md:h-[200px] lg:h-[220px]" style={{ backgroundImage: `url(${Recurso3})` }}>
+            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]" style={{ backgroundImage: `url(${Recurso3})` }}>
               <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
               <h3 className="font-bold text-xl text-white z-10">Web</h3>
             </div>
 
-            {/* 6. ¿Quién es MACA? (Mediana, celeste) */}
-            {/* Altura mínima ajustada, flex-grow para llenar espacio */}
-            <div className="md:col-span-2 bg-[#B7E4F9] rounded-3xl p-8 shadow-2xl flex flex-col justify-center min-h-[200px] flex-grow">
-              <h3 className="text-[#3700ff] font-bold text-2xl md:text-3xl mb-4">
+            <div className="md:col-span-2 bg-[#B7E4F9] rounded-3xl p-6 shadow-2xl flex flex-col justify-center min-h-[160px]">
+              <h3 className="text-[#3700ff] font-bold text-xl md:text-2xl mb-3">
                 ¿Quién es MACA?
               </h3>
-              <p className="text-gray-700 text-base md:text-lg">
+              <p className="text-gray-700 text-sm md:text-base">
                 Somos un equipo apasionado de mentes creativas, listas para transformar tu marca.
               </p>
             </div>
 
-            {/* 7. Portafolio (Mediana, con imagen de fondo) */}
-            {/* Altura mínima ajustada, flex-grow */}
-            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex flex-col justify-end relative overflow-hidden min-h-[200px] flex-grow" style={{ backgroundImage: 'url("https://via.placeholder.com/400x300/B7E4F9/3700ff?text=Portafolio")' }}>
+            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex flex-col justify-end relative overflow-hidden min-h-[160px]" style={{ backgroundImage: 'url("https://via.placeholder.com/400x300/B7E4F9/3700ff?text=Portafolio")' }}>
               <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
               <h3 className="font-bold text-xl text-white z-10">Portafolio</h3>
             </div>
@@ -292,9 +274,7 @@ export default function MacaLandingPage() {
         </div>
       </section>
 
-      {/* Las siguientes secciones se mantienen igual que en la versión anterior */}
-
-      {/* Services Section - Carrusel en móvil, Grid en desktop */}
+      {/* Services Section - Carrusel en móvil, Grid en desktop con Tooltip */}
       <section id="servicios" className="py-20 bg-gradient-to-r from-purple-50 to-pink-50 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
@@ -305,22 +285,21 @@ export default function MacaLandingPage() {
           </div>
 
           {isMobile ? (
-            // Carrusel para dispositivos móviles
+            // Carrusel para dispositivos móviles (descripción visible directamente)
             <Swiper
               modules={[Pagination, Autoplay]}
               spaceBetween={20}
-              slidesPerView={1.2} // Muestra una tarjeta y un poco de la siguiente
+              slidesPerView={1.2}
               centeredSlides={true}
               pagination={{ clickable: true }}
               autoplay={{
                 delay: 4000,
                 disableOnInteraction: false,
               }}
-              className="pb-10" // Padding bottom for pagination dots
+              className="pb-10"
             >
               {servicesData.map((service, idx) => (
                 <SwiperSlide key={idx} className="h-full">
-                  {/* BORDE ROSA EN SERVICIOS */}
                   <div className={`${service.color} rounded-3xl shadow-lg p-6 h-full flex flex-col justify-between border-2 border-pink-300`}>
                     <div className="flex items-start gap-4 mb-4">
                       <div className="text-5xl">{service.icon}</div>
@@ -334,19 +313,26 @@ export default function MacaLandingPage() {
               ))}
             </Swiper>
           ) : (
-            // Grid normal para desktop
+            // Grid normal para desktop con funcionalidad de pop-up (tooltip)
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {servicesData.map((service, idx) => (
-                <div key={idx} className={`${service.span || ''} group cursor-pointer`}>
-                  {/* BORDE ROSA EN SERVICIOS */}
-                  <div className={`${service.color} rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 h-full flex flex-col justify-between hover:scale-[1.02] border-2 border-pink-300`}>
-                    <div className="flex items-start gap-4 mb-4">
+                // Añadimos 'group' y 'relative' al contenedor de cada tarjeta
+                <div key={idx} className="group cursor-pointer relative">
+                  <div className={`${service.color} rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 h-full flex flex-col justify-center items-center text-center hover:scale-[1.02] border-2 border-pink-300 overflow-hidden`}>
+                    {/* Contenido visible siempre (icono y título) */}
+                    <div className="flex flex-col items-center gap-4 mb-4">
                       <div className="text-5xl group-hover:rotate-3 transition-transform duration-300">{service.icon}</div>
-                      <div className="flex-1">
-                        <h3 className="font-extrabold text-xl md:text-2xl text-[#3700ff] mb-2 leading-tight">{service.title}</h3>
-                      </div>
+                      <h3 className="font-extrabold text-xl md:text-2xl text-[#3700ff] mb-0 leading-tight">{service.title}</h3>
                     </div>
-                    <p className="text-sm text-gray-700 opacity-90">{service.description}</p>
+
+                    {/* Pop-up (Tooltip) de la descripción */}
+                    <div className="absolute top-0 left-0 w-full h-full bg-white bg-opacity-95 backdrop-blur-sm rounded-3xl
+                                    flex items-center justify-center p-6 text-center
+                                    opacity-0 group-hover:opacity-100 transition-opacity duration-300
+                                    pointer-events-none group-hover:pointer-events-auto z-10
+                                    border-2 border-pink-300"> {/* Mismo borde para el pop-up */}
+                      <p className="text-gray-700 text-base">{service.description}</p>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -364,11 +350,10 @@ export default function MacaLandingPage() {
           </div>
 
           {isMobile ? (
-            // Carrusel para dispositivos móviles
             <Swiper
               modules={[Pagination, Autoplay]}
               spaceBetween={20}
-              slidesPerView={1.1} // Muestra una tarjeta y un poco de la siguiente
+              slidesPerView={1.1}
               centeredSlides={true}
               pagination={{ clickable: true }}
               autoplay={{
@@ -379,13 +364,11 @@ export default function MacaLandingPage() {
             >
               {plansData.map((plan, idx) => (
                 <SwiperSlide key={idx} className="h-full">
-                  {/* PlanCard ya tiene un borde, le añadimos el rosa más grueso */}
                   <PlanCard {...plan} customBorderClass="border-2 border-pink-300" />
                 </SwiperSlide>
               ))}
             </Swiper>
           ) : (
-            // Grid normal para desktop
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {plansData.map((plan, idx) => (
                 <PlanCard key={idx} {...plan} customBorderClass="border-2 border-pink-300" />
@@ -396,24 +379,23 @@ export default function MacaLandingPage() {
       </section>
 
       {/* Team Section - Dynamic text, subtle effects */}
-  <section id="equipo" className="py-20 bg-white px-6">
-    <div className="max-w-7xl mx-auto">
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-extrabold text-[#3700ff] mb-4">Nuestro Equipo Apasionado</h2>
-        <p className="text-lg text-gray-600">Conocé a las mentes creativas detrás de MACA que harán realidad tus ideas.</p>
-      </div>
+      <section id="equipo" className="py-20 bg-white px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-extrabold text-[#3700ff] mb-4">Nuestro Equipo Apasionado</h2>
+            <p className="text-lg text-gray-600">Conocé a las mentes creativas detrás de MACA que harán realidad tus ideas.</p>
+          </div>
 
-      <div className="max-w-6xl mx-auto text-center bg-gray-50 p-8 rounded-3xl shadow-xl border-t-8 border-pink-400">
-        {/* Reemplazando el círculo con la foto horizontal */}
-        <img src={teamPhoto} alt="Equipo MACA" className="w-full rounded-md shadow-md mb-6 object-cover" style={{ maxHeight: '500px' }} />
-        <h3 className="text-3xl font-extrabold text-[#3700ff] mb-4">Las Mentes Detrás de tu Éxito</h3>
-        <p className="text-gray-700 text-lg">
-          Somos un trío dinámico de mentes creativas, expertas en marketing, comunicación y diseño.
-          Trabajamos en perfecta armonía para transformar tus ideas en resultados tangibles y espectaculares.
-        </p>
-      </div>
-    </div>
-  </section>
+          <div className="max-w-6xl mx-auto text-center bg-gray-50 p-8 rounded-3xl shadow-xl border-t-8 border-pink-400">
+            <img src={teamPhoto} alt="Equipo MACA" className="w-full rounded-md shadow-md mb-6 object-cover" style={{ maxHeight: '500px' }} />
+            <h3 className="text-3xl font-extrabold text-[#3700ff] mb-4">Las Mentes Detrás de tu Éxito</h3>
+            <p className="text-gray-700 text-lg">
+              Somos un trío dinámico de mentes creativas, expertas en marketing, comunicación y diseño.
+              Trabajamos en perfecta armonía para transformar tus ideas en resultados tangibles y espectaculares.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Clientes VIP Grid - Carrusel en móvil, Grid en desktop */}
       <section className="py-20 bg-gradient-to-r from-purple-100 to-pink-100 px-6" id="clientes">
@@ -424,11 +406,10 @@ export default function MacaLandingPage() {
           </div>
 
           {isMobile ? (
-            // Carrusel para dispositivos móviles
             <Swiper
               modules={[Pagination, Autoplay]}
               spaceBetween={20}
-              slidesPerView={1.1} // Muestra una tarjeta y un poco de la siguiente
+              slidesPerView={1.1}
               centeredSlides={true}
               pagination={{ clickable: true }}
               autoplay={{
@@ -439,8 +420,7 @@ export default function MacaLandingPage() {
             >
               {vipClients.map((client, index) => (
                 <SwiperSlide key={index} className="h-full">
-                  {/* BORDE ROSA EN CLIENTES VIP */}
-                  <div className="bg-white p-6 rounded-3xl shadow-lg border-2 border-pink-300 h-full"> {/* h-full for consistent height */}
+                  <div className="bg-white p-6 rounded-3xl shadow-lg border-2 border-pink-300 h-full">
                     <div className={`w-20 h-20 ${client.bgColor} rounded-full mx-auto mb-4 flex items-center justify-center text-3xl font-bold text-white shadow-md`}>
                       {client.initial}
                     </div>
@@ -460,11 +440,9 @@ export default function MacaLandingPage() {
               ))}
             </Swiper>
           ) : (
-            // Grid normal para desktop
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {vipClients.map((client, index) => (
                 <div key={index} className="bg-white p-6 rounded-3xl shadow-lg border-b-4 border-l-4 border-transparent hover:border-pink-500 transition-all duration-300 transform hover:scale-105">
-                  {/* BORDE ROSA EN CLIENTES VIP - Se combina con el hover existente */}
                   <div className={`w-20 h-20 ${client.bgColor} rounded-full mx-auto mb-4 flex items-center justify-center text-3xl font-bold text-white shadow-md border-2 border-pink-300`}>
                     {client.initial}
                   </div>
@@ -524,7 +502,6 @@ export default function MacaLandingPage() {
 
 function PlanCard({ title, items, borderColor, bgColor, popular = false, customBorderClass = "" }) {
   return (
-    // APLICANDO BORDE ROSA MÁS GRUESO AQUÍ: border-2
     <div className={`${bgColor} p-6 rounded-3xl shadow-lg border-l-8 ${borderColor} relative hover:transform hover:scale-105 transition-all duration-300 flex flex-col justify-between ${customBorderClass}`}>
       {popular && (
         <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-pink-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">
