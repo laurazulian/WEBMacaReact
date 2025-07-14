@@ -8,10 +8,11 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation'; // Para las flechas de navegación si las usas
 
-import DSC00714 from '../Fotos/DSC00714.png';
-import Recurso1 from '../Fotos/Recurso 1.png';
-import Recurso2 from '../Fotos/Recurso 2.png';
-import Recurso3 from '../Fotos/Recurso 3.png';
+import teamPhoto from '../Fotos/DSC00714.png';
+import Recurso1 from '../Fotos/Recurso1.png';
+import Recurso2 from '../Fotos/Recurso2.png';
+import Recurso3 from '../Fotos/Recurso3.png';
+import LogoVerticalAzul from '../Fotos/LOGO-VERTICAL-AZUL.png'; // Renombrado para mayor claridad
 
 export default function MacaLandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -175,7 +176,8 @@ export default function MacaLandingPage() {
       {/* Header - AJUSTADO PARA COINCIDIR CON LA IMAGEN */}
       <header className="fixed top-0 left-0 w-full bg-[#0000FF] text-white z-50">
         <nav className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <span className="font-bold text-xl">maca</span> {/* "maca" en minúsculas */}
+          {/* Usar el logo en el header */}
+          <img src={LogoVerticalAzul} alt="MACA Logo" className="h-8 md:h-10 object-contain" /> {/* Ajusta h-8 o h-10 según el tamaño deseado */}
           {/* Menú de Navegación - con fondo blanco y redondeado */}
           <div className="hidden md:block bg-white rounded-full px-6 py-2 shadow-md"> {/* Fondo blanco, redondeado */}
             <ul className="flex gap-6 text-sm">
@@ -214,74 +216,76 @@ export default function MacaLandingPage() {
 
       <div className="h-16"></div> {/* Espacio para el header fijo */}
 
-      {/* Hero Section - Rediseñado para coincidir con la imagen de referencia y corregir responsividad */}
+      {/* Hero Section*/}
       <section id="inicio" className="min-h-screen bg-[#0000FF] p-6 pt-20 flex items-center justify-center">
         <div className="max-w-7xl mx-auto w-full"> {/* Eliminamos h-[calc] para más flexibilidad */}
           {/* Grid Container para replicar la estructura de la imagen */}
           {/* En móvil, grid-cols-1 para apilar, en md+ grid-cols-3 */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full auto-rows-fr"> {/* auto-rows-fr para alturas más consistentes */}
-
             {/* 1. Marketing y comunicación con actitud (Grande, rosa) */}
             {/* Altura mínima ajustada, flex-grow para llenar espacio */}
             <div className="md:col-span-2 bg-[#F567A8] rounded-3xl p-8 shadow-2xl flex flex-col justify-center relative overflow-hidden min-h-[250px] md:min-h-[350px] lg:min-h-[400px] flex-grow">
-                <div className="absolute top-4 right-4 text-white text-6xl font-extrabold opacity-20 hidden md:block">m</div>
-                <div className="absolute bottom-4 left-4 text-white text-6xl font-extrabold opacity-20 hidden md:block">c</div>
-                <div className="text-white z-10">
-                    <h1 className="font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-2 leading-tight">
-                        Marketing y comunicación
-                    </h1>
-                    <div className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4">
-                        con <span className="underline">actitud</span>
-                    </div>
+              <img
+                src={LogoVerticalAzul} // Usar el logo importado para el fondo
+                alt="MACA Logo Background"
+                className="absolute top-4 right-4 h-auto w-32 object-contain opacity-20 hidden md:block"
+              />
+              <div className="text-white z-10">
+                <h1 className="font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-2 leading-tight">
+                  Marketing y comunicación
+                </h1>
+                <div className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4">
+                  con <span className="underline">actitud</span>
                 </div>
+              </div>
             </div>
 
             {/* 2. ¿Trabajamos juntos? Escribinos! (Mediana, morada claro) */}
             {/* Altura mínima ajustada, flex-grow */}
             <div className="bg-[#E0BBE4] rounded-3xl p-6 shadow-2xl flex flex-col justify-center items-center text-center relative overflow-hidden min-h-[200px] flex-grow">
-                <h3 className="text-[#3700ff] font-bold text-xl md:text-2xl mb-4">
-                    ¿Trabajamos juntos?
-                </h3>
-                <a href="#contacto" className="bg-[#FDFF97] text-[#3700ff] px-8 py-4 rounded-full font-extrabold text-lg md:text-xl shadow-xl hover:bg-[#ffe600] transition-colors">
-                    Escribinos!
-                </a>
+              <h3 className="text-[#3700ff] font-bold text-xl md:text-2xl mb-4">
+                ¿Trabajamos juntos?
+              </h3>
+              <a href="#contacto" className="bg-[#FDFF97] text-[#3700ff] px-8 py-4 rounded-full font-extrabold text-lg md:text-xl shadow-xl hover:bg-[#ffe600] transition-colors">
+                Escribinos!
+              </a>
             </div>
 
             {/* 3. Redes (Pequeña, con imagen) */}
             {/* Altura mínima ajustada para evitar desbordamiento */}
             <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[180px] md:h-[200px] lg:h-[220px]" style={{ backgroundImage: `url(${Recurso1})` }}>
-                <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div> {/* Oscurece la imagen */}
-                <h3 className="font-bold text-xl text-white z-10">Redes</h3>
+              <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div> {/* Oscurece la imagen */}
+              <h3 className="font-bold text-xl text-white z-10">Redes</h3>
             </div>
 
             {/* 4. Diseño (Pequeña, con imagen) */}
             <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[180px] md:h-[200px] lg:h-[220px]" style={{ backgroundImage: `url(${Recurso2})` }}>
-                <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
-                <h3 className="font-bold text-xl text-white z-10">Diseño</h3>
+              <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
+              <h3 className="font-bold text-xl text-white z-10">Diseño</h3>
             </div>
 
             {/* 5. Web (Pequeña, con imagen) */}
             <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[180px] md:h-[200px] lg:h-[220px]" style={{ backgroundImage: `url(${Recurso3})` }}>
-                <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
-                <h3 className="font-bold text-xl text-white z-10">Web</h3>
+              <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
+              <h3 className="font-bold text-xl text-white z-10">Web</h3>
             </div>
 
             {/* 6. ¿Quién es MACA? (Mediana, celeste) */}
             {/* Altura mínima ajustada, flex-grow para llenar espacio */}
             <div className="md:col-span-2 bg-[#B7E4F9] rounded-3xl p-8 shadow-2xl flex flex-col justify-center min-h-[200px] flex-grow">
-                <h3 className="text-[#3700ff] font-bold text-2xl md:text-3xl mb-4">
-                    ¿Quién es MACA?
-                </h3>
-                <p className="text-gray-700 text-base md:text-lg">
-                    Somos un equipo apasionado de mentes creativas, listas para transformar tu marca.
-                </p>
+              <h3 className="text-[#3700ff] font-bold text-2xl md:text-3xl mb-4">
+                ¿Quién es MACA?
+              </h3>
+              <p className="text-gray-700 text-base md:text-lg">
+                Somos un equipo apasionado de mentes creativas, listas para transformar tu marca.
+              </p>
             </div>
 
             {/* 7. Portafolio (Mediana, con imagen de fondo) */}
             {/* Altura mínima ajustada, flex-grow */}
             <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex flex-col justify-end relative overflow-hidden min-h-[200px] flex-grow" style={{ backgroundImage: 'url("https://via.placeholder.com/400x300/B7E4F9/3700ff?text=Portafolio")' }}>
-                <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
-                <h3 className="font-bold text-xl text-white z-10">Portafolio</h3>
+              <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
+              <h3 className="font-bold text-xl text-white z-10">Portafolio</h3>
             </div>
 
           </div>
@@ -392,25 +396,24 @@ export default function MacaLandingPage() {
       </section>
 
       {/* Team Section - Dynamic text, subtle effects */}
-      <section id="equipo" className="py-20 bg-white px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-extrabold text-[#3700ff] mb-4">Nuestro Equipo Apasionado</h2>
-            <p className="text-lg text-gray-600">Conocé a las mentes creativas detrás de MACA que harán realidad tus ideas.</p>
-          </div>
+  <section id="equipo" className="py-20 bg-white px-6">
+    <div className="max-w-7xl mx-auto">
+      <div className="text-center mb-12">
+        <h2 className="text-4xl font-extrabold text-[#3700ff] mb-4">Nuestro Equipo Apasionado</h2>
+        <p className="text-lg text-gray-600">Conocé a las mentes creativas detrás de MACA que harán realidad tus ideas.</p>
+      </div>
 
-          <div className="max-w-2xl mx-auto text-center bg-gray-50 p-8 rounded-3xl shadow-xl border-t-8 border-pink-400">
-            <div className="w-64 h-64 bg-gradient-to-br from-pink-200 via-purple-200 to-blue-200 rounded-full mx-auto mb-6 flex items-center justify-center text-6xl font-extrabold text-white shadow-2xl animate-spin-slow-reverse">
-              MACA
-            </div>
-            <h3 className="text-3xl font-extrabold text-[#3700ff] mb-4">Las Mentes Detrás de tu Éxito</h3>
-            <p className="text-gray-700 text-lg">
-              Somos un trío dinámico de mentes creativas, expertas en marketing, comunicación y diseño.
-              Trabajamos en perfecta armonía para transformar tus ideas en resultados tangibles y espectaculares.
-            </p>
-          </div>
-        </div>
-      </section>
+      <div className="max-w-6xl mx-auto text-center bg-gray-50 p-8 rounded-3xl shadow-xl border-t-8 border-pink-400">
+        {/* Reemplazando el círculo con la foto horizontal */}
+        <img src={teamPhoto} alt="Equipo MACA" className="w-full rounded-md shadow-md mb-6 object-cover" style={{ maxHeight: '500px' }} />
+        <h3 className="text-3xl font-extrabold text-[#3700ff] mb-4">Las Mentes Detrás de tu Éxito</h3>
+        <p className="text-gray-700 text-lg">
+          Somos un trío dinámico de mentes creativas, expertas en marketing, comunicación y diseño.
+          Trabajamos en perfecta armonía para transformar tus ideas en resultados tangibles y espectaculares.
+        </p>
+      </div>
+    </div>
+  </section>
 
       {/* Clientes VIP Grid - Carrusel en móvil, Grid en desktop */}
       <section className="py-20 bg-gradient-to-r from-purple-100 to-pink-100 px-6" id="clientes">
@@ -498,7 +501,7 @@ export default function MacaLandingPage() {
               PEDÍ TU PRESUPUESTO
             </a>
             <a
-              href="https://wa.me/1234567890" // Placeholder WhatsApp number
+              href="https://wa.me/549261XXXXXXX" // Reemplaza con tu número de WhatsApp real, incluyendo el código de país. Ejemplo: +54 9 261 XXXXXXX
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-green-500 text-white px-10 py-5 rounded-lg font-bold text-lg hover:bg-green-600 transition-all transform hover:scale-105 shadow-lg"
