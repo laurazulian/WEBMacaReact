@@ -8,6 +8,11 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation'; // Para las flechas de navegación si las usas
 
+import DSC00714 from '../Fotos/DSC00714.png';
+import Recurso1 from '../Fotos/Recurso 1.png';
+import Recurso2 from '../Fotos/Recurso 2.png';
+import Recurso3 from '../Fotos/Recurso 3.png';
+
 export default function MacaLandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -244,19 +249,19 @@ export default function MacaLandingPage() {
 
             {/* 3. Redes (Pequeña, con imagen) */}
             {/* Altura mínima ajustada para evitar desbordamiento */}
-            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[180px] md:h-[200px] lg:h-[220px]" style={{ backgroundImage: 'url("https://via.placeholder.com/400x300/3700ff/FFFFFF?text=Redes+Sociales")' }}>
+            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[180px] md:h-[200px] lg:h-[220px]" style={{ backgroundImage: `url(${Recurso1})` }}>
                 <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div> {/* Oscurece la imagen */}
                 <h3 className="font-bold text-xl text-white z-10">Redes</h3>
             </div>
 
             {/* 4. Diseño (Pequeña, con imagen) */}
-            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[180px] md:h-[200px] lg:h-[220px]" style={{ backgroundImage: 'url("https://via.placeholder.com/400x300/F567A8/FFFFFF?text=Diseño+Gráfico")' }}>
+            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[180px] md:h-[200px] lg:h-[220px]" style={{ backgroundImage: `url(${Recurso2})` }}>
                 <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
                 <h3 className="font-bold text-xl text-white z-10">Diseño</h3>
             </div>
 
             {/* 5. Web (Pequeña, con imagen) */}
-            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[180px] md:h-[200px] lg:h-[220px]" style={{ backgroundImage: 'url("https://via.placeholder.com/400x300/E0BBE4/FFFFFF?text=Desarrollo+Web")' }}>
+            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[180px] md:h-[200px] lg:h-[220px]" style={{ backgroundImage: `url(${Recurso3})` }}>
                 <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
                 <h3 className="font-bold text-xl text-white z-10">Web</h3>
             </div>
