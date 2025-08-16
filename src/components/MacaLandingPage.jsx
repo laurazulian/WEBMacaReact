@@ -12,7 +12,8 @@ import teamPhoto from '../Fotos/DSC00714.png';
 import Recurso1 from '../Fotos/Recurso1.png';
 import Recurso2 from '../Fotos/Recurso2.png';
 import Recurso3 from '../Fotos/Recurso3.png';
-import LogoVerticalAzul from '../Fotos/LOGO-VERTICAL-AZUL.png';
+import Recurso4 from '../Fotos/Recurso4.gif';
+import LogoMaca from '../Fotos/LOGOMACA.png';
 
 export default function MacaLandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -171,7 +172,7 @@ export default function MacaLandingPage() {
       {/* Header */}
       <header className="fixed top-0 left-0 w-full bg-[#0000FF] text-white z-50">
         <nav className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <img src={LogoVerticalAzul} alt="MACA Logo" className="h-8 md:h-10 object-contain" />
+          <img src={LogoMaca} alt="MACA Logo" className="h-8 md:h-10 object-contain" />
           <div className="hidden md:block bg-white rounded-full px-6 py-2 shadow-md">
             <ul className="flex gap-6 text-sm">
               <li><a href="#inicio" className="text-[#0000FF] hover:underline transition-all">Inicio</a></li>
@@ -209,29 +210,17 @@ export default function MacaLandingPage() {
       <div className="h-16"></div>
 
       {/* Hero Section - Espacio reducido */}
+      {/* Hero Section - Con GIF */}
       <section id="inicio" className="bg-[#0000FF] p-6 py-12 flex items-center justify-center text-center">
         <div className="max-w-7xl mx-auto w-full">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
-            <div className="md:col-span-2 bg-[#F567A8] rounded-3xl p-8 shadow-2xl flex flex-col justify-center relative overflow-hidden min-h-[300px] md:min-h-[320px]">
+            <div className="md:col-span-2 bg-black rounded-3xl shadow-2xl flex flex-col justify-center relative overflow-hidden min-h-[300px] md:min-h-[320px]">
               <img
-                src={LogoVerticalAzul}
-                alt="MACA Logo Background"
-                className="absolute top-4 right-4 h-auto w-28 object-contain opacity-20 hidden md:block"
+                src={Recurso4}
+                alt="MACA Marketing y Comunicación con Actitud"
+                className="w-full h-full object-cover rounded-3xl"
               />
-              <div class="text-white z-10">
-                <h1 class="font-bold text-3xl sm:text-3xl md:text-5xl lg:text-6xl mb-2 leading-tight">
-                  Marketing y 
-                  <br/>comunicación <br /> 
-                </h1>
-                <div class="font-extrabold text-xl sm:text-5xl md:text-4xl lg:text-4xl mb-4">
-                  con
-                </div>
-                <div class="font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-8xl mb-4 underline">
-                  actitud
-                </div>
-              </div>
             </div>
-
             <div className="bg-[#E0BBE4] rounded-3xl p-6 shadow-2xl flex flex-col justify-center items-center text-center relative overflow-hidden min-h-[180px]">
               <h3 className="text-[#3700ff] font-bold text-lg md:text-xl mb-4">
                 ¿Trabajamos juntos?
@@ -240,36 +229,34 @@ export default function MacaLandingPage() {
                 Escribinos!
               </a>
             </div>
-
             <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]" style={{ backgroundImage: `url(${Recurso1})` }}>
               <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
               <h3 className="font-bold text-xl text-white z-10">Redes</h3>
             </div>
-
             <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]" style={{ backgroundImage: `url(${Recurso2})` }}>
               <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
               <h3 className="font-bold text-xl text-white z-10">Diseño</h3>
             </div>
-
             <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]" style={{ backgroundImage: `url(${Recurso3})` }}>
               <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
               <h3 className="font-bold text-xl text-white z-10">Web</h3>
             </div>
-
-            <div className="md:col-span-2 bg-[#B7E4F9] rounded-3xl p-6 shadow-2xl flex flex-col justify-center min-h-[160px]">
-              <h3 className="text-[#3700ff] font-bold text-xl md:text-2xl mb-3">
+            <div className="md:col-span-2 bg-[#9bdadd] rounded-3xl p-6 shadow-2xl flex flex-col md:flex-row items-center justify-between min-h-[160px] gap-4">
+            <div className="flex-shrink-0">
+              <h3 className="text-[#3700ff] font-bold text-xl md:text-2xl mb-0 ">
                 ¿Quién es MACA?
               </h3>
-              <p className="text-gray-700 text-sm md:text-base">
+            </div>
+            <div className="flex-1 text-left md:text-right">
+              <p className="text-[#3700ff] text-sm md:text-base">
                 Somos un equipo apasionado de mentes creativas, listas para transformar tu marca.
               </p>
             </div>
-
+          </div>
             <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex flex-col justify-end relative overflow-hidden min-h-[160px]" style={{ backgroundImage: 'url("https://via.placeholder.com/400x300/B7E4F9/3700ff?text=Portafolio")' }}>
               <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
               <h3 className="font-bold text-xl text-white z-10">Portafolio</h3>
             </div>
-
           </div>
         </div>
       </section>
