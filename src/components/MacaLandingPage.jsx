@@ -14,6 +14,13 @@ import Recurso2 from '../Fotos/Recurso2.png';
 import Recurso3 from '../Fotos/Recurso3.png';
 import Recurso4 from '../Fotos/Recurso4.gif';
 import LogoMaca from '../Fotos/LOGOMACA.png';
+import Recurso5 from '../Fotos/Recurso5.png';
+import Estrategia from '../Fotos/1Estrategia.png';
+import Identidad from '../Fotos/2Identidad.png';
+import Redes from '../Fotos/3Redes.png';
+import Web from '../Fotos/4Web.png';
+import Contenido from '../Fotos/5Contenido.png';
+import Diseno from '../Fotos/6Diseno.png';
 
 export default function MacaLandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -71,44 +78,45 @@ export default function MacaLandingPage() {
     setIsMenuOpen(false);
   };
 
-  const servicesData = [
-    {
-      title: "Análisis y Desarrollo de Estrategias",
-      color: "bg-gradient-to-br from-purple-200 to-purple-300",
-      icon: "📊",
-      description: "Evaluamos tu presencia digital actual, analizamos a la competencia, identificamos oportunidades clave y definimos una estrategia sólida.",
-    },
-    {
-      title: "Optimización de Perfil en Redes",
-      color: "bg-gradient-to-br from-pink-300 to-pink-400",
-      icon: "✨",
-      description: "Renovamos tu feed, bio, links e historias destacadas, asegurando que tu perfil resuene con la estética de tu marca y atraiga a tu audiencia."
-    },
-    {
-      title: "Creación de Contenido de Alto Impacto",
-      color: "bg-gradient-to-br from-lime-300 to-green-400",
-      icon: "📸",
-      description: "Desde la planificación mensual hasta el diseño de posts e historias, producción de videos atractivos, copys persuasivos, publicación y gestión de mensajes."
-    },
-    {
-      title: "Rediseño de Identidad Visual Potente",
-      color: "bg-gradient-to-br from-orange-400 to-red-400",
-      icon: "🖌️",
-      description: "Analizamos tu marca y proponemos mejoras visuales que incluyen una paleta de colores coherente, tipografías distintivas y piezas gráficas estandarizadas."
-    },
-    {
-      title: "Diseño y Programación de Landing Page",
-      color: "bg-gradient-to-br from-blue-200 to-blue-300",
-      icon: "🌐",
-      description: "Creamos y programamos una landing page simple pero efectiva, perfectamente conectada con tus redes sociales y medios de contacto para maximizar conversiones."
-    },
-    {
-      title: "Diseño Gráfico y Merchandising Exclusivo",
-      color: "bg-gradient-to-br from-yellow-300 to-yellow-400",
-      icon: "🎁",
-      description: "Diseñamos piezas corporativas impactantes, packaging innovador y productos con una identidad profesional que elevan la percepción de tu marca."
-    }
-  ];
+const servicesData = [
+  {
+    title: "Estrategia y plan de comunicación",
+    icon: <img src={Estrategia} alt="Estrategia" className="w-12 h-12" />,
+    description: "Tu marca con rumbo claro. Te ayudamos a ordenar ideas, definir tu voz y armar un plan para que tu comunicación tenga coherencia y resultados.",
+    color: "bg-gradient-to-br from-estrategia to-estrategia/80"
+  },
+  {
+    title: "Identidad de Marca",
+    icon: <img src={Identidad} alt="Identidad de Marca" className="w-12 h-12" />,
+    description: "No es solo un logo. Es quien sos. Creamos marcas con personalidad: desde el nombre hasta cómo se expresa en todos los canales.",
+    color: "bg-gradient-to-br from-identidad to-identidad/80"
+  },
+  {
+    title: "Redes Sociales",
+    icon: <img src={Redes} alt="Redes Sociales" className="w-12 h-12" />,
+    description: "Presencia constante, sin improvisar. Planificamos, diseñamos y gestionamos todo lo que tu marca necesita en redes.",
+    color: "bg-gradient-to-br from-redes to-redes/80"
+  },
+  {
+    title: "Sitios Web",
+    icon: <img src={Web} alt="Sitios Web" className="w-12 h-12" />,
+    description: "Tu lugar en internet, bien hecho. Diseñamos webs pensadas para vender, informar o conectar. Claras, modernas y fáciles de usar.",
+    color: "bg-gradient-to-br from-sitios to-sitios/80"
+  },
+  {
+    title: "Contenido & Eventos",
+    icon: <img src={Contenido} alt="Contenido y Eventos" className="w-12 h-12" />,
+    description: "Lo que hacés, en formato visual. Generamos contenido audiovisual que muestra lo mejor de tu marca y acompañamos eventos desde la estética hasta la cobertura.",
+    color: "bg-gradient-to-br from-contenido to-contenido/80"
+  },
+  {
+    title: "Diseño Gráfico",
+    icon: <img src={Diseno} alt="Diseño Gráfico" className="w-12 h-12" />,
+    description: "Tu marca en todos los formatos. Diseñamos piezas gráficas que acompañan tu identidad en cada punto de contacto: online, físico y en eventos.",
+    color: "bg-gradient-to-br from-diseño to-diseño/80"
+  },
+];
+
 
   const plansData = [
     {
@@ -221,25 +229,35 @@ export default function MacaLandingPage() {
                 className="w-full h-full object-cover rounded-3xl"
               />
             </div>
-            <div className="bg-[#E0BBE4] rounded-3xl p-6 shadow-2xl flex flex-col justify-center items-center text-center relative overflow-hidden min-h-[180px]">
-              <h3 className="text-[#3700ff] font-bold text-lg md:text-xl mb-4">
-                ¿Trabajamos juntos?
-              </h3>
-              <a href="#contacto" className="bg-[#FDFF97] text-[#3700ff] px-6 py-3 rounded-full font-extrabold text-base md:text-lg shadow-xl hover:bg-[#ffe600] transition-colors">
-                Escribinos!
-              </a>
-            </div>
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl min-h-[180px] flex items-center justify-center">
+            <img
+              src={Recurso5}
+              alt="MACA Marketing y Comunicación con Actitud"
+              className="w-full h-full object-cover rounded-3xl"
+            />
+
+            {/* Overlay opcional para oscurecer la foto y dar más contraste al texto */}
+            <div className="absolute inset-0 bg-black/30"></div>
+
+            <h3 className="absolute top-12 w-full text-[#FF4824] font-extrabold text-2xl md:text-3xl text-center">
+              <span>Nuestros </span>
+              <br />
+              <span>Trabajos</span>
+            </h3>
+          </div>
+
+
             <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]" style={{ backgroundImage: `url(${Recurso1})` }}>
               <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
-              <h3 className="font-bold text-xl text-white z-10">Redes</h3>
+              <h3 className="font-bold text-4xl text-white z-10">Redes</h3>
             </div>
             <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]" style={{ backgroundImage: `url(${Recurso2})` }}>
               <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
-              <h3 className="font-bold text-xl text-white z-10">Diseño</h3>
+              <h3 className="font-bold text-4xl text-white z-10">Diseño</h3>
             </div>
-            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]" style={{ backgroundImage: `url(${Recurso3})` }}>
+            <div className="bg-cover bg-center rounded-5xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]" style={{ backgroundImage: `url(${Recurso3})` }}>
               <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
-              <h3 className="font-bold text-xl text-white z-10">Web</h3>
+              <h3 className="font-bold text-4xl text-white z-10">Web</h3>
             </div>
             <div className="md:col-span-2 bg-[#9bdadd] rounded-3xl p-6 shadow-2xl flex flex-col md:flex-row items-center justify-between min-h-[160px] gap-4">
             <div className="flex-shrink-0">
@@ -253,10 +271,18 @@ export default function MacaLandingPage() {
               </p>
             </div>
           </div>
-            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex flex-col justify-end relative overflow-hidden min-h-[160px]" style={{ backgroundImage: 'url("https://via.placeholder.com/400x300/B7E4F9/3700ff?text=Portafolio")' }}>
-              <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
-              <h3 className="font-bold text-xl text-white z-10">Portafolio</h3>
-            </div>
+            <div className="bg-[#c1a7ff] rounded-3xl p-6 shadow-2xl flex flex-col justify-center items-center text-center relative overflow-hidden min-h-[180px]">
+            <h3 className="text-[#2b0057] font-semibold text-lg md:text-xl mb-4 italic">
+              ¿Trabajamos juntos?
+            </h3>
+            <a
+              href="#contacto"
+              className="bg-[#B7F427] text-[#2b0057] px-6 py-3 rounded-full font-extrabold text-base md:text-lg shadow-xl hover:bg-lime-400 transition-colors"
+            >
+              Escribinos!
+            </a>
+          </div>
+
           </div>
         </div>
       </section>
@@ -265,11 +291,15 @@ export default function MacaLandingPage() {
       <section id="servicios" className="py-20 bg-gradient-to-r from-purple-50 to-pink-50 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-extrabold text-[#3700ff] mb-4">Nuestros Servicios</h2>
-            <p className="text-lg text-gray-600">
-              Soluciones integrales para potenciar tu presencia digital con un enfoque creativo.
-            </p>
-          </div>
+            <h2 className="text-4xl font-bold text-[#3700ff] mb-4">¿Qué podemos hacer por tu marca?</h2>
+              <p className="font-poppins font-normal text-lg md:text-xl text-[#2b0057] text-center">
+            Servicios para que tu proyecto crezca con{" "}
+            <span className="font-semibold italic">Identidad</span>,{" "}
+            <span className="font-semibold italic">Claridad</span> y{" "}
+            <span className="font-semibold italic">Actitud</span>.
+          </p>
+
+        </div>
 
           {isMobile ? (
             // Carrusel para dispositivos móviles (descripción visible directamente)
