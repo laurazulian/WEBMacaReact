@@ -259,30 +259,6 @@ const servicesData = [
               <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
               <h3 className="font-bold text-4xl text-white z-10">Web</h3>
             </div>
-            <div className="md:col-span-2 bg-[#9bdadd] rounded-3xl p-6 shadow-2xl flex flex-col md:flex-row items-center justify-between min-h-[160px] gap-4">
-            <div className="flex-shrink-0">
-              <h3 className="text-[#3700ff] font-bold text-xl md:text-2xl mb-0 ">
-                ¿Quién es MACA?
-              </h3>
-            </div>
-            <div className="flex-1 text-left md:text-right">
-              <p className="text-[#3700ff] text-sm md:text-base">
-                Somos un equipo apasionado de mentes creativas, listas para transformar tu marca.
-              </p>
-            </div>
-          </div>
-            <div className="bg-[#c1a7ff] rounded-3xl p-6 shadow-2xl flex flex-col justify-center items-center text-center relative overflow-hidden min-h-[180px]">
-            <h3 className="text-[#2b0057] font-semibold text-lg md:text-xl mb-4 italic">
-              ¿Trabajamos juntos?
-            </h3>
-            <a
-              href="#contacto"
-              className="bg-[#B7F427] text-[#2b0057] px-6 py-3 rounded-full font-extrabold text-base md:text-lg shadow-xl hover:bg-lime-400 transition-colors"
-            >
-              Escribinos!
-            </a>
-          </div>
-
           </div>
         </div>
       </section>
