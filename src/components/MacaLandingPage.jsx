@@ -8,7 +8,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import teamPhoto from '../Fotos/DSC00714.png';
+import teamPhoto from '../Fotos/2nosotras.png';
 import Recurso1 from '../Fotos/Recurso1.png';
 import Recurso2 from '../Fotos/Recurso2.png';
 import Recurso3 from '../Fotos/Recurso3.png';
@@ -19,44 +19,46 @@ import Estrategia from '../Fotos/1Estrategia.png';
 import Identidad from '../Fotos/2Identidad.png';
 import Redes from '../Fotos/3Redes.png';
 import Web from '../Fotos/4Web.png';
+import Diseno from "../Fotos/6Diseno.png";
+
 import Contenido from '../Fotos/5Contenido.png';
-import Diseno from '../Fotos/6Diseno.png';
+import imgLu from "../Fotos/LU_QUEVEDO_CERAMICA.png";
+import imgParamitas from "../Fotos/PARAMITAS.png";
+import imgUrutrek from "../Fotos/URUTREK.png";
+import img3dmazz from "../Fotos/3DMAZZ.png";
 
 export default function MacaLandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
-  const vipClients = [
-    {
-      name: "Lu Quevedo Cerámica",
-      username: "lucilaquevedoceramica_",
-      initial: "L",
-      bgColor: "bg-gradient-to-r from-purple-500 to-pink-500",
-      testimonial: "Increíble trabajo en el desarrollo de mi tienda online. La atención al detalle es excepcional."
-    },
-    {
-      name: "Paramitas Uspallata",
-      username: "paramitas.uspallata",
-      initial: "P",
-      bgColor: "bg-gradient-to-r from-blue-500 to-purple-500",
-      testimonial: "Profesionalismo y creatividad en cada proyecto. Superaron mis expectativas completamente."
-    },
-    {
-      name: "Urutrek",
-      username: "urutrek",
-      initial: "U",
-      bgColor: "bg-gradient-to-r from-green-500 to-blue-500",
-      testimonial: "El mejor equipo para desarrollo web. Resultados que realmente impulsan el negocio."
-    },
-    {
-      name: "3dmazz",
-      username: "3dmazz",
-      initial: "3",
-      bgColor: "bg-gradient-to-r from-orange-500 to-red-500",
-      testimonial: "Innovación y tecnología de primera. Mi proyecto web quedó espectacular."
-    }
-  ];
+ const vipClients = [
+  {
+    name: "Lu Quevedo Cerámica",
+    username: "lucilaquevedoceramica_",
+    image: imgLu, // ruta local o URL externa
+    testimonial: "Trabajar con el equipo de Las Maca es una experiencia muy enriquecedora. Valoro su visión creativa, su dedicación y su compromiso por hacer crecer mi emprendimiento. Las elijo y súper recomiendo :)"
+  },
+  {
+    name: "Paramitas Uspallata",
+    username: "paramitas.uspallata",
+    image: imgParamitas,
+    testimonial: "Profesionalismo y creatividad en cada proyecto. Superaron mis expectativas completamente."
+  },
+  {
+    name: "Urutrek",
+    username: "urutrek",
+    image: imgUrutrek,
+    testimonial: "El mejor equipo para desarrollo web. Resultados que realmente impulsan el negocio."
+  },
+  {
+    name: "3dmazz",
+    username: "3dmazz",
+    image: img3dmazz,
+    testimonial: "Innovación y tecnología de primera. Mi proyecto web quedó espectacular."
+  }
+];
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -375,17 +377,26 @@ const servicesData = [
       <section id="equipo" className="py-20 bg-white px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-extrabold text-[#3700ff] mb-4">Nuestro Equipo Apasionado</h2>
-            <p className="text-lg text-gray-600">Conocé a las mentes creativas detrás de MACA que harán realidad tus ideas.</p>
+           {/*  <h2 className="text-4xl font-extrabold text-[#3700ff] mb-4">Nuestro Equipo Apasionado</h2>
+            <p className="text-lg text-gray-600">Conocé a las mentes creativas detrás de MACA que harán realidad tus ideas.</p>*/}
           </div>
 
-          <div className="max-w-6xl mx-auto text-center bg-gray-50 p-8 rounded-3xl shadow-xl border-t-8 border-pink-400">
+          <div className="max-w-6xl mx-auto text-center bg-gray-50 p-8 rounded-3xl shadow-xl border border-pink-400">
             <img src={teamPhoto} alt="Equipo MACA" className="w-full rounded-md shadow-md mb-6 object-cover" style={{ maxHeight: '500px' }} />
-            <h3 className="text-3xl font-extrabold text-[#3700ff] mb-4">Las Mentes Detrás de tu Éxito</h3>
+            <h3 className="text-3xl font-extrabold text-[#3700ff] mb-4">MACA somos Lau, Cami y Vale</h3>
             <p className="text-gray-700 text-lg">
-              Somos un trío dinámico de mentes creativas, expertas en marketing, comunicación y diseño.
-              Trabajamos en perfecta armonía para transformar tus ideas en resultados tangibles y espectaculares.
+              <strong>Tres miradas distintas unidas por una misma idea: que la comunicación puede transformar marcas y abrir caminos.</strong>
+              {/* <br />
+              Cami convierte conceptos en diseño, para que cada detalle tenga sentido y emoción.
+              <br />
+              Lau combina programación y comunicación, creando experiencias digitales que funcionan y dejan huella.
+              <br />
+              Vale conecta desde redes y video, llevando mensajes que inspiran y generan cercanía real.
+              <br />*/}
+              <br />
+              Creemos en la fuerza de las ideas bien contadas. Por eso trabajamos juntas: para que tu marca tenga voz, identidad y futuro.
             </p>
+
           </div>
         </div>
       </section>
@@ -394,8 +405,8 @@ const servicesData = [
       <section className="py-20 bg-gradient-to-r from-purple-100 to-pink-100 px-6" id="clientes">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-extrabold text-[#3700ff] mb-4">Nuestros Clientes VIP</h2>
-            <p className="text-lg text-gray-600">Marcas increíbles que ya confían en el poder de MACA.</p>
+            <h2 className="text-4xl font-extrabold text-[#3700ff] mb-4">Nuestros Clientes</h2>
+            <p className="text-lg text-gray-600">Proyectos y marcas con quienes trabajamos.</p>
           </div>
 
           {isMobile ? (
@@ -411,11 +422,15 @@ const servicesData = [
               }}
               className="pb-10"
             >
-              {vipClients.map((client, index) => (
+             {vipClients.map((client, index) => (
                 <SwiperSlide key={index} className="h-full">
                   <div className="bg-white p-6 rounded-3xl shadow-lg border-2 border-pink-300 h-full">
-                    <div className={`w-20 h-20 ${client.bgColor} rounded-full mx-auto mb-4 flex items-center justify-center text-3xl font-bold text-white shadow-md`}>
-                      {client.initial}
+                    <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden shadow-md">
+                      <img
+                        src={client.image}
+                        alt={client.name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <h3 className="text-xl font-extrabold text-[#3700ff] mb-2 text-center">
                       <a
@@ -427,18 +442,32 @@ const servicesData = [
                         {client.name}
                       </a>
                     </h3>
-                    <p className="text-gray-600 text-base text-center italic">"{client.testimonial}"</p>
+                    <p className="text-gray-600 text-base text-center italic">
+                      "{client.testimonial}"
+                    </p>
                   </div>
                 </SwiperSlide>
               ))}
+
             </Swiper>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {vipClients.map((client, index) => (
                 <div key={index} className="bg-white p-6 rounded-3xl shadow-lg border-b-4 border-l-4 border-transparent hover:border-pink-500 transition-all duration-300 transform hover:scale-105">
-                  <div className={`w-20 h-20 ${client.bgColor} rounded-full mx-auto mb-4 flex items-center justify-center text-3xl font-bold text-white shadow-md border-2 border-pink-300`}>
-                    {client.initial}
+                  <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden shadow-md">
+                    {client.image ? (
+                      <img
+                        src={client.image}
+                        alt={client.name}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className={`w-20 h-20 ${client.bgColor || 'bg-gradient-to-r from-purple-400 via-pink-500 to-red-500'} rounded-full flex items-center justify-center text-3xl font-bold text-white`}>
+                        {client.initial}
+                      </div>
+                    )}
                   </div>
+
                   <h3 className="text-xl font-extrabold text-[#3700ff] mb-2 text-center">
                     <a
                       href={`https://instagram.com/${client.username}`}
