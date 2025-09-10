@@ -20,7 +20,6 @@ import Identidad from '../Fotos/2Identidad.png';
 import Redes from '../Fotos/3Redes.png';
 import Web from '../Fotos/4Web.png';
 import Diseno from "../Fotos/6Diseno.png";
-
 import Contenido from '../Fotos/5Contenido.png';
 import imgLu from "../Fotos/LU_QUEVEDO_CERAMICA.png";
 import imgParamitas from "../Fotos/PARAMITAS.png";
@@ -82,7 +81,7 @@ export default function MacaLandingPage() {
 
 const servicesData = [
   {
-    title: "Estrategia y plan de comunicación",
+    title: "Estrategia & Comunicación",
     icon: <img src={Estrategia} alt="Estrategia" className="w-12 h-12" />,
     description: "Tu marca con rumbo claro. Te ayudamos a ordenar ideas, definir tu voz y armar un plan para que tu comunicación tenga coherencia y resultados.",
     color: "bg-gradient-to-br from-estrategia to-estrategia/80"
@@ -126,15 +125,20 @@ const servicesData = [
       borderColor: "border-blue-400",
       bgColor: "bg-gradient-to-br from-blue-50 to-blue-100",
       items: [
-        "Estrategia digital básica",
-        "Gestión de redes (contenido)",
-        "1 sesión de fotos",
-        "3 videos de reel",
-        "3 diseños gráficos",
-        "15 historias creativas",
-        "*Sin moderación de comentarios"
-      ]
-    },
+  <>
+            <strong>Planificación y publicación:</strong> 
+          </>,
+          "4 videos dinámicos",
+          "3 carruseles para contar más en cada publicación",
+          "2 posteos estáticos con fotos.",
+          "10 a 20 historias para mantener la interacción",
+          <>
+            <strong>Publicidad digital:</strong> 1 campaña de Meta Ads para ampliar tu alcance y atraer más clientes.
+          </>
+        ]
+
+      },
+
     {
       title: "A LO MACA",
       borderColor: "border-pink-400",
@@ -501,7 +505,7 @@ const servicesData = [
               PEDÍ TU PRESUPUESTO
             </a>
             <a
-              href="https://wa.me/549261XXXXXXX" // Reemplaza con tu número de WhatsApp real, incluyendo el código de país. Ejemplo: +54 9 261 XXXXXXX
+              href="https://wa.me/5492634357935" // Reemplaza con tu número de WhatsApp real, incluyendo el código de país. Ejemplo: +54 9 261 XXXXXXX
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-green-500 text-white px-10 py-5 rounded-lg font-bold text-lg hover:bg-green-600 transition-all transform hover:scale-105 shadow-lg"
@@ -524,7 +528,7 @@ const servicesData = [
 
 function PlanCard({ title, items, borderColor, bgColor, popular = false, customBorderClass = "" }) {
   return (
-    <div className={`${bgColor} p-6 rounded-3xl shadow-lg border-l-8 ${borderColor} relative hover:transform hover:scale-105 transition-all duration-300 flex flex-col justify-between ${customBorderClass}`}>
+    <div className={`${bgColor} p-6 rounded-3xl shadow-lg border ${borderColor} relative hover:transform hover:scale-105 transition-all duration-300 flex flex-col justify-between ${customBorderClass}`}>
       {popular && (
         <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-pink-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">
           ¡Más Popular!
@@ -539,11 +543,15 @@ function PlanCard({ title, items, borderColor, bgColor, popular = false, customB
           </li>
         ))}
       </ul>
-      <div className="mt-6 text-center">
-        <button className="bg-[#3700ff] text-white px-6 py-3 rounded-full font-bold text-sm hover:bg-purple-700 transition-colors shadow-md">
-          Elegir Plan
-        </button>
-      </div>
+        <div className="mt-6 text-center">
+      <button
+        onClick={() => window.open("https://wa.me/5492634357935", "_blank")}
+        className="bg-[#3700ff] text-white px-6 py-3 rounded-full font-bold text-sm hover:bg-purple-700 transition-colors shadow-md"
+      >
+        + Info
+      </button>
+    </div>
+
     </div>
   );
 }
