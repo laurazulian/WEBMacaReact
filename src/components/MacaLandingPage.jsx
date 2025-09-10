@@ -261,7 +261,7 @@ const servicesData = [
               <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
               <h3 className="font-bold text-4xl text-white z-10">Diseño</h3>
             </div>
-            <div className="bg-cover bg-center rounded-5xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]" style={{ backgroundImage: `url(${Recurso3})` }}>
+             <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]" style={{ backgroundImage: `url(${Recurso3})` }}>
               <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
               <h3 className="font-bold text-4xl text-white z-10">Web</h3>
             </div>
