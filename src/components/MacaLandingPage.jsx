@@ -145,38 +145,43 @@ const servicesData = [
       bgColor: "bg-gradient-to-br from-pink-50 to-pink-100",
       popular: true,
       items: [
-        "Estrategia completa y avanzada",
-        "Gestión de redes integral",
-        "1 sesión de fotos profesional",
-        "6 videos de reel/TikTok",
-        "6 diseños gráficos premium",
-        "30 historias dinámicas",
-        "¡Incluye moderación de comentarios!"
-      ]
+  <>
+            <strong>Planificación y publicación:</strong> 
+          </>,
+          <strong> Moderación de comentarios</strong>,
+          "8 videos dinámicos",
+          "6 carruseles para contar más en cada publicación",
+          "4 posteos estáticos con fotos",
+          "20 a 30 historias para mantener la interacción.",
+          <>
+            <strong>Publicidad digital:</strong> 3 campañas de Meta Ads para ampliar tu alcance y atraer más clientes.
+          </>
+        ]
     },
     {
-      title: "PLAN EVENTO",
+      title: "IDENTIDAD",
       borderColor: "border-yellow-400",
       bgColor: "bg-gradient-to-br from-yellow-50 to-yellow-100",
       items: [
-        "1 flyer promocional + historia",
-        "3 videos cortos del evento",
-        "30 fotos capturadas con iPhone",
-        "Cobertura del evento en tiempo real",
-        "*No incluye viáticos de traslado"
+
+       <strong>Plan de comunicación + desarrollo de marca </strong>,
+        "Análisis de la competencia",
+        "Auditoría de redes",
+        "Objetivos de negocios",
+        "Estrategia digital",
+        "Manual de marca",
+        "Pilares de contenido",
       ]
     },
     {
-      title: "PLAN IDENTIDAD",
+      title: "FULL MACA",
       borderColor: "border-purple-500",
       bgColor: "bg-gradient-to-br from-purple-50 to-purple-100",
       items: [
-        "Desarrollo de identidad visual completa",
-        "Diseño y desarrollo de Landing Page",
-        "Kit de redes sociales profesional",
-        "Estrategia digital inicial",
-        "Producción de contenido de marca",
-        "*No incluye hosting ni dominio"
+        <strong>Plan de comunicación + desarrollo de marca + Landing + Redes sociales</strong>,
+        "Todo lo del plan “identidad",
+        "Desarrollo de landing page para darle el paso profesional que tu marca necesita",
+        "Y 15% off por tres meses en el Plan de redes que elijas",
       ]
     }
   ];
@@ -245,7 +250,7 @@ const servicesData = [
             {/* Overlay opcional para oscurecer la foto y dar más contraste al texto */}
             <div className="absolute inset-0 bg-black/30"></div>
 
-            <h3 className="absolute top-12 w-full text-[#FF4824] font-extrabold text-2xl md:text-3xl text-center">
+            <h3 className="absolute top-12 w-full text-[#FF4824] font-bold text-2xl md:text-3xl text-center">
               <span>Nuestros </span>
               <br />
               <span>Trabajos</span>
@@ -253,18 +258,36 @@ const servicesData = [
           </div>
 
 
-            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]" style={{ backgroundImage: `url(${Recurso1})` }}>
-              <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
-              <h3 className="font-bold text-4xl text-white z-10">Redes</h3>
-            </div>
-            <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]" style={{ backgroundImage: `url(${Recurso2})` }}>
-              <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
-              <h3 className="font-bold text-4xl text-white z-10">Diseño</h3>
-            </div>
-             <div className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]" style={{ backgroundImage: `url(${Recurso3})` }}>
-              <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
-              <h3 className="font-bold text-4xl text-white z-10">Web</h3>
-            </div>
+            <a href="#planes" className="block mb-4">
+              <div
+                className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]"
+                style={{ backgroundImage: `url(${Recurso1})` }}
+              >
+                <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
+                <h3 className="font-bold text-4xl text-white z-10">Redes</h3>
+              </div>
+            </a>
+
+            <a href="#planes" className="block mb-4">
+              <div
+                className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]"
+                style={{ backgroundImage: `url(${Recurso2})` }}
+              >
+                <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
+                <h3 className="font-bold text-4xl text-white z-10">Diseño</h3>
+              </div>
+            </a>
+
+            <a href="#planes" className="block">
+              <div
+                className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]"
+                style={{ backgroundImage: `url(${Recurso3})` }}
+              >
+                <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
+                <h3 className="font-bold text-4xl text-white z-10">Web</h3>
+              </div>
+            </a>
+
           </div>
         </div>
       </section>
@@ -303,7 +326,7 @@ const servicesData = [
                     <div className="flex items-start gap-4 mb-4">
                       <div className="text-5xl">{service.icon}</div>
                       <div className="flex-1">
-                        <h3 className="font-extrabold text-xl text-[#3700ff] mb-2 leading-tight">{service.title}</h3>
+                        <h3 className="font-bold text-xl text-[#3700ff] mb-2 leading-tight">{service.title}</h3>
                       </div>
                     </div>
                     <p className="text-sm text-gray-700 opacity-90">{service.description}</p>
@@ -321,7 +344,7 @@ const servicesData = [
                     {/* Contenido visible siempre (icono y título) */}
                     <div className="flex flex-col items-center gap-4 mb-4">
                       <div className="text-5xl group-hover:rotate-3 transition-transform duration-300">{service.icon}</div>
-                      <h3 className="font-extrabold text-xl md:text-2xl text-[#3700ff] mb-0 leading-tight">{service.title}</h3>
+                      <h3 className="font-bold text-xl md:text-2xl text-[#3700ff] mb-0 leading-tight">{service.title}</h3>
                     </div>
 
                     {/* Pop-up (Tooltip) de la descripción */}
@@ -344,7 +367,7 @@ const servicesData = [
       <section id="planes" className="py-20 bg-[#f3eaff] px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-extrabold text-[#3700ff] mb-4">Nuestros Planes a Medida</h2>
+            <h2 className="text-4xl font-bold text-[#3700ff] mb-4">Nuestros planes a medida</h2>
             <p className="text-lg text-gray-600 mb-8">Elegí la opción perfecta que impulsa tu negocio al siguiente nivel.</p>
           </div>
 
@@ -387,7 +410,7 @@ const servicesData = [
 
           <div className="max-w-6xl mx-auto text-center bg-gray-50 p-8 rounded-3xl shadow-xl border border-pink-400">
             <img src={teamPhoto} alt="Equipo MACA" className="w-full rounded-md shadow-md mb-6 object-cover" style={{ maxHeight: '500px' }} />
-            <h3 className="text-3xl font-extrabold text-[#3700ff] mb-4">MACA somos Lau, Cami y Vale</h3>
+            <h3 className="text-3xl font-bold text-[#3700ff] mb-4">MACA somos Lau, Cami y Vale</h3>
             <p className="text-gray-700 text-lg">
               <strong>Tres miradas distintas unidas por una misma idea: que la comunicación puede transformar marcas y abrir caminos.</strong>
               {/* <br />
@@ -409,7 +432,7 @@ const servicesData = [
       <section className="py-20 bg-gradient-to-r from-purple-100 to-pink-100 px-6" id="clientes">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-extrabold text-[#3700ff] mb-4">Nuestros Clientes</h2>
+            <h2 className="text-4xl font-bold text-[#3700ff] mb-4">Nuestros clientes</h2>
             <p className="text-lg text-gray-600">Proyectos y marcas con quienes trabajamos.</p>
           </div>
 
@@ -436,7 +459,7 @@ const servicesData = [
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <h3 className="text-xl font-extrabold text-[#3700ff] mb-2 text-center">
+                    <h3 className="text-xl font-bold text-[#3700ff] mb-2 text-center">
                       <a
                         href={`https://instagram.com/${client.username}`}
                         target="_blank"
@@ -472,7 +495,7 @@ const servicesData = [
                     )}
                   </div>
 
-                  <h3 className="text-xl font-extrabold text-[#3700ff] mb-2 text-center">
+                  <h3 className="text-xl font-bold text-[#3700ff] mb-2 text-center">
                     <a
                       href={`https://instagram.com/${client.username}`}
                       target="_blank"
@@ -499,7 +522,7 @@ const servicesData = [
           </p>
           <div className="space-y-6 md:space-y-0 md:space-x-6 md:flex md:justify-center">
             <a
-              href="mailto:info@maca.com"
+              href="maca.equipo@gmail.com"
               className="inline-block bg-white text-[#3700ff] px-10 py-5 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
             >
               PEDÍ TU PRESUPUESTO
@@ -534,7 +557,7 @@ function PlanCard({ title, items, borderColor, bgColor, popular = false, customB
           ¡Más Popular!
         </div>
       )}
-      <h3 className="text-2xl font-extrabold text-[#3700ff] mb-4 italic text-center">{title}</h3>
+      <h3 className="text-2xl font-bold text-[#3700ff] mb-4 italic text-center">{title}</h3>
       <ul className="text-sm text-gray-700 space-y-3 flex-grow">
         {items.map((item, index) => (
           <li key={index} className="flex items-start">
