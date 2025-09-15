@@ -35,7 +35,7 @@ export default function MacaLandingPage() {
  const vipClients = [
   {
     name: "Lu Quevedo Cerámica",
-    username: "lucilaquevedoceramica_",
+    username: "lucilaquevedoceramica_/",
     image: imgLu, // ruta local o URL externa
     testimonial: "Trabajar con el equipo de Las Maca es una experiencia muy enriquecedora. Valoro su visión creativa, su dedicación y su compromiso por hacer crecer mi emprendimiento. Las elijo y súper recomiendo :)"
   },
