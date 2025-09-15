@@ -8,13 +8,14 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import teamPhoto from '../Fotos/2nosotras.png';
+import teamPhoto from '../Fotos/nosotras.png';
 import Recurso1 from '../Fotos/Recurso1.png';
 import Recurso2 from '../Fotos/Recurso2.png';
 import Recurso3 from '../Fotos/Recurso3.png';
 import Recurso4 from '../Fotos/Recurso4.gif';
 import LogoMaca from '../Fotos/LOGOMACA.png';
 import Recurso5 from '../Fotos/Recurso5.png';
+import Recurso6 from '../Fotos/Recurso6.gif';
 import Estrategia from '../Fotos/1Estrategia.png';
 import Identidad from '../Fotos/2Identidad.png';
 import Redes from '../Fotos/3Redes.png';
@@ -128,11 +129,14 @@ const servicesData = [
   <>
             <strong>Planificación y publicación:</strong> 
           </>,
-          "4 videos dinámicos",
-          "3 carruseles para contar más en cada publicación",
+          "Planificación y publicación :",
+          "4 videos dinámicos.",
+          "3 carruseles.",
           "2 posteos estáticos con fotos.",
-          "10 a 20 historias para mantener la interacción",
-          <>
+          "10 a 20 historias.",
+          "Publicidad digital:",
+          "1 campaña de Meta Ads para ampliar tu alcance y atraer más clientes.",
+                    <>
             <strong>Publicidad digital:</strong> 1 campaña de Meta Ads para ampliar tu alcance y atraer más clientes.
           </>
         ]
@@ -228,69 +232,81 @@ const servicesData = [
 
       <div className="h-16"></div>
 
-      {/* Hero Section - Espacio reducido */}
+      
       {/* Hero Section - Con GIF */}
-      <section id="inicio" className="bg-[#0000FF] p-6 py-12 flex items-center justify-center text-center">
-        <div className="max-w-7xl mx-auto w-full">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
-            <div className="md:col-span-2 bg-black rounded-3xl shadow-2xl flex flex-col justify-center relative overflow-hidden min-h-[300px] md:min-h-[320px]">
-              <img
-                src={Recurso4}
-                alt="MACA Marketing y Comunicación con Actitud"
-                className="w-full h-full object-cover rounded-3xl"
-              />
-            </div>
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl min-h-[180px] flex items-center justify-center">
-            <img
-              src={Recurso5}
-              alt="MACA Marketing y Comunicación con Actitud"
-              className="w-full h-full object-cover rounded-3xl"
-            />
+<section
+  id="inicio"
+  className="bg-[#0000FF] p-6 py-12 flex items-center justify-center text-center"
+>
+  <div className="max-w-7xl mx-auto w-full">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
+      {/* Bloque grande con cambio Recurso4 ↔ Recurso6 */}
+      <div className="md:col-span-2 bg-black rounded-3xl shadow-2xl flex flex-col justify-center relative overflow-hidden min-h-[300px] md:min-h-[320px]">
+        {/* Mobile: Recurso6 */}
+        <img
+          src={Recurso6}
+          alt="MACA Marketing y Comunicación con Actitud"
+          className="w-full h-full object-cover rounded-3xl md:hidden"
+        />
+        {/* Desktop: Recurso4 */}
+        <img
+          src={Recurso4}
+          alt="MACA Marketing y Comunicación con Actitud"
+          className="w-full h-full object-cover rounded-3xl hidden md:block"
+        />
+      </div>
 
-            {/* Overlay opcional para oscurecer la foto y dar más contraste al texto */}
-            <div className="absolute inset-0 bg-black/30"></div>
+      {/* Bloque lateral con Recurso5 */}
+      <div className="relative rounded-3xl overflow-hidden shadow-2xl min-h-[180px] flex items-center justify-center">
+        <img
+          src={Recurso5}
+          alt="MACA Marketing y Comunicación con Actitud"
+          className="w-full h-full object-cover rounded-3xl"
+        />
+        <div className="absolute inset-0 bg-black/30"></div>
+        <h3 className="absolute top-12 w-full text-[#FF4824] font-bold text-2xl md:text-3xl text-center">
+          <span>Nuestros </span>
+          <br />
+          <span>Trabajos</span>
+        </h3>
+      </div>
+    </div>
 
-            <h3 className="absolute top-12 w-full text-[#FF4824] font-bold text-2xl md:text-3xl text-center">
-              <span>Nuestros </span>
-              <br />
-              <span>Trabajos</span>
-            </h3>
-          </div>
-
-
-            <a href="#planes" className="block mb-4">
-              <div
-                className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]"
-                style={{ backgroundImage: `url(${Recurso1})` }}
-              >
-                <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
-                <h3 className="font-bold text-4xl text-white z-10">Redes</h3>
-              </div>
-            </a>
-
-            <a href="#planes" className="block mb-4">
-              <div
-                className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]"
-                style={{ backgroundImage: `url(${Recurso2})` }}
-              >
-                <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
-                <h3 className="font-bold text-4xl text-white z-10">Diseño</h3>
-              </div>
-            </a>
-
-            <a href="#planes" className="block">
-              <div
-                className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]"
-                style={{ backgroundImage: `url(${Recurso3})` }}
-              >
-                <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
-                <h3 className="font-bold text-4xl text-white z-10">Web</h3>
-              </div>
-            </a>
-
-          </div>
+    {/* Cards de abajo */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+      <a href="#planes" className="block">
+        <div
+          className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]"
+          style={{ backgroundImage: `url(${Recurso1})` }}
+        >
+          <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
+          <h3 className="font-bold text-4xl text-white z-10">Redes</h3>
         </div>
-      </section>
+      </a>
+
+      <a href="#planes" className="block">
+        <div
+          className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]"
+          style={{ backgroundImage: `url(${Recurso2})` }}
+        >
+          <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
+          <h3 className="font-bold text-4xl text-white z-10">Diseño</h3>
+        </div>
+      </a>
+
+      <a href="#planes" className="block">
+        <div
+          className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]"
+          style={{ backgroundImage: `url(${Recurso3})` }}
+        >
+          <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
+          <h3 className="font-bold text-4xl text-white z-10">Web</h3>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
 
       {/* Services Section - Carrusel en móvil, Grid en desktop con Tooltip */}
       <section id="servicios" className="py-20 bg-gradient-to-r from-purple-50 to-pink-50 px-6">
