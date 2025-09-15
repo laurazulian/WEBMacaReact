@@ -121,74 +121,77 @@ const servicesData = [
 
 
   const plansData = [
-    {
-      title: "PLAN LOW",
-      borderColor: "border-blue-400",
-      bgColor: "bg-gradient-to-br from-blue-50 to-blue-100",
-      items: [
-  <>
-            <strong>Planificación y publicación:</strong> 
-          </>,
-          "Planificación y publicación :",
-          "4 videos dinámicos.",
-          "3 carruseles.",
-          "2 posteos estáticos con fotos.",
-          "10 a 20 historias.",
-          "Publicidad digital:",
-          "1 campaña de Meta Ads para ampliar tu alcance y atraer más clientes.",
-                    <>
-            <strong>Publicidad digital:</strong> 1 campaña de Meta Ads para ampliar tu alcance y atraer más clientes.
-          </>
-        ]
-
-      },
-
-    {
-      title: "A LO MACA",
-      borderColor: "border-pink-400",
-      bgColor: "bg-gradient-to-br from-pink-50 to-pink-100",
-      popular: true,
-      items: [
-  <>
-            <strong>Planificación y publicación:</strong> 
-          </>,
-          <strong> Moderación de comentarios</strong>,
-          "8 videos dinámicos",
-          "6 carruseles para contar más en cada publicación",
-          "4 posteos estáticos con fotos",
-          "20 a 30 historias para mantener la interacción.",
-          <>
-            <strong>Publicidad digital:</strong> 3 campañas de Meta Ads para ampliar tu alcance y atraer más clientes.
-          </>
-        ]
-    },
-    {
-      title: "IDENTIDAD",
-      borderColor: "border-yellow-400",
-      bgColor: "bg-gradient-to-br from-yellow-50 to-yellow-100",
-      items: [
-
-       <strong>Plan de comunicación + desarrollo de marca </strong>,
-        "Análisis de la competencia",
-        "Auditoría de redes",
-        "Objetivos de negocios",
-        "Estrategia digital",
-        "Manual de marca",
-        "Pilares de contenido",
-      ]
-    },
-    {
-      title: "FULL MACA",
-      borderColor: "border-purple-500",
-      bgColor: "bg-gradient-to-br from-purple-50 to-purple-100",
-      items: [
-        <strong>Plan de comunicación + desarrollo de marca + Landing + Redes sociales</strong>,
-        "Todo lo del plan “identidad",
-        "Desarrollo de landing page para darle el paso profesional que tu marca necesita",
-        "Y 15% off por tres meses en el Plan de redes que elijas",
-      ]
-    }
-  ];
+  {
+    title: "Redes LOW",
+    borderColor: "border-blue-400",
+    bgColor: "bg-gradient-to-br from-blue-50 to-blue-100",
+    items: [
+      <p className="font-bold italic">
+        Ideal para quienes quieren estar presentes en redes de forma simple y constante.
+      </p>,
+      <strong>Planificación y publicación:</strong>,
+      "4 videos dinámicos.",
+      "3 carruseles.",
+      "2 posteos estáticos con fotos.",
+      "10 a 20 historias.",
+      <>
+        <strong>Publicidad digital:</strong> 1 campaña de Meta Ads para ampliar tu alcance y atraer más clientes.
+      </>
+    ]
+  },
+  {
+    title: "Redes A lo MACA",
+    borderColor: "border-pink-400",
+    bgColor: "bg-gradient-to-br from-pink-50 to-pink-100",
+    items: [
+      <p className="font-bold italic">
+        Para empezar a jugar en otra liga. Pensado para marcas que quieren hacer ruido y crecer en comunidad.
+      </p>,
+      <strong>Planificación y publicación:</strong>,
+      <strong>Moderación de comentarios</strong>,
+      "8 videos dinámicos",
+      "6 carruseles",
+      "4 posteos estáticos con fotos",
+      "20 a 30 historias.",
+      <>
+        <strong>Publicidad digital:</strong> 3 campañas de Meta Ads para ampliar tu alcance y atraer más clientes.
+      </>
+    ]
+  },
+  {
+    title: "Identidad",
+    borderColor: "border-yellow-400",
+    bgColor: "bg-gradient-to-br from-yellow-50 to-yellow-100",
+    items: [
+      <p className="font-bold italic">
+        Una base sólida que toda marca necesita antes de salir a mostrarse.
+      </p>,
+      <strong>Plan de comunicación + desarrollo de marca</strong>,
+      "Análisis de la competencia",
+      "Auditoría de redes",
+      "Definición de objetivos",
+      "Estrategia digital",
+      "Manual de marca",
+      "Pilares de contenido"
+    ]
+  },
+  {
+    title: "Full MACA",
+    borderColor: "border-purple-500",
+    bgColor: "bg-gradient-to-br from-purple-50 to-purple-100",
+    badge: "Recomendado",
+    items: [
+      <p className="font-bold italic">
+        Una base sólida que toda marca necesita antes de salir a mostrarse.
+      </p>,
+      <strong>
+        Plan de comunicación + desarrollo de marca + Landing + Redes sociales
+      </strong>,
+      "Todo lo del plan Identidad + Desarrollo de página web para dar un salto profesional.",
+      "15% off por 3 meses en el plan de redes que elijas."
+    ]
+  }
+];
 
   return (
     <div className="font-sans text-gray-800">
@@ -565,15 +568,21 @@ const servicesData = [
   );
 }
 
-function PlanCard({ title, items, borderColor, bgColor, popular = false, customBorderClass = "" }) {
+function PlanCard({ title, items, borderColor, bgColor, badge = null, customBorderClass = "" }) {
   return (
-    <div className={`${bgColor} p-6 rounded-3xl shadow-lg border ${borderColor} relative hover:transform hover:scale-105 transition-all duration-300 flex flex-col justify-between ${customBorderClass}`}>
-      {popular && (
+    <div
+      className={`${bgColor} p-6 rounded-3xl shadow-lg border ${borderColor} relative hover:transform hover:scale-105 transition-all duration-300 flex flex-col justify-between ${customBorderClass}`}
+    >
+      {badge && (
         <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-pink-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">
-          ¡Más Popular!
+          {badge}
         </div>
       )}
-      <h3 className="text-2xl font-bold text-[#3700ff] mb-4 italic text-center">{title}</h3>
+
+      <h3 className="text-2xl font-bold text-[#3700ff] mb-4 italic text-center">
+        {title}
+      </h3>
+
       <ul className="text-sm text-gray-700 space-y-3 flex-grow">
         {items.map((item, index) => (
           <li key={index} className="flex items-start">
@@ -582,15 +591,15 @@ function PlanCard({ title, items, borderColor, bgColor, popular = false, customB
           </li>
         ))}
       </ul>
-        <div className="mt-6 text-center">
-      <button
-        onClick={() => window.open("https://wa.me/5492634357935", "_blank")}
-        className="bg-[#3700ff] text-white px-6 py-3 rounded-full font-bold text-sm hover:bg-purple-700 transition-colors shadow-md"
-      >
-        + Info
-      </button>
-    </div>
 
+      <div className="mt-6 text-center">
+        <button
+          onClick={() => window.open("https://wa.me/5492634357935", "_blank")}
+          className="bg-[#3700ff] text-white px-6 py-3 rounded-full font-bold text-sm hover:bg-purple-700 transition-colors shadow-md"
+        >
+          + Info
+        </button>
+      </div>
     </div>
   );
 }
