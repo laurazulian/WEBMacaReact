@@ -123,8 +123,8 @@ const servicesData = [
   const plansData = [
   {
     title: "Redes LOW",
-    borderColor: "border-blue-400",
-    bgColor: "bg-gradient-to-br from-blue-50 to-blue-100",
+    borderColor: "border-pink-400",
+    bgColor:"bg-[#ffd1a4]",
     items: [
       <p className="font-bold italic">
         Ideal para quienes quieren estar presentes en redes de forma simple y constante.
@@ -142,7 +142,7 @@ const servicesData = [
   {
     title: "Redes A lo MACA",
     borderColor: "border-pink-400",
-    bgColor: "bg-gradient-to-br from-pink-50 to-pink-100",
+    bgColor:"bg-[#9bdadd]",
     items: [
       <p className="font-bold italic">
         Para empezar a jugar en otra liga. Pensado para marcas que quieren hacer ruido y crecer en comunidad.
@@ -160,8 +160,8 @@ const servicesData = [
   },
   {
     title: "Identidad",
-    borderColor: "border-yellow-400",
-    bgColor: "bg-gradient-to-br from-yellow-50 to-yellow-100",
+    borderColor: "border-pink-400",
+    bgColor:"bg-[#ffccf4]",
     items: [
       <p className="font-bold italic">
         Una base sólida que toda marca necesita antes de salir a mostrarse.
@@ -177,8 +177,8 @@ const servicesData = [
   },
   {
     title: "Full MACA",
-    borderColor: "border-purple-500",
-    bgColor: "bg-gradient-to-br from-purple-50 to-purple-100",
+    borderColor: "border-pink-400",
+    bgColor:"bg-[#edffab]",
     badge: "Recomendado",
     items: [
       <p className="font-bold italic">
@@ -206,7 +206,7 @@ const servicesData = [
               <li><a href="#planes" className="text-[#0000FF] hover:underline transition-all">Planes</a></li>
               <li><a href="#equipo" className="text-[#0000FF] hover:underline transition-all">Equipo</a></li>
               <li><a href="#contacto" className="text-[#0000FF] hover:underline transition-all">Contacto</a></li>
-              <li><a href="https://behance.net/maca" target="_blank" rel="noopener noreferrer" className="text-[#0000FF] hover:underline transition-all">Behance</a></li>
+              {/*<li><a href="https://behance.net/maca" target="_blank" rel="noopener noreferrer" className="text-[#0000FF] hover:underline transition-all">Behance</a></li>*/}
             </ul>
           </div>
           <button
@@ -227,7 +227,7 @@ const servicesData = [
               <li><a href="#planes" className="block py-2 text-[#0000FF] hover:underline" onClick={handleMenuClick}>Planes</a></li>
               <li><a href="#equipo" className="block py-2 text-[#0000FF] hover:underline" onClick={handleMenuClick}>Equipo</a></li>
               <li><a href="#contacto" className="block py-2 text-[#0000FF] hover:underline" onClick={handleMenuClick}>Contacto</a></li>
-              <li><a href="https://behance.net/maca" target="_blank" rel="noopener noreferrer" className="block py-2 text-[#0000FF] hover:underline" onClick={handleMenuClick}>Behance</a></li>
+              {/*<li><a href="https://behance.net/maca" target="_blank" rel="noopener noreferrer" className="block py-2 text-[#0000FF] hover:underline" onClick={handleMenuClick}>Behance</a></li>*/}
             </ul>
           </div>
         )}
@@ -595,7 +595,7 @@ function PlanCard({ title, items, borderColor, bgColor, badge = null, customBord
       <div className="mt-6 text-center">
         <button
           onClick={() => window.open("https://wa.me/5492634357935", "_blank")}
-          className="bg-[#3700ff] text-white px-6 py-3 rounded-full font-bold text-sm hover:bg-purple-700 transition-colors shadow-md"
+          className="bg-[#0000ff] text-white px-6 py-3 rounded-full font-bold text-sm hover:bg-purple-700 transition-colors shadow-md"
         >
           + Info
         </button>
