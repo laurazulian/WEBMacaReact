@@ -541,11 +541,12 @@ const servicesData = [
           </p>
           <div className="space-y-6 md:space-y-0 md:space-x-6 md:flex md:justify-center">
             <a
-              href="maca.equipo@gmail.com"
-              className="inline-block bg-white text-[#3700ff] px-10 py-5 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
-            >
-              PEDÍ TU PRESUPUESTO
-            </a>
+                href="mailto:maca.equipo@gmail.com"
+                className="inline-block bg-white text-[#3700ff] px-10 py-5 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+              >
+                PEDÍ TU PRESUPUESTO
+              </a>
+
             <a
               href="https://wa.me/5492634357935" // Reemplaza con tu número de WhatsApp real, incluyendo el código de país. Ejemplo: +54 9 261 XXXXXXX
               target="_blank"
