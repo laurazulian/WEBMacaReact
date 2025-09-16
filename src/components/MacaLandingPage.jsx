@@ -43,7 +43,7 @@ export default function MacaLandingPage() {
     name: "Paramitas Uspallata",
     username: "paramitas.uspallata",
     image: imgParamitas,
-    testimonial: "Profesionalismo y creatividad en cada proyecto. Superaron mis expectativas completamente."
+    testimonial: "Confiar en MACA fue un gran acierto. Supieron captar la esencia de Paramitas y transformarla en una marca con identidad y presencia real en redes. Nos sentimos acompañados en todo momento, con profesionalismo y mucha calidez."
   },
   {
     name: "Urutrek",
