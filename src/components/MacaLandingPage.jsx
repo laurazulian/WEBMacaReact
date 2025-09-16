@@ -49,7 +49,7 @@ export default function MacaLandingPage() {
     name: "Urutrek",
     username: "urutrek",
     image: imgUrutrek,
-    testimonial: "El mejor equipo para desarrollo web. Resultados que realmente impulsan el negocio."
+    testimonial: "Su compromiso con cada detalle, desde la corrección de textos hasta la calidad audiovisual, demuestran su profesionalismo. Estamos realmente muy conformes y agradecidos con el trabajo que las tres realizan."
   },
   {
     name: "3dmazz",
@@ -267,11 +267,14 @@ const servicesData = [
           className="w-full h-full object-cover rounded-3xl"
         />
         <div className="absolute inset-0 bg-black/30"></div>
-        <h3 className="absolute top-12 w-full text-[#FF4824] font-bold text-2xl md:text-3xl text-center">
+       <h3 className="absolute top-12 w-full text-[#FF4824] font-bold text-2xl md:text-3xl text-center">
+        <a href="#clientes">
           <span>Nuestros </span>
           <br />
           <span>Trabajos</span>
-        </h3>
+        </a>
+      </h3>
+
       </div>
     </div>
 
