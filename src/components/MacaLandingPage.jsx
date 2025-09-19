@@ -55,7 +55,7 @@ export default function MacaLandingPage() {
     name: "3dmazz",
     username: "3dmazz",
     image: img3dmazz,
-    testimonial: "Innovación y tecnología de primera. Mi proyecto web quedó espectacular."
+    testimonial: "Las Macas me han ayudado a recuperar el amor por crear contenido. Se prenden a cada idea loca que proponemos y ¡hasta traen ideas aún más locas! Si estás estancado o querés empezar a crear contenido para un crecimiento orgánico y constante, nada mejor que estas genias."
   }
 ];
 
