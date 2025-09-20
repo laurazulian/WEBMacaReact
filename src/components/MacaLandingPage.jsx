@@ -7,6 +7,7 @@ import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import { motion } from "framer-motion";
 
 import teamPhoto from '../Fotos/nosotras.png';
 import Recurso1 from '../Fotos/Recurso1.png';
@@ -194,6 +195,7 @@ const servicesData = [
 ];
 
   return (
+    
     <div className="font-sans text-gray-800">
       {/* Header */}
       <header className="fixed top-0 left-0 w-full bg-[#0000FF] text-white z-50">
@@ -260,7 +262,7 @@ const servicesData = [
       </div>
 
       {/* Bloque lateral con Recurso5 */}
-      <div className="relative rounded-3xl overflow-hidden shadow-2xl min-h-[180px] flex items-center justify-center">
+      {/* <div className="relative rounded-3xl overflow-hidden shadow-2xl min-h-[180px] flex items-center justify-center">
         <img
           src={Recurso5}
           alt="MACA Marketing y Comunicación con Actitud"
@@ -275,11 +277,47 @@ const servicesData = [
         </a>
       </h3>
 
-      </div>
+      </div> */}
+
+  <motion.div
+      className="relative rounded-3xl overflow-hidden shadow-2xl min-h-[180px] flex items-center justify-center"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, ease: "easeOut" }}
+      whileHover={{ scale: 1.02 }} // pequeño zoom del bloque
+    >
+      <motion.img
+        src={Recurso5}
+        alt="MACA Marketing y Comunicación con Actitud"
+        className="w-full h-full object-cover rounded-3xl"
+        initial={{ scale: 1.1 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+        whileHover={{ scale: 1.05 }} // zoom extra al hover
+      />
+      <motion.div
+        className="absolute inset-0 bg-black/30"
+        whileHover={{ backgroundColor: "rgba(0,0,0,0.5)" }} // se oscurece más
+        transition={{ duration: 0.3 }}
+      />
+      <motion.h3
+        className="absolute top-12 w-full text-[#FF4824] font-bold text-2xl md:text-3xl text-center"
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
+        whileHover={{ scale: 1.1 }} // texto más grande
+      >
+        <a href="#clientes">
+          <span>Nuestros </span>
+          <br />
+          <span>Trabajos</span>
+        </a>
+      </motion.h3>
+    </motion.div>
     </div>
 
-    {/* Cards de abajo */}
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+   {/*  {/* Cards de abajo */}
+    {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
       <a href="#planes" className="block">
         <div
           className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]"
@@ -309,81 +347,472 @@ const servicesData = [
           <h3 className="font-bold text-4xl text-white z-10">Web</h3>
         </div>
       </a>
-    </div>
+    </div> */} 
+
+{/* Cards de abajo
+<div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+  {[
+    { img: Recurso1, title: "Redes" },
+    { img: Recurso2, title: "Diseño" },
+    { img: Recurso3, title: "Web" },
+  ].map((card, idx) => (
+    <motion.a
+      key={idx}
+      href="#planes"
+      className="block"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.98 }}
+    >
+      <motion.div
+        className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]"
+        style={{ backgroundImage: `url(${card.img})` }}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: idx * 0.2 }}
+        viewport={{ once: true }}
+      >
+        <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
+        <h3 className="font-bold text-4xl text-white z-10">{card.title}</h3>
+      </motion.div>
+    </motion.a>
+  ))}
+</div> */}
+
+{/* Cards de abajo con más dinamismo */}
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+  {[
+    { img: Recurso1, title: "Redes", description: "Gestión completa de redes sociales", color: "from-purple-600 to-pink-600" },
+    { img: Recurso2, title: "Diseño", description: "Identidad visual memorable", color: "from-blue-600 to-cyan-500" },
+    { img: Recurso3, title: "Web", description: "Desarrollo web profesional", color: "from-emerald-600 to-teal-500" },
+  ].map((card, idx) => (
+    <motion.a
+      key={idx}
+      href="#planes"
+      className="block group"
+      whileHover={{ scale: 1.02, y: -8 }}
+      whileTap={{ scale: 0.98 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+    >
+      <motion.div
+        className="relative rounded-3xl shadow-xl overflow-hidden h-[200px] md:h-[220px] cursor-pointer"
+        initial={{ opacity: 0, y: 60, rotateX: 15 }}
+        whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+        transition={{ 
+          duration: 0.8, 
+          delay: idx * 0.15,
+          type: "spring",
+          stiffness: 100 
+        }}
+        viewport={{ once: true }}
+        style={{ 
+          backgroundImage: `url(${card.img})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      >
+        {/* Overlay gradiente animado */}
+        <motion.div 
+          className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-60 mix-blend-multiply`}
+          whileHover={{ opacity: 0.75 }}
+          transition={{ duration: 0.3 }}
+        />
+        
+        {/* Overlay oscuro base */}
+        <div className="absolute inset-0 bg-black opacity-30" />
+        
+        {/* Efectos de luz */}
+        <motion.div
+          className="absolute top-0 left-0 w-full h-full"
+          initial={{ opacity: 0 }}
+          whileHover={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <div className="absolute top-4 right-4 w-20 h-20 bg-white opacity-10 rounded-full blur-xl" />
+          <div className="absolute bottom-6 left-6 w-16 h-16 bg-white opacity-5 rounded-full blur-lg" />
+        </motion.div>
+        
+        {/* Contenido */}
+        <div className="absolute inset-0 p-6 flex flex-col justify-end items-start">
+          <motion.div
+            className="transform transition-transform duration-300 group-hover:-translate-y-2"
+          >
+            {/* Título con animación de letras */}
+            <motion.h3 
+              className="font-bold text-4xl md:text-3xl lg:text-4xl text-white mb-2 drop-shadow-lg overflow-hidden"
+              initial="hidden"
+              whileInView="visible"
+              whileHover="hover"
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { 
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.08,
+                    delayChildren: idx * 0.2 + 0.3
+                  }
+                },
+                hover: {
+                  scale: 1.05,
+                  transition: {
+                    type: "spring",
+                    stiffness: 400,
+                    staggerChildren: 0.03,
+                    delayChildren: 0
+                  }
+                }
+              }}
+              viewport={{ once: true }}
+            >
+              {card.title.split('').map((char, charIdx) => (
+                <motion.span
+                  key={charIdx}
+                  className="inline-block"
+                  variants={{
+                    hidden: { 
+                      opacity: 0, 
+                      y: 50,
+                      rotateX: 90
+                    },
+                    visible: { 
+                      opacity: 1, 
+                      y: 0,
+                      rotateX: 0,
+                      transition: {
+                        type: "spring",
+                        stiffness: 200,
+                        damping: 12
+                      }
+                    },
+                    hover: {
+                      y: -8,
+                      rotateY: 15,
+                      color: "#fbbf24",
+                      textShadow: "0 0 20px rgba(251, 191, 36, 0.5)",
+                      transition: {
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 10
+                      }
+                    }
+                  }}
+                  style={{
+                    transformStyle: "preserve-3d"
+                  }}
+                >
+                  {char === ' ' ? '\u00A0' : char}
+                </motion.span>
+              ))}
+            </motion.h3>
+            
+            {/* Descripción con efecto de escritura */}
+            <motion.div
+              className="overflow-hidden"
+              initial="hidden"
+              whileInView="visible"
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { 
+                  opacity: 1,
+                  transition: { delay: idx * 0.2 + 0.8 }
+                }
+              }}
+              viewport={{ once: true }}
+            >
+              <motion.p
+                className="text-white/90 text-sm md:text-base font-medium opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300"
+                initial="hidden"
+                animate="visible"
+                whileHover="hover"
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: { opacity: 0 },
+                  hover: {
+                    opacity: 1,
+                    transition: {
+                      staggerChildren: 0.02,
+                      delayChildren: 0.1
+                    }
+                  }
+                }}
+              >
+                {card.description.split('').map((char, charIdx) => (
+                  <motion.span
+                    key={charIdx}
+                    className="inline-block"
+                    variants={{
+                      hidden: { opacity: 0 },
+                      visible: { opacity: 0 },
+                      hover: {
+                        opacity: 1,
+                        y: [-2, 0],
+                        transition: {
+                          type: "spring",
+                          stiffness: 300,
+                          damping: 20
+                        }
+                      }
+                    }}
+                  >
+                    {char === ' ' ? '\u00A0' : char}
+                  </motion.span>
+                ))}
+              </motion.p>
+            </motion.div>
+
+            {/* Línea decorativa animada */}
+            <motion.div
+              className="w-0 h-0.5 bg-gradient-to-r from-white/60 to-transparent mt-3 group-hover:w-20 transition-all duration-500 ease-out"
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              transition={{ delay: idx * 0.2 + 1.2, duration: 0.8 }}
+              viewport={{ once: true }}
+            />
+          </motion.div>
+          
+          {/* Indicador de hover */}
+          <motion.div
+            className="absolute bottom-4 right-4 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300"
+            whileHover={{ scale: 1.1 }}
+          >
+            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </motion.div>
+        </div>
+        
+        {/* Borde brillante en hover */}
+        <motion.div
+          className="absolute inset-0 rounded-3xl border-2 border-white/0 group-hover:border-white/30 transition-all duration-300"
+          initial={{ scale: 1 }}
+          whileHover={{ scale: 1.02 }}
+        />
+      </motion.div>
+    </motion.a>
+  ))}
+</div>
+
   </div>
 </section>
 
 
       {/* Services Section - Carrusel en móvil, Grid en desktop con Tooltip */}
-      <section id="servicios" className="py-20 bg-gradient-to-r from-purple-50 to-pink-50 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-[#3700ff] mb-4">¿Qué podemos hacer por tu marca?</h2>
-              <p className="font-poppins font-normal text-lg md:text-xl text-[#2b0057] text-center">
-            Servicios para que tu proyecto crezca con{" "}
-            <span className="font-semibold italic">Identidad</span>,{" "}
-            <span className="font-semibold italic">Claridad</span> y{" "}
-            <span className="font-semibold italic">Actitud</span>.
-          </p>
+<section id="servicios" className="py-20 bg-gradient-to-r from-purple-50 to-pink-50 px-6">
+  <div className="max-w-7xl mx-auto">
+    {/* Título y subtítulo */}
+    <div className="text-center mb-12">
+      <motion.h2
+        className="text-4xl font-bold text-[#3700ff] mb-4"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6 }}
+      >
+        ¿Qué podemos hacer por tu marca?
+      </motion.h2>
 
-        </div>
+      <motion.p
+        className="font-poppins font-normal text-lg md:text-xl text-[#2b0057] text-center"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, delay: 0.12 }}
+      >
+        Servicios para que tu proyecto crezca con{" "}
+        <span className="font-semibold italic">Identidad</span>,{" "}
+        <span className="font-semibold italic">Claridad</span> y{" "}
+        <span className="font-semibold italic">Actitud</span>.
+      </motion.p>
+    </div>
 
-          {isMobile ? (
-            // Carrusel para dispositivos móviles (descripción visible directamente)
-            <Swiper
-              modules={[Pagination, Autoplay]}
-              spaceBetween={20}
-              slidesPerView={1.2}
-              centeredSlides={true}
-              pagination={{ clickable: true }}
-              autoplay={{
-                delay: 4000,
-                disableOnInteraction: false,
-              }}
-              className="pb-10"
+    {isMobile ? (
+      // Carrusel para móviles
+      <Swiper
+        modules={[Pagination, Autoplay]}
+        spaceBetween={20}
+        slidesPerView={1.2}
+        centeredSlides={true}
+        pagination={{ clickable: true }}
+        autoplay={{ delay: 4000, disableOnInteraction: false }}
+        className="pb-10"
+      >
+        {servicesData.map((service, idx) => (
+          <SwiperSlide key={idx} className="h-full">
+            <motion.div
+              className={`${service.color} rounded-3xl shadow-lg p-6 h-full flex flex-col justify-between border-2 border-pink-300 transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]`}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, delay: idx * 0.12 }}
             >
-              {servicesData.map((service, idx) => (
-                <SwiperSlide key={idx} className="h-full">
-                  <div className={`${service.color} rounded-3xl shadow-lg p-6 h-full flex flex-col justify-between border-2 border-pink-300`}>
-                    <div className="flex items-start gap-4 mb-4">
-                      <div className="text-5xl">{service.icon}</div>
-                      <div className="flex-1">
-                        <h3 className="font-bold text-xl text-[#3700ff] mb-2 leading-tight">{service.title}</h3>
-                      </div>
-                    </div>
-                    <p className="text-sm text-gray-700 opacity-90">{service.description}</p>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          ) : (
-            // Grid normal para desktop con funcionalidad de pop-up (tooltip)
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {servicesData.map((service, idx) => (
-                // Añadimos 'group' y 'relative' al contenedor de cada tarjeta
-                <div key={idx} className="group cursor-pointer relative">
-                  <div className={`${service.color} rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 h-full flex flex-col justify-center items-center text-center hover:scale-[1.02] border-2 border-pink-300 overflow-hidden`}>
-                    {/* Contenido visible siempre (icono y título) */}
-                    <div className="flex flex-col items-center gap-4 mb-4">
-                      <div className="text-5xl group-hover:rotate-3 transition-transform duration-300">{service.icon}</div>
-                      <h3 className="font-bold text-xl md:text-2xl text-[#3700ff] mb-0 leading-tight">{service.title}</h3>
-                    </div>
-
-                    {/* Pop-up (Tooltip) de la descripción */}
-                    <div className="absolute top-0 left-0 w-full h-full bg-white bg-opacity-95 backdrop-blur-sm rounded-3xl
-                                    flex items-center justify-center p-6 text-center
-                                    opacity-0 group-hover:opacity-100 transition-opacity duration-300
-                                    pointer-events-none group-hover:pointer-events-auto z-10
-                                    border-2 border-pink-300"> {/* Mismo borde para el pop-up */}
-                      <p className="text-gray-700 text-base">{service.description}</p>
-                    </div>
-                  </div>
+              <div className="flex items-start gap-4 mb-4">
+                <div className="text-5xl transition-transform duration-300 hover:scale-110">{service.icon}</div>
+                <div className="flex-1">
+                  <h3 className="font-bold text-xl text-[#3700ff] mb-2 leading-tight transition-colors duration-300 hover:text-purple-600">{service.title}</h3>
                 </div>
-              ))}
+              </div>
+              <p className="text-sm text-gray-700 opacity-90 transition-opacity duration-300 hover:opacity-100">{service.description}</p>
+            </motion.div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    ) : (
+      // Grid para desktop con hover mejorado
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={{ visible: { transition: { staggerChildren: 0.18 } } }}
+      >
+        {servicesData.map((service, idx) => (
+          <motion.div
+            key={idx}
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+            }}
+          >
+            <div className="group cursor-pointer relative h-full">
+              <motion.div
+                className={`${service.color} rounded-3xl shadow-lg p-6 h-full flex flex-col justify-center items-center text-center border-2 border-pink-300 overflow-hidden relative`}
+                whileHover={{ 
+                  scale: 1.05,
+                  y: -8,
+                  rotateY: 3,
+                  boxShadow: "0 25px 50px rgba(0,0,0,0.15)"
+                }}
+                transition={{ 
+                  type: "spring", 
+                  stiffness: 300, 
+                  damping: 20 
+                }}
+              >
+                {/* Efecto de brillo que aparece en hover */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
+                  initial={{ translateX: "-100%" }}
+                  whileHover={{ 
+                    translateX: "100%",
+                    transition: { 
+                      duration: 0.6, 
+                      ease: "easeInOut" 
+                    }
+                  }}
+                />
+
+                <div className="flex flex-col items-center gap-4 mb-4 relative z-10">
+                  <motion.div 
+                    className="text-5xl"
+                    // Movimiento constante del ícono
+                    animate={{
+                      rotate: [0, 8, 0, -8, 0],
+                      scale: [1, 1.1, 1],
+                      y: [0, -3, 0],
+                    }}
+                    transition={{
+                      duration: 4 + idx * 0.3,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                    whileHover={{ 
+                      scale: 1.3,
+                      rotate: 15,
+                      y: -8
+                    }}
+                    // Transición suave entre estados
+                    style={{
+                      transition: "all 0.3s ease"
+                    }}
+                  >
+                    {service.icon}
+                  </motion.div>
+                  
+                  <motion.h3 
+                    className="font-bold text-xl md:text-2xl text-[#3700ff] mb-0 leading-tight"
+                    whileHover={{
+                      color: "#7c3aed",
+                      y: -3,
+                      textShadow: "0 0 20px rgba(124, 58, 237, 0.4)"
+                    }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {service.title}
+                  </motion.h3>
+                </div>
+                
+                {/* Tooltip con el texto de descripción */}
+                <div
+                  className="absolute top-0 left-0 w-full h-full bg-white bg-opacity-95 backdrop-blur-sm rounded-3xl
+                             flex items-center justify-center p-6 text-center
+                             opacity-0 group-hover:opacity-100 transition-all duration-500
+                             pointer-events-none group-hover:pointer-events-auto z-10
+                             border-2 border-pink-300 transform group-hover:scale-105"
+                >
+                  <p className="text-gray-700 text-base leading-relaxed">{service.description}</p>
+                </div>
+
+                {/* Border glow en hover */}
+                <motion.div
+                  className="absolute inset-0 rounded-3xl border-2 border-transparent"
+                  whileHover={{
+                    borderColor: "rgba(124, 58, 237, 0.5)",
+                    boxShadow: "0 0 30px rgba(124, 58, 237, 0.3)"
+                  }}
+                  transition={{ duration: 0.3 }}
+                />
+
+                {/* Partículas que aparecen en hover */}
+                <motion.div
+                  className="absolute top-4 right-4 w-2 h-2 bg-purple-400 rounded-full opacity-0"
+                  whileHover={{
+                    opacity: [0, 1, 0],
+                    scale: [0, 1.5, 0],
+                    y: [-10, -20, -30]
+                  }}
+                  transition={{ 
+                    duration: 1,
+                    ease: "easeOut"
+                  }}
+                />
+                
+                <motion.div
+                  className="absolute bottom-6 left-6 w-1.5 h-1.5 bg-pink-400 rounded-full opacity-0"
+                  whileHover={{
+                    opacity: [0, 1, 0],
+                    scale: [0, 1.2, 0],
+                    x: [-5, -15, -25],
+                    y: [5, -5, -15]
+                  }}
+                  transition={{ 
+                    duration: 1,
+                    ease: "easeOut",
+                    delay: 0.1
+                  }}
+                />
+
+                <motion.div
+                  className="absolute top-1/2 left-4 w-1 h-1 bg-blue-400 rounded-full opacity-0"
+                  whileHover={{
+                    opacity: [0, 1, 0],
+                    scale: [0, 1, 0],
+                    x: [-8, -16, -24],
+                    y: [0, 8, 16]
+                  }}
+                  transition={{ 
+                    duration: 1,
+                    ease: "easeOut",
+                    delay: 0.2
+                  }}
+                />
+              </motion.div>
             </div>
-          )}
-        </div>
-      </section>
+          </motion.div>
+        ))}
+      </motion.div>
+    )}
+  </div>
+</section>
+
 
       {/* Plans Section - Carrusel en móvil, Grid en desktop */}
       <section id="planes" className="py-20 bg-[#f3eaff] px-6">
@@ -422,33 +851,161 @@ const servicesData = [
         </div>
       </section>
 
-      {/* Team Section - Dynamic text, subtle effects */}
-      <section id="equipo" className="py-20 bg-white px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-           {/*  <h2 className="text-4xl font-extrabold text-[#3700ff] mb-4">Nuestro Equipo Apasionado</h2>
-            <p className="text-lg text-gray-600">Conocé a las mentes creativas detrás de MACA que harán realidad tus ideas.</p>*/}
-          </div>
+     {/* Team Section - Dynamic text, subtle effects */}
+{/* Team Section - Dynamic text, subtle effects */}
+<section id="equipo" className="py-20 bg-white px-6">
+  <div className="max-w-7xl mx-auto">
+    <div className="text-center mb-12">
+     {/*  <h2 className="text-4xl font-extrabold text-[#3700ff] mb-4">Nuestro Equipo Apasionado</h2>
+      <p className="text-lg text-gray-600">Conocé a las mentes creativas detrás de MACA que harán realidad tus ideas.</p>*/}
+    </div>
+    
+   <motion.div 
+  className="max-w-6xl mx-auto text-center bg-gray-50 p-8 rounded-3xl shadow-xl border border-pink-400 relative overflow-hidden"
+  initial={{ opacity: 0, y: 50, scale: 0.95 }}
+  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+  viewport={{ once: true, amount: 0.3 }}
+  transition={{ 
+    duration: 0.8, 
+    type: "spring", 
+    stiffness: 100 
+  }}
+>
+  {/* Efectos de fondo decorativos (loop infinito, OK) */}
+  <motion.div
+    className="absolute top-0 left-0 w-full h-full pointer-events-none"
+  >
+    <motion.div
+      className="absolute top-4 right-4 w-20 h-20 bg-gradient-to-r from-purple-200 to-pink-200 rounded-full opacity-30 blur-xl"
+      animate={{
+        x: [0, 10, 0, -10, 0],
+        y: [0, -5, 0, 5, 0],
+        scale: [1, 1.2, 1],
+      }}
+      transition={{
+        duration: 6,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }}
+    />
+    
+    <motion.div
+      className="absolute bottom-6 left-6 w-16 h-16 bg-gradient-to-r from-blue-200 to-purple-200 rounded-full opacity-20 blur-lg"
+      animate={{
+        x: [0, -8, 0, 8, 0],
+        y: [0, 8, 0, -8, 0],
+        scale: [1, 0.8, 1],
+      }}
+      transition={{
+        duration: 5,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }}
+    />
+  </motion.div>
 
-          <div className="max-w-6xl mx-auto text-center bg-gray-50 p-8 rounded-3xl shadow-xl border border-pink-400">
-            <img src={teamPhoto} alt="Equipo MACA" className="w-full rounded-md shadow-md mb-6 object-cover" style={{ maxHeight: '500px' }} />
-            <h3 className="text-3xl font-bold text-[#3700ff] mb-4">MACA somos Lau, Cami y Vale</h3>
-            <p className="text-gray-700 text-lg">
-              <strong>Tres miradas distintas unidas por una misma idea: que la comunicación puede transformar marcas y abrir caminos.</strong>
-              {/* <br />
-              Cami convierte conceptos en diseño, para que cada detalle tenga sentido y emoción.
-              <br />
-              Lau combina programación y comunicación, creando experiencias digitales que funcionan y dejan huella.
-              <br />
-              Vale conecta desde redes y video, llevando mensajes que inspiran y generan cercanía real.
-              <br />*/}
-              <br />
-              Creemos en la fuerza de las ideas bien contadas. Por eso trabajamos juntas: para que tu marca tenga voz, identidad y futuro.
-            </p>
+  {/* Imagen del equipo: aparición solo una vez */}
+  <motion.div
+    className="relative mb-6 overflow-hidden rounded-md"
+    initial={{ opacity: 0, scale: 1.1 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 1, delay: 0.2 }}
+    whileHover={{ scale: 1.02 }}
+  >
+    <img 
+      src={teamPhoto} 
+      alt="Equipo MACA" 
+      className="w-full rounded-md shadow-md object-cover" 
+      style={{ maxHeight: '500px', boxShadow: "0 10px 30px rgba(0,0,0,0.15)" }}
+    />
+    <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white/10 opacity-0 hover:opacity-100 transition-opacity duration-300" />
+  </motion.div>
 
-          </div>
-        </div>
-      </section>
+  {/* Título animado letra por letra: aparición una sola vez */}
+  <motion.h3 
+    className="text-3xl font-bold text-[#3700ff] mb-4 overflow-hidden"
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    variants={{
+      hidden: { opacity: 0 },
+      visible: { 
+        opacity: 1,
+        transition: { staggerChildren: 0.05, delayChildren: 0.5 }
+      }
+    }}
+  >
+    {"MACA somos Lau, Cami y Vale".split('').map((char, index) => (
+      <motion.span
+        key={index}
+        className="inline-block"
+        variants={{
+          hidden: { opacity: 0, y: 30, rotateX: 90 },
+          visible: { opacity: 1, y: 0, rotateX: 0, transition: { type: "spring", stiffness: 200, damping: 12 } }
+        }}
+        style={{ transformStyle: "preserve-3d" }}
+      >
+        {char === ' ' ? '\u00A0' : char}
+      </motion.span>
+    ))}
+  </motion.h3>
+
+  {/* Párrafo: aparición solo una vez */}
+  <motion.div
+    className="text-gray-700 text-lg leading-relaxed"
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    viewport={{ once: true }}
+    transition={{ delay: 0.8, duration: 0.8 }}
+  >
+    <motion.div
+      className="relative mb-4"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: 1, duration: 0.6 }}
+    >
+      <strong className="text-gray-800">
+        Tres miradas distintas unidas por una misma idea: que la comunicación puede transformar marcas y abrir caminos.
+      </strong>
+      <motion.div
+        className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"
+        initial={{ width: 0, opacity: 0 }}
+        whileInView={{ width: "100%", opacity: 0.8 }}
+        viewport={{ once: true }}
+        transition={{ delay: 1.2, duration: 1 }}
+      />
+    </motion.div>
+
+    <motion.div
+      className="text-gray-700"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: 1.4, duration: 0.6 }}
+    >
+      Creemos en la fuerza de las ideas bien contadas. Por eso trabajamos juntas: para que tu marca tenga voz, identidad y futuro.
+    </motion.div>
+  </motion.div>
+
+  {/* Indicadores decorativos infinitos OK */}
+  <motion.div
+    className="absolute top-2 left-2 w-2 h-2 bg-purple-400 rounded-full opacity-30"
+    animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+  />
+  <motion.div
+    className="absolute bottom-2 right-2 w-1.5 h-1.5 bg-pink-400 rounded-full opacity-25"
+    animate={{ scale: [1, 1.1, 1], opacity: [0.25, 0.4, 0.25] }}
+    transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+  />
+</motion.div>
+
+  </div>
+</section>
+
+
 
       {/* Clientes VIP Grid - Carrusel en móvil, Grid en desktop */}
       <section className="py-20 bg-gradient-to-r from-purple-100 to-pink-100 px-6" id="clientes">
