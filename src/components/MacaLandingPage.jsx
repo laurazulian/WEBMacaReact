@@ -924,32 +924,38 @@ const servicesData = [
 
   {/* Título animado letra por letra: aparición una sola vez */}
   <motion.h3 
-    className="text-3xl font-bold text-[#3700ff] mb-4 overflow-hidden"
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
-    variants={{
-      hidden: { opacity: 0 },
-      visible: { 
-        opacity: 1,
-        transition: { staggerChildren: 0.05, delayChildren: 0.5 }
-      }
-    }}
-  >
-    {"MACA somos Lau, Cami y Vale".split('').map((char, index) => (
-      <motion.span
-        key={index}
-        className="inline-block"
-        variants={{
-          hidden: { opacity: 0, y: 30, rotateX: 90 },
-          visible: { opacity: 1, y: 0, rotateX: 0, transition: { type: "spring", stiffness: 200, damping: 12 } }
-        }}
-        style={{ transformStyle: "preserve-3d" }}
-      >
-        {char === ' ' ? '\u00A0' : char}
-      </motion.span>
-    ))}
-  </motion.h3>
+  className="text-3xl font-bold text-[#3700ff] mb-4 overflow-hidden text-center"
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+  variants={{
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { staggerChildren: 0.05, delayChildren: 0.5 }
+    }
+  }}
+  style={{ whiteSpace: "pre-wrap", wordBreak: "break-word" }}
+>
+  {"MACA somos Lau, Cami y Vale".split(' ').map((word, wordIndex) => (
+    <span key={wordIndex} className="inline-flex mr-1">
+      {word.split('').map((char, charIndex) => (
+        <motion.span
+          key={charIndex}
+          className="inline-block"
+          variants={{
+            hidden: { opacity: 0, y: 30, rotateX: 90 },
+            visible: { opacity: 1, y: 0, rotateX: 0, transition: { type: "spring", stiffness: 200, damping: 12 } }
+          }}
+        >
+          {char}
+        </motion.span>
+      ))}
+      &nbsp; {/* espacio entre palabras */}
+    </span>
+  ))}
+</motion.h3>
+
 
   {/* Párrafo: aparición solo una vez */}
   <motion.div
