@@ -27,6 +27,7 @@ import imgLu from "../Fotos/LU_QUEVEDO_CERAMICA.png";
 import imgParamitas from "../Fotos/PARAMITAS.png";
 import imgUrutrek from "../Fotos/URUTREK.png";
 import img3dmazz from "../Fotos/3DMAZZ.png";
+import portadaWeb from "../Fotos/portadaWeb.png";
 
 export default function MacaLandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
