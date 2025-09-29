@@ -245,15 +245,13 @@ const servicesData = [
 >
   <div className="max-w-7xl mx-auto w-full">
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
-      {/* Bloque grande con cambio Recurso4 ↔ Recurso6 */}
+      {/* Bloque grande */}
       <div className="md:col-span-2 bg-black rounded-3xl shadow-2xl flex flex-col justify-center relative overflow-hidden min-h-[300px] md:min-h-[320px]">
-        {/* Mobile: Recurso6 */}
         <img
           src={Recurso6}
           alt="MACA Marketing y Comunicación con Actitud"
           className="w-full h-full object-cover rounded-3xl md:hidden"
         />
-        {/* Desktop: Recurso4 */}
         <img
           src={Recurso4}
           alt="MACA Marketing y Comunicación con Actitud"
@@ -261,338 +259,113 @@ const servicesData = [
         />
       </div>
 
-      {/* Bloque lateral con Recurso5 */}
-      {/* <div className="relative rounded-3xl overflow-hidden shadow-2xl min-h-[180px] flex items-center justify-center">
-        <img
+      {/* Card secundario */}
+      <motion.div
+        className="relative rounded-3xl overflow-hidden shadow-2xl min-h-[180px] flex items-center justify-center"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        whileHover={{ scale: 1.02 }}
+      >
+        <motion.img
           src={Recurso5}
           alt="MACA Marketing y Comunicación con Actitud"
           className="w-full h-full object-cover rounded-3xl"
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          whileHover={{ scale: 1.05 }}
         />
-        <div className="absolute inset-0 bg-black/30"></div>
-       <h3 className="absolute top-12 w-full text-[#FF4824] font-bold text-2xl md:text-3xl text-center">
-        <a href="#clientes">
-          <span>Nuestros </span>
-          <br />
-          <span>Trabajos</span>
-        </a>
-      </h3>
-
-      </div> */}
-
-  <motion.div
-      className="relative rounded-3xl overflow-hidden shadow-2xl min-h-[180px] flex items-center justify-center"
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, ease: "easeOut" }}
-      whileHover={{ scale: 1.02 }} // pequeño zoom del bloque
-    >
-      <motion.img
-        src={Recurso5}
-        alt="MACA Marketing y Comunicación con Actitud"
-        className="w-full h-full object-cover rounded-3xl"
-        initial={{ scale: 1.1 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
-        whileHover={{ scale: 1.05 }} // zoom extra al hover
-      />
-      <motion.div
-        className="absolute inset-0 bg-black/30"
-        whileHover={{ backgroundColor: "rgba(0,0,0,0.5)" }} // se oscurece más
-        transition={{ duration: 0.3 }}
-      />
-      <motion.h3
-        className="absolute top-12 w-full text-[#FF4824] font-bold text-2xl md:text-3xl text-center"
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
-        whileHover={{ scale: 1.1 }} // texto más grande
-      >
-        <a href="#clientes">
-          <span>Nuestros </span>
-          <br />
-          <span>Trabajos</span>
-        </a>
-      </motion.h3>
-    </motion.div>
+        <motion.div
+          className="absolute inset-0 bg-black/30"
+          whileHover={{ backgroundColor: "rgba(0,0,0,0.5)" }}
+          transition={{ duration: 0.3 }}
+        />
+        <motion.h3
+          className="absolute top-12 w-full text-[#FF4824] font-bold text-2xl md:text-3xl text-center"
+        >
+          <a href="#clientes">
+            <span>Nuestros </span>
+            <br />
+            <span>Trabajos</span>
+          </a>
+        </motion.h3>
+      </motion.div>
     </div>
 
-   {/*  {/* Cards de abajo */}
-    {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-      <a href="#planes" className="block">
-        <div
-          className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]"
-          style={{ backgroundImage: `url(${Recurso1})` }}
+    {/* Cards con slider y títulos fijos */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+      {[
+        { 
+          imgs: [Recurso1, Recurso1, Recurso1], 
+          title: "Redes", 
+          description: "Gestión completa de redes sociales", 
+          color: "from-purple-600 to-pink-600" 
+        },
+        { 
+          imgs: [Recurso2, Recurso2, Recurso2], 
+          title: "Diseño", 
+          description: "Identidad visual memorable", 
+          color: "from-blue-600 to-cyan-500" 
+        },
+        { 
+          imgs: [Recurso3, Recurso3, Recurso3], 
+          title: "Web", 
+          description: "Desarrollo web profesional", 
+          color: "from-emerald-600 to-teal-500" 
+        },
+      ].map((card, idx) => (
+        <motion.a
+          key={idx}
+          href="#planes"
+          className="block group"
+          whileHover={{ scale: 1.02, y: -8 }}
+          whileTap={{ scale: 0.98 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
         >
-          <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
-          <h3 className="font-bold text-4xl text-white z-10">Redes</h3>
-        </div>
-      </a>
-
-      <a href="#planes" className="block">
-        <div
-          className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]"
-          style={{ backgroundImage: `url(${Recurso2})` }}
-        >
-          <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
-          <h3 className="font-bold text-4xl text-white z-10">Diseño</h3>
-        </div>
-      </a>
-
-      <a href="#planes" className="block">
-        <div
-          className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]"
-          style={{ backgroundImage: `url(${Recurso3})` }}
-        >
-          <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
-          <h3 className="font-bold text-4xl text-white z-10">Web</h3>
-        </div>
-      </a>
-    </div> */} 
-
-{/* Cards de abajo
-<div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-  {[
-    { img: Recurso1, title: "Redes" },
-    { img: Recurso2, title: "Diseño" },
-    { img: Recurso3, title: "Web" },
-  ].map((card, idx) => (
-    <motion.a
-      key={idx}
-      href="#planes"
-      className="block"
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.98 }}
-    >
-      <motion.div
-        className="bg-cover bg-center rounded-3xl p-6 shadow-2xl flex items-end relative overflow-hidden h-[160px] md:h-[180px]"
-        style={{ backgroundImage: `url(${card.img})` }}
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: idx * 0.2 }}
-        viewport={{ once: true }}
-      >
-        <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
-        <h3 className="font-bold text-4xl text-white z-10">{card.title}</h3>
-      </motion.div>
-    </motion.a>
-  ))}
-</div> */}
-
-{/* Cards de abajo con más dinamismo */}
-<div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-  {[
-    { img: Recurso1, title: "Redes", description: "Gestión completa de redes sociales", color: "from-purple-600 to-pink-600" },
-    { img: Recurso2, title: "Diseño", description: "Identidad visual memorable", color: "from-blue-600 to-cyan-500" },
-    { img: Recurso3, title: "Web", description: "Desarrollo web profesional", color: "from-emerald-600 to-teal-500" },
-  ].map((card, idx) => (
-    <motion.a
-      key={idx}
-      href="#planes"
-      className="block group"
-      whileHover={{ scale: 1.02, y: -8 }}
-      whileTap={{ scale: 0.98 }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-    >
-      <motion.div
-        className="relative rounded-3xl shadow-xl overflow-hidden h-[200px] md:h-[220px] cursor-pointer"
-        initial={{ opacity: 0, y: 60, rotateX: 15 }}
-        whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-        transition={{ 
-          duration: 0.8, 
-          delay: idx * 0.15,
-          type: "spring",
-          stiffness: 100 
-        }}
-        viewport={{ once: true }}
-        style={{ 
-          backgroundImage: `url(${card.img})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}
-      >
-        {/* Overlay gradiente animado */}
-        <motion.div 
-          className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-60 mix-blend-multiply`}
-          whileHover={{ opacity: 0.75 }}
-          transition={{ duration: 0.3 }}
-        />
-        
-        {/* Overlay oscuro base */}
-        <div className="absolute inset-0 bg-black opacity-30" />
-        
-        {/* Efectos de luz */}
-        <motion.div
-          className="absolute top-0 left-0 w-full h-full"
-          initial={{ opacity: 0 }}
-          whileHover={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-        >
-          <div className="absolute top-4 right-4 w-20 h-20 bg-white opacity-10 rounded-full blur-xl" />
-          <div className="absolute bottom-6 left-6 w-16 h-16 bg-white opacity-5 rounded-full blur-lg" />
-        </motion.div>
-        
-        {/* Contenido */}
-        <div className="absolute inset-0 p-6 flex flex-col justify-end items-start">
           <motion.div
-            className="transform transition-transform duration-300 group-hover:-translate-y-2"
+            className="relative rounded-3xl shadow-xl overflow-hidden h-[200px] md:h-[220px] cursor-pointer"
           >
-            {/* Título con animación de letras */}
-            <motion.h3 
-              className="font-bold text-4xl md:text-3xl lg:text-4xl text-white mb-2 drop-shadow-lg overflow-hidden"
-              initial="hidden"
-              whileInView="visible"
-              whileHover="hover"
-              variants={{
-                hidden: { opacity: 0 },
-                visible: { 
-                  opacity: 1,
-                  transition: {
-                    staggerChildren: 0.08,
-                    delayChildren: idx * 0.2 + 0.3
-                  }
-                },
-                hover: {
-                  scale: 1.05,
-                  transition: {
-                    type: "spring",
-                    stiffness: 400,
-                    staggerChildren: 0.03,
-                    delayChildren: 0
-                  }
-                }
-              }}
-              viewport={{ once: true }}
+            {/* Slider de imágenes */}
+            <Swiper
+              modules={[Autoplay, Pagination]}
+              autoplay={{ delay: 2500, disableOnInteraction: false }}
+              pagination={{ clickable: true }}
+              loop={true}
+              className="absolute inset-0 w-full h-full"
             >
-              {card.title.split('').map((char, charIdx) => (
-                <motion.span
-                  key={charIdx}
-                  className="inline-block"
-                  variants={{
-                    hidden: { 
-                      opacity: 0, 
-                      y: 50,
-                      rotateX: 90
-                    },
-                    visible: { 
-                      opacity: 1, 
-                      y: 0,
-                      rotateX: 0,
-                      transition: {
-                        type: "spring",
-                        stiffness: 200,
-                        damping: 12
-                      }
-                    },
-                    hover: {
-                      y: -8,
-                      rotateY: 15,
-                      color: "#fbbf24",
-                      textShadow: "0 0 20px rgba(251, 191, 36, 0.5)",
-                      transition: {
-                        type: "spring",
-                        stiffness: 400,
-                        damping: 10
-                      }
-                    }
-                  }}
-                  style={{
-                    transformStyle: "preserve-3d"
-                  }}
-                >
-                  {char === ' ' ? '\u00A0' : char}
-                </motion.span>
+              {card.imgs.map((img, i) => (
+                <SwiperSlide key={i}>
+                  <img
+                    src={img}
+                    alt={`${card.title} ${i}`}
+                    className="w-full h-full object-cover"
+                  />
+                </SwiperSlide>
               ))}
-            </motion.h3>
-            
-            {/* Descripción con efecto de escritura */}
-            <motion.div
-              className="overflow-hidden"
-              initial="hidden"
-              whileInView="visible"
-              variants={{
-                hidden: { opacity: 0 },
-                visible: { 
-                  opacity: 1,
-                  transition: { delay: idx * 0.2 + 0.8 }
-                }
-              }}
-              viewport={{ once: true }}
-            >
-              <motion.p
-                className="text-white/90 text-sm md:text-base font-medium opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300"
-                initial="hidden"
-                animate="visible"
-                whileHover="hover"
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: { opacity: 0 },
-                  hover: {
-                    opacity: 1,
-                    transition: {
-                      staggerChildren: 0.02,
-                      delayChildren: 0.1
-                    }
-                  }
-                }}
-              >
-                {card.description.split('').map((char, charIdx) => (
-                  <motion.span
-                    key={charIdx}
-                    className="inline-block"
-                    variants={{
-                      hidden: { opacity: 0 },
-                      visible: { opacity: 0 },
-                      hover: {
-                        opacity: 1,
-                        y: [-2, 0],
-                        transition: {
-                          type: "spring",
-                          stiffness: 300,
-                          damping: 20
-                        }
-                      }
-                    }}
-                  >
-                    {char === ' ' ? '\u00A0' : char}
-                  </motion.span>
-                ))}
-              </motion.p>
-            </motion.div>
+            </Swiper>
 
-            {/* Línea decorativa animada */}
-            <motion.div
-              className="w-0 h-0.5 bg-gradient-to-r from-white/60 to-transparent mt-3 group-hover:w-20 transition-all duration-500 ease-out"
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              transition={{ delay: idx * 0.2 + 1.2, duration: 0.8 }}
-              viewport={{ once: true }}
-            />
-          </motion.div>
-          
-          {/* Indicador de hover */}
-          <motion.div
-            className="absolute bottom-4 right-4 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300"
-            whileHover={{ scale: 1.1 }}
-          >
-            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </motion.div>
-        </div>
-        
-        {/* Borde brillante en hover */}
-        <motion.div
-          className="absolute inset-0 rounded-3xl border-2 border-white/0 group-hover:border-white/30 transition-all duration-300"
-          initial={{ scale: 1 }}
-          whileHover={{ scale: 1.02 }}
-        />
-      </motion.div>
-    </motion.a>
-  ))}
-</div>
+            {/* Overlay gradiente */}
+            <div className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-60 mix-blend-multiply`} />
+            <div className="absolute inset-0 bg-black opacity-30" />
 
+            {/* Título fijo sobre el slider */}
+            <h3 className="absolute top-6 left-6 text-white font-bold text-2xl md:text-3xl drop-shadow-lg z-10">
+              {card.title}
+            </h3>
+
+            {/* Descripción fija sobre el slider */}
+            <p className="absolute bottom-6 left-6 text-white/90 text-sm md:text-base font-medium z-10">
+              {card.description}
+            </p>
+          </motion.div>
+        </motion.a>
+      ))}
+    </div>
   </div>
 </section>
+
+
 
 
       {/* Services Section - Carrusel en móvil, Grid en desktop con Tooltip */}
